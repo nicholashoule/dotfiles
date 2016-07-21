@@ -2,6 +2,22 @@
 
 I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.
 
+## Linux
+
+#### Fedora
+
+https://github.com/Valloric/YouCompleteMe/blob/master/README.md
+
+Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
+
+Make sure you have Python headers installed: `sudo dnf install python-devel python3-devel`.
+
+Compiling YCM with semantic support for C-family languages:
+
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+```
 ## To install the dotfiles:
 1. Install Homesick with `gem install homesick`
 2. Clone this castle with `homesick clone natemccurdy/dotfiles`
