@@ -213,7 +213,7 @@ function! ToggleNumber()
   if(&relativenumber == 1)
     set norelativenumber
     set number number?
-  else if (&number == 1)
+  elseif (&number == 1)
     set nonumber nonumber?
   else
     set relativenumber relativenumber?
