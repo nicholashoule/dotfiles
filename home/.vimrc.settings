@@ -77,11 +77,11 @@ set smartindent
 " Tell VIM to honor two-spaces after a period
 set cpo+=J
 
- " }}}
+" }}}
 " UI CONFIG {{{
 
-" Enable line numbers F12                                                                                                                   
-nmap <silent> <F12> :call ToggleNumber()<CR> 
+" Enable line numbers F12
+nmap <silent> <F12> :call ToggleNumber()<CR>
 
 "  Highlight current line
 set cursorline
@@ -100,7 +100,6 @@ set wildmenu
 
 " Redraw only when we ned to
 set lazyredraw
-
 
 " highlight matching brackets
 set showmatch
@@ -150,7 +149,6 @@ set foldnestmax=10
 
 " space opens/closes folds
 nnoremap <space> za
-
 
 "}}}
 " MOVEMENT {{{
@@ -218,7 +216,7 @@ function! ToggleNumber()
   else
     set relativenumber relativenumber?
   endif
-endfunc
+endfunction
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
