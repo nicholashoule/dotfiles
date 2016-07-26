@@ -25,6 +25,9 @@ Compiling YCM with semantic support for C-family languages:
 
 #### YouCompleteMe
 
+Might need: legacy `libtinfo`
+`sudo dnf install ncurses-compat-libs-6.0-5.20160116.fc24.x86_64`
+
 ```
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
