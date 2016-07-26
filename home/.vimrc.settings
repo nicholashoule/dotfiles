@@ -208,11 +208,13 @@ endif
 " }}}
 " FUNCTIONS {{{
 
-" toggle between number and relativenumber
+" toggle between number, nonumber and relativenumber
 function! ToggleNumber()
   if(&relativenumber == 1)
     set norelativenumber
     set number number?
+  else if (&number == 1)
+    set nonumber nonumber?
   else
     set relativenumber relativenumber?
   endif
