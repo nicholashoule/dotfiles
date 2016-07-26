@@ -23,12 +23,16 @@ termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
 # special xterm hardstatus: use the window title.
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 # emulate part of the 'K' charset
-termcapinfo   xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
+termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 # xterm-52 tweaks:
 # - uses background color for delete operations
 termcapinfo xterm* be
 # Enable 256 color term
 term xterm-256color
+
+##----------------
+## other terminals
+##----------------
 # Erase background with current bg color
 defbce "on"
 
@@ -67,5 +71,5 @@ bind s split
 ##----------------
 ## (hardstatus [string])
 ##----------------
-#THIS IS THE PRETTY BIT
+# THIS IS THE PRETTY BIT
 hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
