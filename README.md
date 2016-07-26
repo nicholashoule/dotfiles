@@ -27,6 +27,8 @@ Compiling YCM with semantic support for C-family languages:
 
 Might need: legacy `libtinfo`
 
+`dnf repoquery -l ncurses-compat-libs`
+
 `sudo dnf install ncurses-compat-libs-6.0-5.20160116.fc24.x86_64`
 
 ```
