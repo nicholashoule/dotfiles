@@ -212,9 +212,9 @@ endif
 function! ToggleNumber()
   if(&relativenumber == 1)
     set norelativenumber
-    set number
+    set number number?
   else
-    set relativenumber
+    set relativenumber relativenumber?
   endif
 endfunc
 
