@@ -1,13 +1,15 @@
-## GNU Screen - configuration file 
+## GNU Screen - Configuration file 
 ##----------------
 ## Configuration
 ##----------------
-sessionname myscreen
-altscreen on
+# detach on hangup
+autodetach on
+# Display the copyright page
 startup_message off
-vbell off
-hardstatus on
-hardstatus alwayslastline
+# audible bell
+vbell on
+# Enable support for the "alternate screen" capability in all windows
+altscreen on
 # Allow bold colors
 attrcolor b ".I"
 # keep scrollback n lines
@@ -20,6 +22,8 @@ defscrollback 10000
 termcapinfo xterm* OL=10000
 # xterm can switch to dark background and has function keys.
 termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
 # special xterm hardstatus: use the window title.
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 # emulate part of the 'K' charset
@@ -28,13 +32,15 @@ termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 # - uses background color for delete operations
 termcapinfo xterm* be
 # Enable 256 color term
-term xterm-256color
+term xterm-256color-bce-s
 
 ##----------------
 ## other terminals
 ##----------------
 # Erase background with current bg color
+term screen-256color-bce-s
 defbce "on"
+termcapinfo gnome* XT
 
 ##----------------
 ## Scripts
@@ -54,8 +60,10 @@ bindkey ^[^[[D prev
 bindkey ^[^[[C next
 
 ##----------------
-## Windows/Tabs
+## Default Windows
 ##----------------
+sessionname myscreen
+
 # Default windows/tabs
 screen -t bash  1 bash
 screen -t code  2 bash
@@ -71,5 +79,7 @@ bind s split
 ##----------------
 ## (hardstatus [string])
 ##----------------
+hardstatus on
+hardstatus alwayslastline
 # THIS IS THE PRETTY BIT
 hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
