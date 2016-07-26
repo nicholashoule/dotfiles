@@ -8,6 +8,13 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 
 #### `Fedora`
 
+## To install the dotfiles:
+1. Install Homesick with `gem install homesick`
+2. Clone this castle with `homesick clone nicholashoule/dotfiles`
+3. Create the symlinks with `homesick symlink dotfiles`
+
+#### YouCompleteMe
+
 https://github.com/Valloric/YouCompleteMe/blob/master/README.md
 
 Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
@@ -15,15 +22,6 @@ Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kern
 Make sure you have Python headers installed: `sudo dnf install python-devel python3-devel`.
 
 Compiling YCM with semantic support for C-family languages:
-
------
-
-## To install the dotfiles:
-1. Install Homesick with `gem install homesick`
-2. Clone this castle with `homesick clone nicholashoule/dotfiles`
-3. Create the symlinks with `homesick symlink dotfiles`
-
-#### YouCompleteMe
 
 Might need: legacy `libtinfo`
 
