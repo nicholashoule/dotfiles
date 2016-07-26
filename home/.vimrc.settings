@@ -7,6 +7,7 @@ augroup configgroup
   autocmd BufEnter Vagrantfile set filetype=ruby
   autocmd BufEnter Gemfile set filetype=ruby
   autocmd BufEnter *.md set filetype=markdown
+  autocmd BufEnter *.sh set filetype=bash
 augroup end
 
 " }}}
