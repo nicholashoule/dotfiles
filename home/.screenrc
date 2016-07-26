@@ -1,0 +1,71 @@
+## GNU Screen - configuration file 
+##----------------
+## Configuration
+##----------------
+sessionname myscreen
+altscreen on
+startup_message off
+vbell off
+hardstatus on
+hardstatus alwayslastline
+# Allow bold colors
+attrcolor b ".I"
+# keep scrollback n lines
+defscrollback 10000
+
+##----------------
+## xterm tweaks
+##----------------
+# Make the output buffer large for (fast) xterms.
+termcapinfo xterm* OL=10000
+# xterm can switch to dark background and has function keys.
+termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+# special xterm hardstatus: use the window title.
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+# emulate part of the 'K' charset
+termcapinfo   xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
+# xterm-52 tweaks:
+# - uses background color for delete operations
+termcapinfo xterm* be
+# Enable 256 color term
+term xterm-256color
+# Erase background with current bg color
+defbce "on"
+
+##----------------
+## Scripts
+##----------------
+# Script add '%1`%% CPU' to your hardstatus string. Result is like 38.4% CPU.
+# backtick 1 15 15 $HOME/bin/cpuusage
+
+##----------------
+## Bindkey(s)
+##----------------
+# switch windows with (prev) and (next)
+# Ctrl+Alt+Left, Ctrl+Alt+Right
+bindkey ^[[1;7C prev
+bindkey ^[[1;7D next
+# Ctrl+Alt+Left, Ctrl+Alt+Right (Putty)
+bindkey ^[^[[D prev
+bindkey ^[^[[C next
+
+##----------------
+## Windows/Tabs
+##----------------
+# Default windows/tabs
+screen -t bash  1 bash
+screen -t code  2 bash
+select 0
+
+# window numbering starts at 1 not 0
+bind c screen 1
+bind 0 select 10
+
+# Get rid of silly xoff stuff
+bind s split
+
+##----------------
+## (hardstatus [string])
+##----------------
+#THIS IS THE PRETTY BIT
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
