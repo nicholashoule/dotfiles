@@ -1,0 +1,26 @@
+#--------------------------------------------
+# COMMAND PROMPT: (PS1)
+#--------------------------------------------
+### Style: color_prompt style and customization goes here
+if [ "${color_prompt}" = yes ]; then
+echo -e "${v_banner_blue}\nWelcome: ${v_close}"
+echo -e "${v_banner_blue}===============================================${v_close}"
+echo -e "${v_banner_blue}DATE: ${v_close}${v_white}${v_date}${v_close}\n"
+echo -e "${v_green} Where there is a shell, there is a way. #ROOT ${v_close}\n"
+echo -e "${v_banner_blue}SYSTEM INFORMATION:${v_close}"
+echo -e "${v_banner_blue}KERNEL: ${v_close}${v_white}${v_uname}${v_close}"
+echo -e "${v_banner_blue}BASH: ${v_close}${v_white}${BASH_VERSION%.*} ${v_close}"
+echo -e "${v_banner_blue}HOSTNAME: ${v_close}${v_white}${v_hostname}${v_close}\n"
+echo -e "${v_banner_blue}INFO: ${v_close}${v_white}$(who)${v_close}\n"
+echo -e "$(ip addr | grep --color=always 'inet ' 2>/dev/null)"
+echo -e "${v_banner_blue}===============================================${v_close}"
+# COMMAND PROMPT: PS1 Color version
+PS1="\[${v_white}\][ \d \t ] \[${v_lightred}\]\u\[${v_white}\]@\[${v_white}\]\h:\n\
+\[${v_lightcyan}\]\w\[${v_white}\] $ \[${v_close}\]"
+else
+# COMMAND PROMPT: PS1 Normal version
+PS1="[ \d \t \u@\h:\w ]_$ "
+fi
+
+# unset variables
+unset color_prompt force_color_prompt v_uname v_date v_hostname
