@@ -25,11 +25,16 @@ fi
 v_uname=$(uname -sr)
 v_date=$(date)
 v_hostname=$(hostname -f)
-
 v_ip=$(ifconfig | grep \
 --color=always \
-'en.:\|enp.*:\|eth.:\|wlo1:\|lo.:\|inet \|virbr.:\|bridge.:' \
+'inet ' \
 2>/dev/null)
+
+# More v_ip details 
+# v_ip=$(ifconfig | grep \
+# --color=always \
+# 'en.:\|enp.*:\|eth.:\|wlo1:\|lo.:\|inet \|virbr.:\|bridge.:' \
+# 2>/dev/null)
 
 #--------------------------------------------
 # COMMAND PROMPT: (PS1)
