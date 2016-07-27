@@ -5,11 +5,11 @@
 
 # Detect which `ls` flavor is in use
 # if ls --color > /dev/null 2>&1; then # GNU `ls`
-# 	colorflag="--color"
+# 	colorflag='--color=always'
 # else # OS X `ls`
 # 	colorflag="-G"
 # fi
-colorflag='always'
+colorflag='--color=always'
 
 # Some shortcuts for different directory listings
 alias ls="command ls -hF ${colorflag}"                      # Always use color output for `ls`
