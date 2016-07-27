@@ -1,7 +1,7 @@
 ## GNU Screen - Configuration file 
-##----------------
+##------------------------------------
 ## Configuration
-##----------------
+##------------------------------------
 # detach on hangup
 autodetach on
 # Display the copyright page
@@ -15,9 +15,9 @@ attrcolor b ".I"
 # keep scrollback n lines
 defscrollback 10000
 
-##----------------
+##------------------------------------
 ## xterm tweaks
-##----------------
+##------------------------------------
 # Make the output buffer large for (fast) xterms.
 termcapinfo xterm* OL=10000
 # special xterm hardstatus: use the window title.
@@ -26,17 +26,17 @@ termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 
 # Tell screen how to set colors. AB = background, AF=foreground
-#termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # pgup pgdn for xterm
 #termcapinfo xterm*|rxvt* 'ti@:te@'
 
 # Enable 256 color term
-#term xterm-256color-s
+term xterm-256color-s
 
-##----------------
+##------------------------------------
 ## other terminals
-##----------------
+##------------------------------------
 # By default, screen uses an 8-color terminal emulator. Use the
 # following line to enable more colors
 term screen-256color-s
@@ -53,15 +53,15 @@ terminfo vt100* ms:AL=\E[%p1%dL:DL=\E[%p1%dM:UP=\E[%p1%dA:DO=\E[%p1%dB:LE=\E[%p1
 termcapinfo linux C8
 termcapinfo gnome* XT
   
-##----------------
+##------------------------------------
 ## Scripts
-##----------------
+##------------------------------------
 # Script add '%1`%% CPU' to your hardstatus string. Result is like 38.4% CPU.
 # backtick 1 15 15 $HOME/bin/cpuusage
 
-##----------------
+##------------------------------------
 ## Bindkey(s)
-##----------------
+##------------------------------------
 # switch windows with (prev) and (next)
 # Ctrl+Alt+Left, Ctrl+Alt+Right
 bindkey ^[[1;7C prev
@@ -70,9 +70,9 @@ bindkey ^[[1;7D next
 bindkey ^[^[[D prev
 bindkey ^[^[[C next
 
-##----------------
+##------------------------------------
 ## Default Windows
-##----------------
+##------------------------------------
 sessionname myscreen
 
 # Default windows/tabs
@@ -87,9 +87,9 @@ bind 0 select 10
 # Get rid of silly xoff stuff
 bind s split
 
-##----------------
+##------------------------------------
 ## (hardstatus [string])
-##----------------
+##------------------------------------
 hardstatus on
 hardstatus alwayslastline
 # THIS IS THE PRETTY BIT
