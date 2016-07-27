@@ -250,10 +250,10 @@ endfunction
 :nnoremap <S-Tab> :bprevious<CR>
 
 " Enable line numbers F12
-nmap <silent> <F12> :call ToggleNumber()<CR>
+nmap <silent> <Leader>n :call ToggleNumber()<CR>
 
 " Enable paste F7
-nmap <silent> <F7> :call TogglePaste()<CR>
+nmap <silent> <Leader>p :call TogglePaste()<CR>
 
 " }}}
 
