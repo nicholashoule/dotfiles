@@ -11,6 +11,13 @@ PATH="$PATH:"
 export PATH
 
 #--------------------------------------------
+# Linux - custom bash completion scripts
+#--------------------------------------------
+if [ -d ~/.bash_completion.d/ ]; then
+    . ~/.bash_completion.d/.git-completion.bash
+fi
+
+#--------------------------------------------
 #OSX - Homebrew
 #--------------------------------------------
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
