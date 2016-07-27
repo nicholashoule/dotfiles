@@ -39,7 +39,7 @@ termcapinfo xterm*|rxvt* 'ti@:te@'
 ##------------------------------------
 # By default, screen uses an 8-color terminal emulator. Use the
 # following line to enable more colors
-term screen-256color-s
+term screen-256color
 
 # Erase background with current bg color
 defbce "on"
