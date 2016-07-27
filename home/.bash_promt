@@ -22,7 +22,7 @@ fi
 # PROMPT VARIABLES:
 #--------------------------------------------
 # Variables for command promt commands
-v_uname=$(uname -sroi)
+v_uname=$(uname -sr)
 v_date=$(date)
 v_hostname=$(hostname -f)
 
