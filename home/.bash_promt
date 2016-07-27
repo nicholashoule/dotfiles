@@ -19,6 +19,14 @@ if [ -n "${force_color_prompt}" ]; then
 fi
 
 #--------------------------------------------
+# PROMPT VARIABLES:
+#--------------------------------------------
+# Variables for command promt commands
+v_uname=$(uname -sroi)
+v_date=$(date)
+v_hostname=$(hostname -f)
+
+#--------------------------------------------
 # COMMAND PROMPT: (PS1)
 #--------------------------------------------
 ### Style: color_prompt style and customization goes here
