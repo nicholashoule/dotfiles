@@ -32,14 +32,14 @@ termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 #termcapinfo xterm*|rxvt* 'ti@:te@'
 
 # Enable 256 color term
-term xterm-256color-bce-s
+#term xterm-256color-bce-s
 
 ##----------------
 ## other terminals
 ##----------------
 # By default, screen uses an 8-color terminal emulator. Use the
 # following line to enable more colors
-#term screen-256color
+term screen-256color
 
 # Erase background with current bg color
 defbce "on"
