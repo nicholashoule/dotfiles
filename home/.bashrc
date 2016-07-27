@@ -6,6 +6,18 @@
 [ -z "$PS1" ] && return
 
 #--------------------------------------------
+# FUNCTION: find_os_family()
+# DESCRIPTION:
+# Use 'uname -s' to find Darwin or Linux
+# Parameters: 
+#   none
+#--------------------------------------------
+function find_os_family() {
+  # Detect Linux or Darwin
+  printf "%s" "$(uname -s)"
+}
+
+#--------------------------------------------
 # SOURCE: global definitions
 #--------------------------------------------
 # GLOBAL DEFINITIONS
@@ -42,11 +54,13 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# OTHER SETTING DEFINITIONS
-# You may want to put all your additions into a separate file like
-# ~/.bash_settings, instead of adding them here directly.
-if [ -f ~/.bash_settings ]; then
-    . ~/.bash_settings
+if [ "${v_family}" == 'Linux' ] && [ -n "${v_family}" ]; then
+  # OTHER SETTING DEFINITIONS
+  # You may want to put all your additions into a separate file like
+  # ~/.bash_settings, instead of adding them here directly.
+  if [ -f ~/.bash_settings ]; then
+      . ~/.bash_settings
+  fi
 fi
 
 #--------------------------------------------
