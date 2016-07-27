@@ -20,17 +20,10 @@ defscrollback 10000
 ##----------------
 # Make the output buffer large for (fast) xterms.
 termcapinfo xterm* OL=10000
-# xterm can switch to dark background and has function keys.
-termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
-termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
-termcapinfo xterm 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
 # special xterm hardstatus: use the window title.
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 # emulate part of the 'K' charset
 termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
-# xterm-52 tweaks:
-# - uses background color for delete operations
-termcapinfo xterm* be
 # Enable 256 color term
 term xterm-256color-bce-s
 
@@ -38,7 +31,7 @@ term xterm-256color-bce-s
 ## other terminals
 ##----------------
 # Erase background with current bg color
-term screen-256color-bce-s
+#term screen-256color-bce-s
 defbce "on"
 termcapinfo gnome* XT
 
