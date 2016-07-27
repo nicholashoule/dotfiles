@@ -6,16 +6,14 @@
 [ -z "$PS1" ] && return
 
 #--------------------------------------------
-# FUNCTION: find_os_family()
-# DESCRIPTION:
-# Use 'uname -s' to find Darwin or Linux
-# Parameters: 
-#   none
+# SOURCE: functions
 #--------------------------------------------
-function find_os_family() {
-  # Detect Linux or Darwin
-  printf "%s" "$(uname -s)"
-}
+# If not running interactively, don't do anything
+if [ -f /etc/bash_functions ]; then
+	. /etc/bash_functions
+fi
+# Export functions to other bash sub-shells
+typeset -fx find_os_family
 
 #--------------------------------------------
 # SOURCE: global definitions
