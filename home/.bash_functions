@@ -37,7 +37,6 @@ function find_os_family() {
 #   $2, string - local git repo
 #--------------------------------------------
 function find_git_repo() {
-
 v_srcrepo=$(printf "%s" "$1")
 v_localrepo=$(printf "%s" "$2")
 
