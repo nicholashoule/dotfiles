@@ -86,13 +86,8 @@ alias cd..='cd ..'                   # Command not found?
 alias ..='cd ..'                     # Move back one dir
 alias ...='cd ../../'                # Move back two dir
 alias ....='cd ../../../'            # Move back three dir
-
-## Some shortcuts for different directory listings
 alias du='du -ch'                    # Makes a more readable output.
 alias df='df -h'                     # Makes a more readable output.
-alias l='ls -ah'                     # Quick listing all
-alias ll='ls -alhF'                  # Quick listing all, long
-alias la='ls -Al'                    # show hidden files
 alias chown='chown --preserve-root'  # changing perms on 
 alias chmod='chmod --preserve-root'  # changing perms on 
 alias chgrp='chgrp --preserve-root'  # changing perms on 
