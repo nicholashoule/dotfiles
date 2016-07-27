@@ -6,6 +6,9 @@ alias puppet-lint='puppet-lint --log-format="%{path} - %{KIND}:%{check} - %{mess
 alias izgood="puppet parser validate"
 alias izpretty='puppet-lint'
 
+# Vim aliases
+alias vi='vim'
+
 # Vagrant aliases
 alias v='vagrant'
 alias vs='vagrant status'
