@@ -218,6 +218,15 @@ function! ToggleNumber()
   endif
 endfunction
 
+" toggle between paste, and nopaste
+function! TogglePaste()
+  if(&paste == 1)
+    set nopaste nopaste?
+  else
+    set paste paste?
+  endif
+endfunction
+
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
   let _s=@/
