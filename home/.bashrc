@@ -9,8 +9,8 @@
 # SOURCE: functions
 #--------------------------------------------
 # If not running interactively, don't do anything
-if [ -f /etc/bash_functions ]; then
-	. /etc/bash_functions
+if [ -f /etc/.bash_functions ]; then
+	. /etc/.bash_functions
 fi
 # Export functions to other bash sub-shells
 typeset -fx find_os_family
