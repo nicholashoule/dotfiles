@@ -57,9 +57,9 @@ fi
 #--------------------------------------------
 # PROMPT COLORS DEFINITIONS
 # You may want to put all your additions into a separate file like
-# ~/.bash_promt_colors , instead of adding them here directly.
-if [ -f ~/.bash_promt_colors ]; then
-    . ~/.bash_promt_colors
+# ~/.bash_prompt_colors , instead of adding them here directly.
+if [ -f ~/.bash_prompt_colors ]; then
+    . ~/.bash_prompt_colors
 fi
 
 # PROGRAMMABLE COMPLETION DEFINITIONS
@@ -84,10 +84,10 @@ if [ "${v_os_family}" == 'Linux' ] && [ -n "${v_os_family}" ]; then
 fi
 
 #--------------------------------------------
-# PROMPT COLORS DEFINITIONS
+# PROMPT DEFINITIONS
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
-# ~/.bash_promt, instead of adding them here directly.
-if [ -f ~/.bash_promt ]; then
-    . ~/.bash_promt
+# ~/.bash_prompt, instead of adding them here directly.
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
 fi
