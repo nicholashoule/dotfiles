@@ -31,9 +31,12 @@ term xterm-256color-bce-s
 ## other terminals
 ##----------------
 # Erase background with current bg color
-#term screen-256color-bce-s
+#term screen-256color
 defbce "on"
 termcapinfo gnome* XT
+# Extend the vt100 desciption by some sequences.
+termcap  vt100* ms:AL=\E[%dL:DL=\E[%dM:UP=\E[%dA:DO=\E[%dB:LE=\E[%dD:RI=\E[%dC
+terminfo vt100* ms:AL=\E[%p1%dL:DL=\E[%p1%dM:UP=\E[%p1%dA:DO=\E[%p1%dB:LE=\E[%p1%dD:RI=\E[%p1%dC
 
 ##----------------
 ## Scripts
