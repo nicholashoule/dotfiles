@@ -83,6 +83,9 @@ set cpo+=J
 " Enable line numbers F12
 nmap <silent> <F12> :call ToggleNumber()<CR>
 
+" Enable paste F11
+nmap <silent> <F11> :call TogglePaste()<CR>
+
 "  Highlight current line
 set cursorline
 
