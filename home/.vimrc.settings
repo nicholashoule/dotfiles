@@ -252,8 +252,8 @@ endfunction
 " Enable line numbers F12
 nmap <silent> <F12> :call ToggleNumber()<CR>
 
-" Enable paste F8
-nmap <silent> <F8> :call TogglePaste()<CR>
+" Enable paste F7
+nmap <silent> <F7> :call TogglePaste()<CR>
 
 " }}}
 
