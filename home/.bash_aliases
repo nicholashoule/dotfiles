@@ -80,7 +80,7 @@ alias bi='bundle install'
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 
 # Git GitHub git-completion.bash
-alias gitbash='find_git_repo https://github.com/git/git/blob/master/contrib/completion/git-completion.bash /etc/bash_completion.d/git-completion.bash'
+alias gitbash="su whoami -c 'find_git_repo https://github.com/git/git/blob/master/contrib/completion/git-completion.bash /etc/bash_completion.d/git-completion.bash'"
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
