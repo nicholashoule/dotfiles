@@ -15,7 +15,7 @@ colorflag='--color=always'
 alias ls="command ls -hF ${colorflag}"                      # Always use color output for `ls`
 alias l="ls -lF ${colorflag}"                               # List all files colorized in long format
 alias l.="ls -d .* ${colorflag}"  
-alias ll="ls -l ${colorflag}"  
+alias ll="ls -aF ${colorflag}"
 alias la="ls -laF ${colorflag}"                             # List all files colorized in long format, including dot files
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"   # List only directories
 alias dir="ls ${colorflag}--format=vertical"
