@@ -24,20 +24,35 @@ termcapinfo xterm* OL=10000
 termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 # emulate part of the 'K' charset
 termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
+
+# Tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# pgup pgdn for xterm
+#termcapinfo xterm*|rxvt* 'ti@:te@'
+
 # Enable 256 color term
-term xterm-256color-bce-s
+#term xterm-256color-bce-s
 
 ##----------------
 ## other terminals
 ##----------------
+# By default, screen uses an 8-color terminal emulator. Use the
+# following line to enable more colors
+term screen-256color
+
 # Erase background with current bg color
-#term screen-256color
 defbce "on"
-termcapinfo gnome* XT
+
+# make hp700 termcap/info better
+termcapinfo  hp700 'Z0=\E[?3h:Z1=\E[?3l:hs:ts=\E[62"p\E[0$~\E[2$~\E[1$}:fs=\E[0}\E[61"p:ds=\E[62"p\E[1$~\E[61"p:ic@'
+
 # Extend the vt100 desciption by some sequences.
 termcap  vt100* ms:AL=\E[%dL:DL=\E[%dM:UP=\E[%dA:DO=\E[%dB:LE=\E[%dD:RI=\E[%dC
 terminfo vt100* ms:AL=\E[%p1%dL:DL=\E[%p1%dM:UP=\E[%p1%dA:DO=\E[%p1%dB:LE=\E[%p1%dD:RI=\E[%p1%dC
-
+termcapinfo linux C8
+termcapinfo gnome* XT
+  
 ##----------------
 ## Scripts
 ##----------------
