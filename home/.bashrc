@@ -6,16 +6,6 @@
 [ -z "$PS1" ] && return
 
 #--------------------------------------------
-# SOURCE: functions
-#--------------------------------------------
-# If not running interactively, don't do anything
-if [ -f /etc/.bash_functions ]; then
-	. /etc/.bash_functions
-fi
-# Export functions to other bash sub-shells
-typeset -fx find_os_family
-
-#--------------------------------------------
 # SOURCE: global definitions
 #--------------------------------------------
 # GLOBAL DEFINITIONS
@@ -23,6 +13,19 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+#--------------------------------------------
+# SOURCE: functions
+#--------------------------------------------
+# If not running interactively, don't do anything
+if [ -f ~/.bash_functions ]; then
+	. ~/.bash_functions
+fi
+# Export functions to other bash sub-shells
+typeset -fx find_os_family
+
+#--------------------------------------------
+# SOURCE: aliases
+#--------------------------------------------
 if [ "${v_family}" == 'Linux' ] && [ -n "${v_family}" ]; then
   # LINUX ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
