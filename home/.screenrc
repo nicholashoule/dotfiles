@@ -29,7 +29,7 @@ termcapinfo xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # pgup pgdn for xterm
-#termcapinfo xterm*|rxvt* 'ti@:te@'
+termcapinfo xterm*|rxvt* 'ti@:te@'
 
 # Enable 256 color term
 term xterm-256color-s
