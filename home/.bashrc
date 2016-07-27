@@ -10,7 +10,7 @@
 #--------------------------------------------
 # GLOBAL DEFINITIONS
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 #--------------------------------------------
@@ -20,9 +20,9 @@ fi
 # You may want to put all your additions into a separate file like
 # ~/.bash_functions, instead of adding them here directly.
 if [ -f ~/.bash_functions ]; then
-	. ~/.bash_functions
+  . ~/.bash_functions
 fi
-
+  
 # Export functions to other bash sub-shells
 typeset -fx find_os_family
 
