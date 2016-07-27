@@ -80,12 +80,6 @@ set cpo+=J
 " }}}
 " UI CONFIG {{{
 
-" Enable line numbers F12
-nmap <silent> <F12> :call ToggleNumber()<CR>
-
-" Enable paste F11
-nmap <silent> <F11> :call TogglePaste()<CR>
-
 "  Highlight current line
 set cursorline
 
@@ -254,6 +248,12 @@ endfunction
 " Switch buffers with Tab & Shift-Tab
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+
+" Enable line numbers F12
+nmap <silent> <F12> :call ToggleNumber()<CR>
+
+" Enable paste F8
+nmap <silent> <F8> :call TogglePaste()<CR>
 
 " }}}
 
