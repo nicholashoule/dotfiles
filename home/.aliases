@@ -7,7 +7,10 @@ alias izgood="puppet parser validate"
 alias izpretty='puppet-lint'
 
 # Vim aliases
-alias vi='vim'
+alias vi='vim'                                  # Ensure Vi IMproved
+alias PluginInstall="vim +PluginInstall +qall"  # Quick PluginInstall
+alias plugininstall='PluginInstall'             # Quick PluginInstall
+alias pi='PluginInstall'                        # Quick PluginInstall
 
 # Vagrant aliases
 alias v='vagrant'
