@@ -32,7 +32,7 @@ termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 termcapinfo xterm*|rxvt* 'ti@:te@'
 
 # Enable 256 color term
-term xterm-256color-s
+#term xterm-256color-s
 
 ##------------------------------------
 ## other terminals
