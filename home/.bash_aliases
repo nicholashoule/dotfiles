@@ -49,6 +49,9 @@ alias PluginInstall="vim +PluginInstall +qall"  # Quick PluginInstall
 alias plugininstall='PluginInstall'             # Quick PluginInstall
 alias pi='PluginInstall'                        # Quick PluginInstall
 
+# Vim GitHub plugins
+alias vundle=$(find_git_repo https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim)
+
 # View HTTP traffic
 alias sniff="sudo netstat -tauw"
 #alias httpdump="sudo tcpdump -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
