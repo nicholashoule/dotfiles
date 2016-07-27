@@ -22,9 +22,12 @@ fi
 if [ -f ~/.bash_functions ]; then
   . ~/.bash_functions
 fi
-  
 # Export functions to other bash sub-shells
 typeset -fx find_os_family
+
+#--------------------------------------------
+# Variables
+#--------------------------------------------
 # Get/Set v_family variable
 v_os_family=$(find_os_family)
 
