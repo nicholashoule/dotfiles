@@ -13,6 +13,23 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 2. Clone this castle with `homesick clone nicholashoule/dotfiles`
 3. Create the symlinks with `homesick symlink dotfiles`
 
+## Set up Vundle:
+
+[GitHub]
+https://github.com/VundleVim/Vundle.vim
+
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+### Install Plugins:
+
+Launch `vim` and run `:PluginInstall`
+
+To install from command line: `vim +PluginInstall +qall`
+
+-----
+
 #### YouCompleteMe
 
 https://github.com/Valloric/YouCompleteMe/blob/master/README.md
@@ -39,21 +56,5 @@ cd ~/.vim/bundle/YouCompleteMe
 1. Download and install an Awesome patched font:
   - https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Inconsolata%2BAwesome.ttf
 2. Switch iTerm2 or Terminal/VTE to use that font for both **Font** and **Non ASCII Font**
-
-
-## Set up Vundle:
-
-[GitHub]
-https://github.com/VundleVim/Vundle.vim
-
-```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
-
-### Install Plugins:
-
-Launch `vim` and run `:PluginInstall`
-
-To install from command line: `vim +PluginInstall +qall`
 
 -----
