@@ -25,6 +25,10 @@ fi
 v_uname=$(uname -sr)
 v_date=$(date)
 v_hostname=$(hostname -f)
+v_ip=$(ifconfig | grep \
+--color=always \
+'en.:\|enp.*:\|eth.:\|wlo1:\|lo:\|lo.:\|inet\|inet6\|loop\|virbr.:\|bridge.:' \
+2>/dev/null)
 
 #--------------------------------------------
 # COMMAND PROMPT: (PS1)
@@ -40,7 +44,7 @@ echo -e "${v_banner_blue}KERNEL: ${v_close}${v_white}${v_uname}${v_close}"
 echo -e "${v_banner_blue}BASH: ${v_close}${v_white}${BASH_VERSION%.*} ${v_close}"
 echo -e "${v_banner_blue}HOSTNAME: ${v_close}${v_white}${v_hostname}${v_close}\n"
 echo -e "${v_banner_blue}INFO: ${v_close}${v_white}$(who)${v_close}\n"
-echo -e "$(ip addr | grep --color=always 'inet ' 2>/dev/null)"
+echo -e "${v_ip}"
 echo -e "${v_banner_blue}===============================================${v_close}"
 # COMMAND PROMPT: PS1 Color version
 PS1="\[${v_white}\][ \d \t ] \[${v_lightred}\]\u\[${v_white}\]@\[${v_white}\]\h:\n\
