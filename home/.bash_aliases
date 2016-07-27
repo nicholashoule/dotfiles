@@ -43,6 +43,12 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 # Application alias(s) here
 #-----------------------------------------------
 
+# Vim aliases
+alias vi='vim'                                  # Ensure Vi IMproved
+alias PluginInstall="vim +PluginInstall +qall"  # Quick PluginInstall
+alias plugininstall='PluginInstall'             # Quick PluginInstall
+alias pi='PluginInstall'                        # Quick PluginInstall
+
 # View HTTP traffic
 alias sniff="sudo netstat -tauw"
 #alias httpdump="sudo tcpdump -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
@@ -80,7 +86,6 @@ done
 #-----------------------------------------------
 # Other alias(s) here (shortcuts)
 #-----------------------------------------------
-alias vi='vim'                       # Ensure Vi IMproved
 alias mount='mount | column -t'      # Make mount command output pretty and human readable
 alias rm='rm -i'                     # confirmation
 alias cp='cp -i'                     # confirmation
