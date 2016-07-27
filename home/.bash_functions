@@ -11,4 +11,4 @@ function find_os_family() {
 }
 
 # Export functions to other bash sub-shells
-typeset -fx find_os_family
+# typeset -fx find_os_family
