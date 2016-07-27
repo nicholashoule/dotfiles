@@ -23,11 +23,22 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# ALIAS DEFINITIONS
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-if [ -f ~/.bash_aliases ]; then
+if [ "${v_family}" == 'Linux' ] && [ -n "${v_family}" ]; then
+  # LINUX ALIAS DEFINITIONS
+  # You may want to put all your additions into a separate file like
+  # ~/.bash_aliases, instead of adding them here directly.
+  if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+  fi
+fi
+
+if [ "${v_family}" == 'Darwin' ] && [ -n "${v_family}" ]; then
+  # DARWIN (OSX) ALIAS DEFINITIONS
+  # You may want to put all your additions into a separate file like
+  # ~/.aliases, instead of adding them here directly.
+  if [ -f ~/.aliases ]; then
+    . ~/.aliases
+  fi
 fi
 
 #--------------------------------------------
