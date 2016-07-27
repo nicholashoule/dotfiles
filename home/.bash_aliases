@@ -29,8 +29,9 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 #-----------------------------------------------
 # Helper alias(s) here
 #-----------------------------------------------
-alias tree='tree -C'
-alias path='echo -e ${PATH//:/\\n}'
+alias sudo='sudo '                   # Enable aliases to be sudo’ed
+alias tree='tree -C'                 # Pretty color tree
+alias path='echo -e ${PATH//:/\\n}'  # Pretty path
 
 # Recursively delete `.DS_Store` files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
