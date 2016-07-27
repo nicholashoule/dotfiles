@@ -1,2 +1,5 @@
 home/.antigen/repos
 home/.grip/
+home/.ssh/
+home/.aws/
+*.log
