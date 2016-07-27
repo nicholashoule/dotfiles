@@ -23,7 +23,7 @@ if [ -f ~/.bash_functions ]; then
   . ~/.bash_functions
 fi
 # Export functions to other bash sub-shells
-typeset -fx find_os_family
+typeset -fx is_empty find_os_family find_git_repo
 
 #--------------------------------------------
 # Variables
