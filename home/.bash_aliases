@@ -29,6 +29,7 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 #-----------------------------------------------
 # Helper alias(s) here
 #-----------------------------------------------
+v_whoami=$(whoami)
 alias sudo='sudo '                   # Enable aliases to be sudo’ed
 alias tree='tree -C'                 # Pretty color tree
 alias path='echo -e ${PATH//:/\\n}'  # Pretty path
@@ -80,7 +81,7 @@ alias bi='bundle install'
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 
 # Git GitHub git-completion.bash
-alias gitbash="su $(whoami) -c 'find_git_repo https://github.com/git/git/blob/master/contrib/completion/git-completion.bash /etc/bash_completion.d/git-completion.bash'"
+alias gitbash="su ${v_whoami} -c 'find_git_repo https://github.com/git/git/blob/master/contrib/completion/git-completion.bash /etc/bash_completion.d/git-completion.bash'"
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
