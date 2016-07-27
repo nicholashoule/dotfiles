@@ -12,7 +12,3 @@ v_lightred="\033[1;31m"
 v_blue="\033[0;34m"
 v_green="\033[1;32m"
 v_close="\033[00m"
-## PROMPT VARIABLES:
-v_uname=$(/bin/uname -sroi)
-v_date=$(/bin/date)
-v_hostname=$(/bin/hostname)
