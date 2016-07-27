@@ -2,10 +2,11 @@
 #--------------------------------------------
 # Source the .bashrc file
 #--------------------------------------------
-[[ -e ~/.bashrc ]] && . ~/.bashrc
+[[ -e "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
+[[ -e "$HOME/.bashrc" ]] && source "$HOME/.bashrc"   # Load the default .bashrc
 
 #--------------------------------------------
-# User specific environment
+# Default User specific env path
 #--------------------------------------------
 PATH="$PATH:"
 export PATH
@@ -34,6 +35,4 @@ fi
 #--------------------------------------------
 # OTHER 
 #--------------------------------------------
-[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
-[[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc" # Load the default .bashrc
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
