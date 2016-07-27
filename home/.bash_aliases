@@ -80,6 +80,7 @@ done
 #-----------------------------------------------
 # Other alias(s) here (shortcuts)
 #-----------------------------------------------
+alias vi='vim'                       # Ensure Vi IMproved
 alias mount='mount | column -t'      # Make mount command output pretty and human readable
 alias rm='rm -i'                     # confirmation
 alias cp='cp -i'                     # confirmation
