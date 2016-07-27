@@ -37,24 +37,22 @@ function find_os_family() {
 #   $2, string - local git repo
 #--------------------------------------------
 function find_git_repo() {
+
 v_srcrepo=$(printf "%s" "$1")
 v_localrepo=$(printf "%s" "$2")
 
-# Check for an empty string
-if ( ! is_empty ${v_srcrepo} ) && ( ! is_empty ${v_localrepo} ); then
-
-	# Detect repo
-	if [ ! -d "${v_localrepo}" ]; then
-	  git clone ${v_srcrepo} ${v_localrepo}
-	else
-	  cd "${v_localrepo}"
-	  git pull ${v_srcrepo}
-	fi
-
-else
-	printf "%s\n" "[Info]: Please specify a source and local repo."
-fi
-
+  # Check for an empty string
+  if ( ! is_empty ${v_srcrepo} ) && ( ! is_empty ${v_localrepo} ); then
+   # Detect repo
+      if [ ! -d "${v_localrepo}" ]; then
+      git clone ${v_srcrepo} ${v_localrepo}
+    else
+      cd "${v_localrepo}"
+      git pull ${v_srcrepo}
+    fi
+  else
+    printf "%s\n" "[Info]: Please specify a source and local repo."
+  fi
 }
 
 # Export functions to other bash sub-shells
