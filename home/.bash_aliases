@@ -108,5 +108,5 @@ alias chmod='chmod --preserve-root'  # changing perms on
 alias chgrp='chgrp --preserve-root'  # changing perms on 
 alias less='less -r'                 # raw control characters
 alias whence='type -a'               # where, of a sort
-alias fgrep="fgrep ${colorflag}"     # show differences in colour
-alias egrep="egrep ${colorflag}"     # show differences in colour
+#alias fgrep="fgrep ${colorflag}"     # show differences in colour
+#alias egrep="egrep ${colorflag}"     # show differences in colour
