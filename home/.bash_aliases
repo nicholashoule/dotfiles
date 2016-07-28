@@ -84,7 +84,7 @@ alias cdg='cd "$(git rev-parse --show-toplevel)"'
 alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash \
 -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
 alias gitprompt='curl -o ~/.bash_completion.d/git-prompt.sh \
--L https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh'
+-L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh'
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
