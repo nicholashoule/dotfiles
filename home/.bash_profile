@@ -15,7 +15,9 @@ export PATH
 # Linux - custom bash completion scripts
 #--------------------------------------------
 if [ -d ~/.bash_completion.d/ ]; then
+  if [ -f ~/.bash_completion.d/.git-completion.bash ]; then
     . ~/.bash_completion.d/.git-completion.bash
+  fi
 fi
 
 #--------------------------------------------
