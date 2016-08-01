@@ -1,14 +1,20 @@
 #!/bin/bash
 
+function bash.utils.consoleLog()
+{
+  local ln="${1?}"
+  printf "%s %s" "$(date +'%a %Y-%m-%d %H:%M:%S %z')" "${ln}"
+}
+
 function bash.utils.quit() {
-	local msg="${1?}"
-	echo -e "\e[31m[EXIT]\e[39m::${msg}"
-	exit 1
+  local ln="${1?}"
+  echo -e "\e[31m[EXIT]\e[39m::${ln}"
+  exit 1
 }
 
 function bash.utils.writeln() {
 	local ln="${1?}"
-  printf "%s" "${ln}"
+	printf "%s" "${ln}"
 }
 
 function bash.utils.is_empty() {
