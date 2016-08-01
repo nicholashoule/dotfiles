@@ -38,7 +38,7 @@ main() {
 	is_root
 }
 
-echo "Idle users will be removed after 15 minutes"
+bash.utils.consoleLog "Idle users will be removed after 15 minutes"
 echo "readonly TMOUT=900" >> /etc/profile.d/os-security.sh
 echo "readonly HISTFILE" >> /etc/profile.d/os-security.sh
 chmod +x /etc/profile.d/os-security.sh
@@ -66,10 +66,12 @@ sudo tee /etc/securetty << 'EOF' > /dev/null
 #tty8
 EOF
 
+bash.utils.consoleLog 'Locking down default users'
 usermod -s /sbin/nologin root
 usermod -s /sbin/nologin mail
 usermod -s /sbin/nologin ftp
 
+bash.utils.consoleLog 'Locking down live CD reminents'
 chkconfig livesys off
 chkconfig livesys-late off
 chkconfig --del livesys
