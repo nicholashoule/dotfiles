@@ -13,11 +13,12 @@
 # in /etc/grub.d/01_users or /etc/grub.d/40_custom.
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 this_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+this_user=$(whoami)
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
 if [ -d $this_dir/../.src/bash/utils/ ]; then
-  for file in "$this_dir/../.src/bash/utils/*" ; do
+  for file in "/home/${this_user}/.src/bash/utils/*" ; do
     source "${file}"
   done
 else
