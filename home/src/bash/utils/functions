@@ -8,13 +8,13 @@ function bash.utils.consoleLog()
 
 function bash.utils.quit() {
   local ln="${1?}"
-  echo -e "\e[31m[EXIT]\e[39m::${ln}"
+  printf "%s" "[EXIT]: ${ln}"
   exit 1
 }
 
 function bash.utils.writeln() {
-	local ln="${1?}"
-	printf "%s" "${ln}"
+  local ln="${1?}"
+  printf "%s" "${ln}"
 }
 
 function bash.utils.is_empty() {
