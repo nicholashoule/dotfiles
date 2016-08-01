@@ -21,7 +21,9 @@ this_dir="$(dirname ${0})"
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
-[[ -e "$this_dir/src/bash/utils/functions" ]] && source "$this_dir/src/bash/utils/functions" || bash.utils.quit "We need src bash utils functions"
+[[ -e "$this_dir/src/bash/utils/functions" ]] && source "$this_dir/src/bash/utils/functions"
+[[ if $? == 1 ]] exit
+
 
 #--------------------------------------------
 # 
