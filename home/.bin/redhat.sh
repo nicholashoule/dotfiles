@@ -23,7 +23,7 @@ this_dir="$(dirname ${0})"
 #--------------------------------------------
 [[ -e "$this_dir/src/bash/utils/functions" ]] && source "$this_dir/src/bash/utils/functions"
 if [ $? -ne 0 ]; then # test failed
-  printf "%s" "[EXIT]: Couldn't source functions."
+  printf "%s\n" "[EXIT]: Couldn't source 'src/bash/utils/functions'."
 fi
 
 #--------------------------------------------
