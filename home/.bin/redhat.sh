@@ -18,7 +18,7 @@ this_user=$(whoami)
 # Source bash utils functions
 #--------------------------------------------
 if [ -d $this_dir/../.src/bash/utils/ ]; then
-  for file in "/home/${this_user}/.src/bash/utils/*" ; do
+  for file in /home/${this_user}/.src/bash/utils/* ; do
     source "${file}"
   done
 else
