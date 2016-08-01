@@ -32,9 +32,8 @@ is_root() {
 }
 
 main() {
-	bash.utils.consoleLog "Main called"
-	is_root
-}
+bash.utils.consoleLog "[TESTING]: Main() called"
+is_root
 
 bash.utils.consoleLog "Idle users will be removed after 15 minutes"
 echo "readonly TMOUT=900" >> /etc/profile.d/os-security.sh
@@ -128,11 +127,11 @@ EOF
 sudo tee /etc/hosts.deny <<- 'EOF' > /dev/null
 defaults
 {
-	 instances               = 60        
-	 log_type                = SYSLOG	authpriv
-	 log_on_success          = HOST PID
-	 log_on_failure          = HOST
-	 cps                     = 25 30
+         instances               = 60        
+         log_type                = SYSLOG       authpriv
+         log_on_success          = HOST PID
+         log_on_failure          = HOST
+         cps                     = 25 30
 }
 includedir /etc/xinetd.d
 EOF
@@ -167,3 +166,4 @@ service ftp
         disable         = yes
 }
 EOF
+
