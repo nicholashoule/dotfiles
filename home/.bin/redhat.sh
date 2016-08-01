@@ -17,7 +17,7 @@ this_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 # Source bash utils functions
 #--------------------------------------------
 if [ -d $this_dir/../.src/bash/utils/ ]; then
-  for file in "$this_dir/.src/bash/utils/*" ; do
+  for file in "$this_dir/../.src/bash/utils/*" ; do
     source "${file}"
   done
 else
