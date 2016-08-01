@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Basic Hardening Guide:
 # https://docs.fedoraproject.org/en-US/Fedora/19/html/Security_Guide/chap-Security_Guide-Basic_Hardening.html
