@@ -6,7 +6,7 @@ function bash.utils.quit() {
   exit 1
 }
 
-functions bash.utils.is_root() {
+function bash.utils.is_root() {
   [[ "${UID}" -eq 0 ]] \
   || bash.utils.quit 'You must be root to execute this script'
 }
