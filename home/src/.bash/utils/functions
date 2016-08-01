@@ -1,0 +1,27 @@
+#!/bin/bash
+
+utils.quit() {
+	local msg="${1?}"
+	echo -e "\e[31m[EXIT]\e[39m::${msg}"
+	exit 1
+}
+
+function bash.utils.writeln() {
+	local ln="${1?}"
+  printf "%s" "${ln}"
+}
+
+function bash.utils.is_empty() {
+  # Check value is not empty and a number
+  if [[ -z "${1}" ]]; then
+      # return 0, is empty
+      return 0
+  fi
+  # return 1, not empty
+  return 1
+}
+
+function bash.utils.find_os_family() {
+  # Detect Linux or Darwin
+  printf "%s" "$(uname -s)"
+}
