@@ -2,7 +2,7 @@
 
 function bash.utils.quit() {
   local ln="${1?}"
-  printf "%s" "[EXIT]: ${ln}"
+  printf "%s\n" "[EXIT]: ${ln}"
   exit 1
 }
 
@@ -14,7 +14,13 @@ function bash.utils.is_root() {
 function bash.utils.consoleLog()
 {
   local ln="${1?}"
-  printf "%s\n%s" "$(date +'%a %Y-%m-%d %H:%M:%S %z')" "[INFO]: ${ln}"
+  printf "%s\n" "[INFO]: ${ln}"
+}
+
+function bash.utils.consoleLogDate()
+{
+  local ln="${1?}"
+  printf "%s\n%s\n" "[INFO][$(date +'%a %Y-%m-%d %H:%M:%S %z')]:" "${ln}"
 }
 
 function bash.utils.writeln() {
