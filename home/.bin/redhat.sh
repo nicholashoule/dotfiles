@@ -28,7 +28,7 @@ fi
 # Main()
 #--------------------------------------------
 main() {
-bash.utils.consoleLog "Main() called"
+bash.utils.consoleLogDate "main() called"
 bash.utils.is_root
 
 bash.utils.consoleLog "Idle users will be removed after 15 minutes"
