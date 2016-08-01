@@ -1,6 +1,6 @@
 #!/bin/bash
 
-utils.quit() {
+function bash.utils.quit() {
 	local msg="${1?}"
 	echo -e "\e[31m[EXIT]\e[39m::${msg}"
 	exit 1
