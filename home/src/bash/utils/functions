@@ -1,15 +1,20 @@
 #!/bin/bash
 
-function bash.utils.consoleLog()
-{
-  local ln="${1?}"
-  printf "%s %s" "$(date +'%a %Y-%m-%d %H:%M:%S %z')" "${ln}"
-}
-
 function bash.utils.quit() {
   local ln="${1?}"
   printf "%s" "[EXIT]: ${ln}"
   exit 1
+}
+
+functions bash.utils.is_root() {
+	[[ "${UID}" -eq 0 ]] \
+	|| bash.utils.quit 'You must be root to execute this script'
+}
+
+function bash.utils.consoleLog()
+{
+  local ln="${1?}"
+  printf "%s %s" "$(date +'%a %Y-%m-%d %H:%M:%S %z')" "${ln}"
 }
 
 function bash.utils.writeln() {
