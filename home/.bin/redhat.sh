@@ -1,10 +1,12 @@
+
 #!/bin/bash
-# Basic Hardening Guide
+# Basic Hardening Guide:
 # https://docs.fedoraproject.org/en-US/Fedora/19/html/Security_Guide/chap-Security_Guide-Basic_Hardening.html
 #
 # GRUB 2 PASSWORD PROTECTION
 # https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-GRUB_2_Password_Protection.
-#
+# 
+# OTHER INFORMATION:
 # Set a password for the GRUB bootloader. Generate a password hash using the command 
 # To generate an encrypted password, run the grub2-mkpasswd-pbkdf2 command on the command line as root.
 # Enter the desired password when prompted and repeat it. The command then outputs your password in an encrypted form.
@@ -12,17 +14,30 @@
 # in /etc/grub.d/01_users or /etc/grub.d/40_custom.
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 
-# Prevents root login on any devices attached to the computer
-sudo tee /etc/securetty << 'EOF' > /dev/null
-#tty1
-#tty2
-#tty3
-#tty4
-#tty5
-#tty6
-#tty7
-#tty8
-EOF
+#--------------------------------------------
+# Variables
+#--------------------------------------------
+this_dir=$(dirname ${0})
+
+#--------------------------------------------
+# Source bash utils functions
+#--------------------------------------------
+[[ -e "$this_dir/src/bash/utils/functions" ]] \
+  && source "source "$this_dir/src/bash/utils/functions" \
+  || bash.utils.quit "We need src bash utils functions"
+
+#--------------------------------------------
+# 
+#--------------------------------------------
+is_root() {
+	[[ "${UID}" -eq 0 ]] \
+	|| bash.utils.quit "You must be root to execute this script"
+}
+
+main() {
+	bash.utils.consoleLog "Main called"
+	is_root
+}
 
 echo "Idle users will be removed after 15 minutes"
 echo "readonly TMOUT=900" >> /etc/profile.d/os-security.sh
@@ -39,14 +54,29 @@ touch /etc/at.allow
 chmod 600 /etc/at.allow
 awk -F: '{print $1}' /etc/passwd | grep -v root > /etc/at.deny
 
+# Prevents root login on any devices attached to the computer
+sudo tee /etc/securetty << 'EOF' > /dev/null
+#tty1
+#tty2
+#tty3
+#tty4
+#tty5
+#tty6
+#tty7
+#tty8
+EOF
+
 usermod -s /sbin/nologin root
 usermod -s /sbin/nologin mail
 usermod -s /sbin/nologin ftp
 
+chkconfig livesys off
+chkconfig livesys-late off
+chkconfig --del livesys
+chkconfig --del livesys-late
+
 # Configure the default zone by Editing the firewalld Configuration File
 firewall-cmd --set-default-zone=drop
-
-# Configure the default firewalld.conf file
 sudo tee /etc/firewalld/firewalld.conf <<- 'EOF' > /dev/null
 # firewalld config file
 
@@ -83,10 +113,9 @@ Lockdown=no
 IPv6_rpfilter=yes
 EOF
 
-# Reload firewalld
 firewall-cmd --reload
 
-# Mange service(s) in host.deny
+# Prevents root login on any devices attached to the computer
 sudo tee /etc/hosts.deny <<- 'EOF' > /dev/null
 in.telnetd : ALL : severity emerg
 in.ftpd : ALL : severity emerg
@@ -123,7 +152,7 @@ service telnet
 }
 EOF
 
-# Block ftp access from a particular network group or restrict overall
+# Block Telnet access from a particular network group or restrict overall
 sudo tee etc/xinetd.d/ftp <<- 'EOF' > /dev/null
 service ftp
 {
