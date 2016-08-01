@@ -144,6 +144,8 @@ defaults
 includedir /etc/xinetd.d
 EOF
 
+bash.utils.consoleLog 'Ensure xinetd.d/telnet file'
+mkdir -p '/etc/xinetd.d/telnet'
 bash.utils.consoleLog 'Manage xinetd.d telnet config'
 # Block Telnet access from a particular network group or restrict overall
 tee etc/xinetd.d/telnet <<- 'EOF' > /dev/null
@@ -160,6 +162,8 @@ service telnet
 }
 EOF
 
+bash.utils.consoleLog 'Ensure xinetd.d/ftp file'
+mkdir -p '/etc/xinetd.d/ftp'
 bash.utils.consoleLog 'Manage xinetd.d ftp config'
 # Block ftp access from a particular network group or restrict overall
 tee etc/xinetd.d/ftp <<- 'EOF' > /dev/null
