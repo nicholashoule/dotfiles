@@ -164,3 +164,5 @@ service ftp
 EOF
 
 }
+bash.utils.consoleLog 'call main()'
+main "${@}"
