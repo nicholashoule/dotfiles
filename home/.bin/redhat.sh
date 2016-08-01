@@ -13,7 +13,12 @@
 # in /etc/grub.d/01_users or /etc/grub.d/40_custom.
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 this_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-this_user=$(whoami)
+if [ $SUDO_USER ]; then 
+  this_user=$SUDO_USER
+else 
+  this_user=$(logname)
+fi
+
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
