@@ -12,7 +12,7 @@
 # Copy the hash, and paste it in the template file where you configured the users, that is, either 
 # in /etc/grub.d/01_users or /etc/grub.d/40_custom.
 # grub2-mkconfig -o /boot/grub2/grub.cfg
-this_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+# this_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 if [ $SUDO_USER ]; then 
   this_user=$SUDO_USER
 else 
@@ -76,8 +76,11 @@ chkconfig livesys-late off
 chkconfig --del livesys
 chkconfig --del livesys-late
 
+bash.utils.consoleLog 'Firewalld set default zone to drop'
 # Configure the default zone by Editing the firewalld Configuration File
 firewall-cmd --set-default-zone=drop
+
+bash.utils.consoleLog 'Firewalld default config'
 tee /etc/firewalld/firewalld.conf <<- 'EOF' > /dev/null
 # firewalld config file
 
@@ -114,9 +117,11 @@ Lockdown=no
 IPv6_rpfilter=yes
 EOF
 
+bash.utils.consoleLog 'Firewalld reload'
 firewall-cmd --reload
 
-# Prevents root login on any devices attached to the computer
+bash.utils.consoleLog 'Manage hosts.deny'
+# Deny for service(s) user(s) and severity
 tee /etc/hosts.deny <<- 'EOF' > /dev/null
 in.telnetd : ALL : severity emerg
 in.ftpd : ALL : severity emerg
@@ -124,9 +129,10 @@ vsftpd : ALL : severity emerg
 sshd : ALL : severity emerg
 EOF
 
+bash.utils.consoleLog 'Manage xinetd defaults config'
 # The /etc/xinetd.conf file contains general configuration settings 
 # which affect every service under xinetd's control.
-tee /etc/hosts.deny <<- 'EOF' > /dev/null
+tee /etc/xinetd.conf <<- 'EOF' > /dev/null
 defaults
 {
          instances               = 60        
@@ -138,6 +144,7 @@ defaults
 includedir /etc/xinetd.d
 EOF
 
+bash.utils.consoleLog 'Manage xinetd.d telnet config'
 # Block Telnet access from a particular network group or restrict overall
 tee etc/xinetd.d/telnet <<- 'EOF' > /dev/null
 service telnet
@@ -153,7 +160,8 @@ service telnet
 }
 EOF
 
-# Block Telnet access from a particular network group or restrict overall
+bash.utils.consoleLog 'Manage xinetd.d ftp config'
+# Block ftp access from a particular network group or restrict overall
 tee etc/xinetd.d/ftp <<- 'EOF' > /dev/null
 service ftp
 {
