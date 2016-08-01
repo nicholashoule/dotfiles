@@ -14,15 +14,13 @@
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 
 #--------------------------------------------
-# Variables
-#--------------------------------------------
-this_dir="$(dirname ${0})"
-
-#--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
-[[ -e "$this_dir/src/bash/utils/functions" ]] && source "$this_dir/src/bash/utils/functions"
-if [ $? -ne 0 ]; then # test failed
+if [ -d ~/.src/bash/utils/ ]; then
+  for file in ~/.src/bash/utils/* ; do
+    source "${file}"
+  done
+else
   printf "%s\n" "[EXIT]: Couldn't source 'src/bash/utils/functions'."
 fi
 
