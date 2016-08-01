@@ -27,16 +27,11 @@ if [ $? -ne 0 ]; then # test failed
 fi
 
 #--------------------------------------------
-# 
+# Main()
 #--------------------------------------------
-is_root() {
-	[[ "${UID}" -eq 0 ]] \
-	|| bash.utils.quit "You must be root to execute this script"
-}
-
 main() {
-bash.utils.consoleLog "[TESTING]: Main() called"
-is_root
+bash.utils.consoleLog "Main() called"
+bash.utils.is_root
 
 bash.utils.consoleLog "Idle users will be removed after 15 minutes"
 echo "readonly TMOUT=900" >> /etc/profile.d/os-security.sh
