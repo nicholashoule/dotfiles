@@ -22,7 +22,7 @@ fi
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
-if [ -d $this_dir/../.src/bash/utils/ ]; then
+if [ -d /home/${this_user}/.src/bash/utils/ ]; then
   for file in /home/${this_user}/.src/bash/utils/* ; do
     source "${file}"
   done
