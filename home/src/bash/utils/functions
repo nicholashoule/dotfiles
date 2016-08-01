@@ -7,8 +7,8 @@ function bash.utils.quit() {
 }
 
 functions bash.utils.is_root() {
-	[[ "${UID}" -eq 0 ]] \
-	|| bash.utils.quit 'You must be root to execute this script'
+  [[ "${UID}" -eq 0 ]] \
+  || bash.utils.quit 'You must be root to execute this script'
 }
 
 function bash.utils.consoleLog()
