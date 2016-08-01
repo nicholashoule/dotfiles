@@ -12,12 +12,12 @@
 # Copy the hash, and paste it in the template file where you configured the users, that is, either 
 # in /etc/grub.d/01_users or /etc/grub.d/40_custom.
 # grub2-mkconfig -o /boot/grub2/grub.cfg
-
+this_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
-if [ -d ~/.src/bash/utils/ ]; then
-  for file in ~/.src/bash/utils/* ; do
+if [ -d $this_dir/../.src/bash/utils/ ]; then
+  for file in "$this_dir/.src/bash/utils/*" ; do
     source "${file}"
   done
 else
@@ -48,7 +48,7 @@ awk -F: '{print $1}' /etc/passwd | grep -v root > /etc/at.deny
 
 bash.utils.consoleLog 'Locking down securetty'
 # Prevents root login on any devices attached to the computer
-sudo tee /etc/securetty << 'EOF' > /dev/null
+tee /etc/securetty << 'EOF' > /dev/null
 #tty1
 #tty2
 #tty3
@@ -72,7 +72,7 @@ chkconfig --del livesys-late
 
 # Configure the default zone by Editing the firewalld Configuration File
 firewall-cmd --set-default-zone=drop
-sudo tee /etc/firewalld/firewalld.conf <<- 'EOF' > /dev/null
+tee /etc/firewalld/firewalld.conf <<- 'EOF' > /dev/null
 # firewalld config file
 
 # default zone
@@ -111,7 +111,7 @@ EOF
 firewall-cmd --reload
 
 # Prevents root login on any devices attached to the computer
-sudo tee /etc/hosts.deny <<- 'EOF' > /dev/null
+tee /etc/hosts.deny <<- 'EOF' > /dev/null
 in.telnetd : ALL : severity emerg
 in.ftpd : ALL : severity emerg
 vsftpd : ALL : severity emerg
@@ -120,7 +120,7 @@ EOF
 
 # The /etc/xinetd.conf file contains general configuration settings 
 # which affect every service under xinetd's control.
-sudo tee /etc/hosts.deny <<- 'EOF' > /dev/null
+tee /etc/hosts.deny <<- 'EOF' > /dev/null
 defaults
 {
          instances               = 60        
@@ -133,7 +133,7 @@ includedir /etc/xinetd.d
 EOF
 
 # Block Telnet access from a particular network group or restrict overall
-sudo tee etc/xinetd.d/telnet <<- 'EOF' > /dev/null
+tee etc/xinetd.d/telnet <<- 'EOF' > /dev/null
 service telnet
 {
         flags           = REUSE
@@ -148,7 +148,7 @@ service telnet
 EOF
 
 # Block Telnet access from a particular network group or restrict overall
-sudo tee etc/xinetd.d/ftp <<- 'EOF' > /dev/null
+tee etc/xinetd.d/ftp <<- 'EOF' > /dev/null
 service ftp
 {
         socket_type     = stream
