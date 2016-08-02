@@ -1,0 +1,1 @@
+# [Placeholder]: ~/.bash_logout
