@@ -21,7 +21,6 @@
 [core]
   whitespace = trailing-space,space-before-tab
   editor = vim
-  askpass =
 
 [init]
   templatedir = ~/.git_template
