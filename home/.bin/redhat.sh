@@ -196,5 +196,6 @@ if [ -d /home/${this_user}/.src/bash/utils/ ]; then
     main "${@}"
   done
 else
+  bash.usage_info
   printf "%s\n" "[EXIT]: Couldn't source 'src/bash/utils/functions'."
 fi
