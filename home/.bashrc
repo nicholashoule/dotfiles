@@ -9,7 +9,7 @@
 # SOURCE: global definitions
 #--------------------------------------------
 # GLOBAL DEFINITIONS
-if [[ -e /etc/bashrc ]] && source /etc/bashrc   # Load the default .bashrc
+#if [[ -e /etc/bashrc ]] && source /etc/bashrc   # Load the default .bashrc
 
 #--------------------------------------------
 # SOURCE: functions
