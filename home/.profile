@@ -3,6 +3,13 @@
 # The stuff NOT specifically related to bash, 
 # such as environment variables and PATH
 #--------------------------------------------
+# Default User specific env path
+#--------------------------------------------
+PATH="$PATH"
+export PATH
+#--------------------------------------------
+# Other specific env variables and exports
+#--------------------------------------------
 # JAVA information
 #export JAVA_HOME="[PATH]"           # export JAVA_HOME
 
