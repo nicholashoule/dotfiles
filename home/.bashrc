@@ -9,9 +9,7 @@
 # SOURCE: global definitions
 #--------------------------------------------
 # GLOBAL DEFINITIONS
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
+if [[ -f /etc/bashrc ]] && source '/etc/bashrc'   # Load the default .bashrc
 
 #--------------------------------------------
 # SOURCE: functions
@@ -19,7 +17,7 @@ fi
 # LINUX FUNCTION DEFINITIONS
 # You may want to put all your additions into a separate file like
 # ~/.bash_functions, instead of adding them here directly.
-if [ -f ~/.bash_functions ]; then
+if [[ -f ~/.bash_functions ]]; then
   . ~/.bash_functions
 fi
 # Export functions to other bash sub-shells
@@ -34,22 +32,18 @@ v_os_family=$(find_os_family)
 #--------------------------------------------
 # SOURCE: aliases
 #--------------------------------------------
-if [ "${v_os_family}" == 'Linux' ] && [ -n "${v_os_family}" ]; then
+if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # LINUX ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_aliases, instead of adding them here directly.
-  if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-  fi
+  [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases          # Load the .bash_aliases
 fi
 
-if [ "${v_os_family}" == 'Darwin' ] && [ -n "${v_os_family}" ]; then
+if [[ "${v_os_family}" == 'Darwin' ]] && [[ -n "${v_os_family}" ]]; then
   # DARWIN (OSX) ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.aliases, instead of adding them here directly.
-  if [ -f ~/.aliases ]; then
-    . ~/.aliases
-  fi
+  [[ -e "$HOME/.aliases" ]] && source "$HOME/.aliases"   # Load the .aliases
 fi
 
 #--------------------------------------------
@@ -58,29 +52,25 @@ fi
 # PROMPT COLORS DEFINITIONS
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt_colors , instead of adding them here directly.
-if [ -f ~/.bash_prompt_colors ]; then
-    . ~/.bash_prompt_colors
-fi
+[[ -f ~/.bash_prompt_colors ]] && . ~/.bash_prompt_colors
 
 # PROGRAMMABLE COMPLETION DEFINITIONS
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion.d/ ]; then
+    elif [[ -f /etc/bash_completion.d/ ]]; then
     . /etc/bash_completion
     fi
 fi
 
-if [ "${v_os_family}" == 'Linux' ] && [ -n "${v_os_family}" ]; then
+if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  if [ -f ~/.bash_settings ]; then
-      . ~/.bash_settings
-  fi
+  [[ -f ~/.bash_settings ]] && . ~/.bash_settings
 fi
 
 #--------------------------------------------
@@ -88,6 +78,4 @@ fi
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt, instead of adding them here directly.
-if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
-fi
+[[ -f ~/.bash_prompt ]] . ~/.bash_prompt
