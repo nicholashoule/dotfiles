@@ -146,7 +146,7 @@ EOF
 
 bash.utils.consoleLog 'Manage xinetd.d telnet config'
 # Block Telnet access from a particular network group or restrict overall
-tee -a etc/xinetd.d/telnet <<- 'EOF' > /dev/null
+tee -a /etc/xinetd.d/telnet <<- 'EOF' > /dev/null
 service telnet
 {
         flags           = REUSE
@@ -162,7 +162,7 @@ EOF
 
 bash.utils.consoleLog 'Manage xinetd.d ftp config'
 # Block ftp access from a particular network group or restrict overall
-tee -a etc/xinetd.d/ftp <<- 'EOF' > /dev/null
+tee -a /etc/xinetd.d/ftp <<- 'EOF' > /dev/null
 service ftp
 {
         socket_type     = stream
