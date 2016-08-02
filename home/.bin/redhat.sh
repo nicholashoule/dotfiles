@@ -25,9 +25,9 @@ __SCRIPTUSAGE__
 #--------------------------------------------
 # FUNCTION: bash.utils.sudo_user()
 # DESCRIPTION:
-# Print EXIT line to console and exit
+# Get the sudo user's name
 # Parameters: 
-#   $1, string - console message
+#   none
 #--------------------------------------------
 function bash.utils.sudo_user() {
   if [[ $SUDO_USER ]]; then 
