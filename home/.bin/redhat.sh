@@ -40,8 +40,6 @@ function bash.sudo_user() {
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
-bash.sudo_user
-
 if [ -d /home/${this_user}/.src/bash/utils/ ]; then
   for file in /home/${this_user}/.src/bash/utils/* ; do
     source "${file}"
@@ -198,5 +196,6 @@ service ftp
 EOF
 
 }
+bash.sudo_user
 bash.utils.consoleLog 'call main()'
 main "${@}"
