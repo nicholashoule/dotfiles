@@ -3,10 +3,6 @@
 # The stuff NOT specifically related to bash, 
 # such as environment variables and PATH
 #--------------------------------------------
-if [[ -e "$HOME/.rvm/scripts/rvm" ]]; then
-  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-fi
-
 # JAVA information
 #export JAVA_HOME="[PATH]"           # export JAVA_HOME
 
@@ -27,3 +23,8 @@ fi
 #export OS_TENANT_ID='[id]'
 #export NOVACLIENT_INSECURE=1
 #export OS_NO_CACHE=1
+
+# RVM
+if [[ -e "$HOME/.rvm/scripts/rvm" ]]; then
+  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+fi
