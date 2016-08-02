@@ -25,6 +25,21 @@ function bash.utils.is_root() {
 }
 
 #--------------------------------------------
+# FUNCTION: bash.utils.sudo_user()
+# DESCRIPTION:
+# Get the sudo user's name
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.sudo_user() {
+  if [[ $SUDO_USER ]]; then 
+    this_user="${SUDO_USER}"
+  else 
+    this_user=$(logname)
+  fi
+}
+
+#--------------------------------------------
 # FUNCTION: bash.utils.consoleLog()
 # DESCRIPTION:
 # Print INFO line to console with newline
