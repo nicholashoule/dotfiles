@@ -1,4 +1,6 @@
-# System .bashrc 
+#--------------------------------------------
+# .bashrc 
+# Interactive command line
 #--------------------------------------------
 # CHECK PS1: not running interactively
 #--------------------------------------------
