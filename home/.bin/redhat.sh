@@ -23,13 +23,13 @@ __SCRIPTUSAGE__
 }
 
 #--------------------------------------------
-# FUNCTION: bash.utils.sudo_user()
+# FUNCTION: bash.sudo_user()
 # DESCRIPTION:
 # Get the sudo user's name
 # Parameters: 
 #   none
 #--------------------------------------------
-function bash.utils.sudo_user() {
+function bash.sudo_user() {
   if [[ $SUDO_USER ]]; then 
     this_user="${SUDO_USER}"
   else 
@@ -40,7 +40,7 @@ function bash.utils.sudo_user() {
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
-bash.utils.sudo_user
+bash.sudo_user
 
 if [ -d /home/${this_user}/.src/bash/utils/ ]; then
   for file in /home/${this_user}/.src/bash/utils/* ; do
