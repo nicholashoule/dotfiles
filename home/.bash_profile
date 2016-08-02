@@ -6,7 +6,7 @@
 # ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order, and reads and 
 # executes commands from the first one that exists and is readable. The --noprofile 
 # option may be used when the shell is started to inhibit this behavior.
-# Load .profile and .bashrc (in that order)
+# Load .bash_login, .profile and .bashrc (in that order)
 #--------------------------------------------
 # Source the .profile and .bashrc file
 #--------------------------------------------
