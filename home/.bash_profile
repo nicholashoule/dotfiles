@@ -1,6 +1,8 @@
-# .bash_profile
 #--------------------------------------------
-# Source the .bashrc file
+# .bash_profile
+# Load .profile and .bashrc (in that order)
+#--------------------------------------------
+# Source the .profile and .bashrc file
 #--------------------------------------------
 [[ -e "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 [[ -e "$HOME/.bashrc" ]] && source "$HOME/.bashrc"   # Load the default .bashrc
