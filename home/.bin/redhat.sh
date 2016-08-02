@@ -1,11 +1,14 @@
 #!/bin/bash
+usage_info() { 
+cat <<__SCRIPTUSAGE__
+
 # Basic Hardening Guide:
 # https://docs.fedoraproject.org/en-US/Fedora/19/html/Security_Guide/chap-Security_Guide-Basic_Hardening.html
-#
+
+# OTHER INFORMATION:
 # GRUB 2 PASSWORD PROTECTION
 # https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-GRUB_2_Password_Protection.
-# 
-# OTHER INFORMATION:
+
 # Set a password for the GRUB bootloader. Generate a password hash using the command 
 # To generate an encrypted password, run the grub2-mkpasswd-pbkdf2 command on the command line as root.
 # Enter the desired password when prompted and repeat it. The command then outputs your password in an encrypted form.
@@ -13,11 +16,26 @@
 # in /etc/grub.d/01_users or /etc/grub.d/40_custom.
 # grub2-mkconfig -o /boot/grub2/grub.cfg
 # this_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-if [ $SUDO_USER ]; then 
-  this_user=$SUDO_USER
-else 
-  this_user=$(logname)
-fi
+
+__SCRIPTUSAGE__
+  # we shoule exit here but we're not going to
+  # exit 1
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.sudo_user()
+# DESCRIPTION:
+# Print EXIT line to console and exit
+# Parameters: 
+#   $1, string - console message
+#--------------------------------------------
+function bash.utils.sudo_user() {
+  if [[ $SUDO_USER ]]; then 
+    this_user="${SUDO_USER}"
+  else 
+    this_user=$(logname)
+  fi
+}
 
 #--------------------------------------------
 # Source bash utils functions
