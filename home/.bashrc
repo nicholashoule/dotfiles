@@ -36,7 +36,7 @@ if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # LINUX ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_aliases, instead of adding them here directly.
-  [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases          # Load the .bash_aliases
+  [[ -f ~/.bash_aliases ]] && source "~/.bash_aliases"          # Load the .bash_aliases
 fi
 
 if [[ "${v_os_family}" == 'Darwin' ]] && [[ -n "${v_os_family}" ]]; then
@@ -52,7 +52,7 @@ fi
 # PROMPT COLORS DEFINITIONS
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt_colors , instead of adding them here directly.
-[[ -f ~/.bash_prompt_colors ]] && . ~/.bash_prompt_colors
+[[ -f ~/.bash_prompt_colors ]] && source "~/.bash_prompt_colors"
 
 # PROGRAMMABLE COMPLETION DEFINITIONS
 # enable programmable completion features (you don't need to enable
@@ -70,7 +70,7 @@ if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  [[ -f ~/.bash_settings ]] && . ~/.bash_settings
+  [[ -f ~/.bash_settings ]] && source "~/.bash_settings"
 fi
 
 #--------------------------------------------
@@ -78,5 +78,4 @@ fi
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt, instead of adding them here directly.
-[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
-
+[[ -f ~/.bash_prompt ]] && source "~/.bash_prompt"
