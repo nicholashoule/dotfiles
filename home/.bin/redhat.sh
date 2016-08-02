@@ -38,9 +38,9 @@ bash.utils.consoleLogDate "main() called"
 bash.utils.is_root
 
 bash.utils.consoleLog "Idle users will be removed after 15 minutes"
-echo "readonly TMOUT=900" >> /etc/profile.d/os-security.sh
-echo "readonly HISTFILE" >> /etc/profile.d/os-security.sh
-chmod +x /etc/profile.d/os-security.sh
+echo "readonly TMOUT=900" > /etc/profile.d/os-security.sh
+echo "readonly HISTFILE" > /etc/profile.d/os-security.sh
+chmod 0644 /etc/profile.d/os-security.sh
 
 bash.utils.consoleLog 'Locking down Cron jobs'
 touch /etc/cron.allow
