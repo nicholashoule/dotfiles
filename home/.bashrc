@@ -78,4 +78,4 @@ fi
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt, instead of adding them here directly.
-[[ -f ~/.bash_prompt ]] . ~/.bash_prompt
+[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
