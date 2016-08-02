@@ -40,6 +40,8 @@ function bash.utils.sudo_user() {
 #--------------------------------------------
 # Source bash utils functions
 #--------------------------------------------
+bash.utils.sudo_user
+
 if [ -d /home/${this_user}/.src/bash/utils/ ]; then
   for file in /home/${this_user}/.src/bash/utils/* ; do
     source "${file}"
