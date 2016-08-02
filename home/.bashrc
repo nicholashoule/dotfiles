@@ -9,7 +9,7 @@
 # SOURCE: global definitions
 #--------------------------------------------
 # GLOBAL DEFINITIONS
-if [[ -f /etc/bashrc ]] && source '/etc/bashrc'   # Load the default .bashrc
+if [[ -f /etc/bashrc ]] && source /etc/bashrc   # Load the default .bashrc
 
 #--------------------------------------------
 # SOURCE: functions
@@ -36,14 +36,14 @@ if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # LINUX ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_aliases, instead of adding them here directly.
-  [[ -f ~/.bash_aliases ]] && source "~/.bash_aliases"          # Load the .bash_aliases
+  [[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases" # Load the .bash_aliases
 fi
 
 if [[ "${v_os_family}" == 'Darwin' ]] && [[ -n "${v_os_family}" ]]; then
   # DARWIN (OSX) ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.aliases, instead of adding them here directly.
-  [[ -e "$HOME/.aliases" ]] && source "$HOME/.aliases"   # Load the .aliases
+  [[ -e "$HOME/.aliases" ]] && source "$HOME/.aliases"           # Load the .aliases
 fi
 
 #--------------------------------------------
@@ -52,7 +52,7 @@ fi
 # PROMPT COLORS DEFINITIONS
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt_colors , instead of adding them here directly.
-[[ -f ~/.bash_prompt_colors ]] && source "~/.bash_prompt_colors"
+[[ -f "$HOME/.bash_prompt_colors" ]] && source "$HOME/.bash_prompt_colors"
 
 # PROGRAMMABLE COMPLETION DEFINITIONS
 # enable programmable completion features (you don't need to enable
@@ -70,7 +70,7 @@ if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  [[ -f ~/.bash_settings ]] && source "~/.bash_settings"
+  [[ -f "$HOME/.bash_settings" ]] && source "~/.bash_settings"
 fi
 
 #--------------------------------------------
@@ -78,4 +78,4 @@ fi
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt, instead of adding them here directly.
-[[ -f ~/.bash_prompt ]] && source "~/.bash_prompt"
+[[ -f "$HOME/.bash_prompt" ]] && source "$HOME/.bash_prompt"
