@@ -59,9 +59,9 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
-    elif [[ -f /etc/bash_completion.d/ ]]; then
+    elif [ -f /etc/bash_completion.d/ ]; then
     . /etc/bash_completion
     fi
 fi
@@ -70,7 +70,7 @@ if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  [[ -e "$HOME/.bash_settings" ]] && source "~/.bash_settings"
+  [[ -e "$HOME/.bash_settings" ]] && source "$HOME/.bash_settings"
   
 fi
 
@@ -79,4 +79,5 @@ fi
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt, instead of adding them here directly.
+
 [[ -e "$HOME/.bash_prompt" ]] && source "$HOME/.bash_prompt"
