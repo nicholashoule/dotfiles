@@ -1,5 +1,5 @@
 #!/bin/bash
-usage_info() { 
+bash.usage_info() { 
 cat <<__SCRIPTUSAGE__
 
 # Basic Hardening Guide:
@@ -38,19 +38,7 @@ function bash.sudo_user() {
 }
 
 #--------------------------------------------
-# Source bash utils functions
-#--------------------------------------------
-bash.sudo_user
-if [ -d /home/${this_user}/.src/bash/utils/ ]; then
-  for file in /home/${this_user}/.src/bash/utils/* ; do
-    source "${file}"
-  done
-else
-  printf "%s\n" "[EXIT]: Couldn't source 'src/bash/utils/functions'."
-fi
-
-#--------------------------------------------
-# Main()
+# Function: Main()
 #--------------------------------------------
 main() {
 bash.utils.consoleLogDate "main() called"
@@ -197,5 +185,16 @@ service ftp
 EOF
 
 }
-bash.utils.consoleLog 'call main()'
-main "${@}"
+#--------------------------------------------
+# Source bash utils functions and call main()
+#--------------------------------------------
+bash.sudo_user
+if [ -d /home/${this_user}/.src/bash/utils/ ]; then
+  for file in /home/${this_user}/.src/bash/utils/* ; do
+    source "${file}"
+    bash.utils.consoleLog 'call main()'
+    main "${@}"
+  done
+else
+  printf "%s\n" "[EXIT]: Couldn't source 'src/bash/utils/functions'."
+fi
