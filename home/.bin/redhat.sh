@@ -186,7 +186,7 @@ EOF
 
 bash.utils.consoleLog 'Install RVM:'
 \curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -
-runuser -l ${this_user} -c '\curl -sSL https://get.rvm.io | bash -s stable'
+runuser -l ${this_user} -c '\curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles'
 
 bash.utils.consoleLog 'Set git credential to use gnome-keyring.'
 git config --global credential.helper gnome-keyring
