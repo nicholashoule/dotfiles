@@ -1,4 +1,6 @@
-# System .bashrc 
+#--------------------------------------------
+# .bashrc 
+# Interactive command line
 #--------------------------------------------
 # CHECK PS1: not running interactively
 #--------------------------------------------
@@ -6,11 +8,28 @@
 [ -z "$PS1" ] && return
 
 #--------------------------------------------
-# SOURCE: global definitions
+# Linux - custom bash completion scripts
 #--------------------------------------------
-# GLOBAL DEFINITIONS
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
+# See .bash_alias 'gitbash' to get github file
+if [ -d ~/.bash_completion.d/ ]; then
+  for file in ~/.bash_completion.d/* ; do
+    source "${file}"
+  done
+fi
+
+#--------------------------------------------
+#OSX - Homebrew
+#--------------------------------------------
+# . $(brew --prefix)/etc/bash_completion
+if [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
+fi
+
+#--------------------------------------------
+#OSX - MacPorts
+#--------------------------------------------
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
 fi
 
 #--------------------------------------------
@@ -19,7 +38,7 @@ fi
 # LINUX FUNCTION DEFINITIONS
 # You may want to put all your additions into a separate file like
 # ~/.bash_functions, instead of adding them here directly.
-if [ -f ~/.bash_functions ]; then
+if [[ -f ~/.bash_functions ]]; then
   . ~/.bash_functions
 fi
 # Export functions to other bash sub-shells
@@ -34,22 +53,18 @@ v_os_family=$(find_os_family)
 #--------------------------------------------
 # SOURCE: aliases
 #--------------------------------------------
-if [ "${v_os_family}" == 'Linux' ] && [ -n "${v_os_family}" ]; then
+if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # LINUX ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_aliases, instead of adding them here directly.
-  if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-  fi
+  [[ -e "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases" # Load the .bash_aliases
 fi
 
-if [ "${v_os_family}" == 'Darwin' ] && [ -n "${v_os_family}" ]; then
+if [[ "${v_os_family}" == 'Darwin' ]] && [[ -n "${v_os_family}" ]]; then
   # DARWIN (OSX) ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.aliases, instead of adding them here directly.
-  if [ -f ~/.aliases ]; then
-    . ~/.aliases
-  fi
+  [[ -e "$HOME/.aliases" ]] && source "$HOME/.aliases" # Load the .aliases
 fi
 
 #--------------------------------------------
@@ -57,10 +72,8 @@ fi
 #--------------------------------------------
 # PROMPT COLORS DEFINITIONS
 # You may want to put all your additions into a separate file like
-# ~/.bash_promt_colors , instead of adding them here directly.
-if [ -f ~/.bash_promt_colors ]; then
-    . ~/.bash_promt_colors
-fi
+# ~/.bash_prompt_colors , instead of adding them here directly.
+[[ -e "$HOME/.bash_prompt_colors" ]] && source "$HOME/.bash_prompt_colors"
 
 # PROGRAMMABLE COMPLETION DEFINITIONS
 # enable programmable completion features (you don't need to enable
@@ -74,20 +87,16 @@ if ! shopt -oq posix; then
     fi
 fi
 
-if [ "${v_os_family}" == 'Linux' ] && [ -n "${v_os_family}" ]; then
+if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  if [ -f ~/.bash_settings ]; then
-      . ~/.bash_settings
-  fi
+  [[ -e "$HOME/.bash_settings" ]] && source "$HOME/.bash_settings"
 fi
 
 #--------------------------------------------
-# PROMPT COLORS DEFINITIONS
+# PROMPT DEFINITIONS
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
-# ~/.bash_promt, instead of adding them here directly.
-if [ -f ~/.bash_promt ]; then
-    . ~/.bash_promt
-fi
+# ~/.bash_prompt, instead of adding them here directly.
+[[ -e "$HOME/.bash_prompt" ]] && source "$HOME/.bash_prompt"

@@ -1,0 +1,166 @@
+#--------------------------------------------
+# FUNCTION: bash.utils.quit()
+# DESCRIPTION:
+# Print EXIT line to console and exit
+# Parameters: 
+#   $1, string - console message
+#--------------------------------------------
+function bash.utils.quit() {
+  local ln="${1?}"
+  printf "%s\n" "[EXIT]: ${ln}"
+
+  exit 1
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.is_root()
+# DESCRIPTION:
+# Check if uid is root
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.is_root() {
+  [[ "${UID}" -eq 0 ]] \
+  || bash.utils.quit 'You must be root to execute this script'
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.sudo_user()
+# DESCRIPTION:
+# Get the sudo user's name
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.sudo_user() {
+  if [[ $SUDO_USER ]]; then 
+    this_user="${SUDO_USER}"
+  else 
+    this_user=$(logname)
+  fi
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.consoleLog()
+# DESCRIPTION:
+# Print INFO line to console with newline
+# Parameters: 
+#   $1, string - console message
+#--------------------------------------------
+function bash.utils.consoleLog() {
+  local ln="${1?}"
+  printf "%s\n" "[INFO]: ${ln}"
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.consoleLogDate()
+# DESCRIPTION:
+# Print INFO line to console with date and newline
+# Parameters: 
+#   $1, string - Date w/ console message
+#--------------------------------------------
+function bash.utils.consoleLogDate() {
+  local ln="${1?}"
+  printf "%s %s\n" "[INFO][$(date +'%a %Y-%m-%d %H:%M:%S %z')]:" "${ln}"
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.writeln()
+# DESCRIPTION:
+# Print line to console without newline
+# Parameters: 
+#   $1, string - console message
+#--------------------------------------------
+function bash.utils.writeln() {
+  local ln="${1?}"
+  printf "%s" "${ln}"
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.is_empty()
+# DESCRIPTION:
+# Return true if value empty or unset, else false
+# Parameters: 
+#   $1, string - variable to check
+#--------------------------------------------
+function bash.utils.is_empty() {
+  # Return true if value empty or unset
+  if [[ -z "$1" ]]; then
+      # return 0, is empty
+      return 0
+  fi
+  # return 1, not empty
+  return 1
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.is_integer()
+# DESCRIPTION:
+# Return true if integer, else false
+# Parameters: 
+#   $1, string - variable to check
+#--------------------------------------------
+function bash.utils.is_integer() {
+  # Return true if integer
+  if [[ -n "$1" ]]; then
+      printf "%d" $1 > /dev/null 2>&1
+      return $?
+  fi
+  # return 1, not a number
+  return 1
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.to_lower()
+# DESCRIPTION:
+# Convert string to lower case
+# Parameters: 
+#   $1, string - convert to lower case
+#--------------------------------------------
+function bash.utils.to_lower() {
+  local ln="${1}"
+
+  # Check value is not empty, for speed.
+  if ( bash.utils.is_empty ${ln} ); then
+    # return 0, is empty, but we don't care
+    return 0
+  fi
+
+  # Convert to lower case
+  echo -e "${ln}" | tr '[:upper:]' '[:lower:]' | xargs 2>/dev/null
+  # return 0, we don't care
+  return 0
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.to_upper()
+# DESCRIPTION:
+# Convert string to upper case
+# Parameters: 
+#   $1, string - convert to upper case
+#--------------------------------------------
+function bash.utils.to_upper() {
+  local ln="${1}"
+
+  # Check value is not empty, for speed.
+  if ( bash.utils.is_empty ${ln} ); then
+    # return 0, is empty, but we don't care
+    return 0
+  fi
+
+  # Convert to upper case
+  echo -e "${ln}" | tr '[:lower:]' '[:upper:]' | xargs 2>/dev/null
+  # return 0, we don't care
+  return 0
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.find_os_family()
+# DESCRIPTION:
+# Use 'uname -s' to find Darwin or Linux
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.find_os_family() {
+  # Detect Linux or Darwin
+  printf "%s" "$(uname -s)"
+}

@@ -20,17 +20,16 @@ alias la="ls -laF ${colorflag}"                             # List all files col
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"   # List only directories
 alias dir="ls ${colorflag}--format=vertical"
 alias vdir="ls ${colorflag} --format=long"
-alias grep="grep ${colorflag}"                              # show differences in colour
-alias fgrep="fgrep ${colorflag}"                            # show differences in colour
-alias egrep="egrep ${colorflag}"                            # show differences in colour
 
 export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 #-----------------------------------------------
 # Helper alias(s) here
 #-----------------------------------------------
-alias tree='tree -C'
-alias path='echo -e ${PATH//:/\\n}'
+v_whoami=$(whoami)
+alias sudo='sudo '                   # Enable aliases to be sudo’ed
+alias tree='tree -C'                 # Pretty color tree
+alias path='echo -e ${PATH//:/\\n}'  # Pretty path
 
 # Recursively delete `.DS_Store` files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
@@ -48,6 +47,9 @@ alias vi='vim'                                  # Ensure Vi IMproved
 alias PluginInstall="vim +PluginInstall +qall"  # Quick PluginInstall
 alias plugininstall='PluginInstall'             # Quick PluginInstall
 alias pi='PluginInstall'                        # Quick PluginInstall
+
+# Vim GitHub plugins
+alias vundle='find_git_repo https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 
 # View HTTP traffic
 alias sniff="sudo netstat -tauw"
@@ -74,6 +76,10 @@ alias bi='bundle install'
 
 # Git and Github aliases
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
+
+# Git GitHub git-completion.bash
+alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash \
+-L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'

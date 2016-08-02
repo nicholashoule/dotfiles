@@ -35,7 +35,7 @@ brew install wget --with-iri
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
+#brew install homebrew/php/php55 --with-gmp
 
 # Install other useful binaries.
 brew install ack
@@ -44,6 +44,7 @@ brew install speedtest_cli
 brew install tree
 brew install nmap
 brew install xz
+brew install htop
 
 # Remove outdated versions from the cellar.
 brew cleanup
