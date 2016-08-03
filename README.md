@@ -9,7 +9,7 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 #### `Fedora`
 
 ## To install the dotfiles:
-1. Install Homesick with `gem install homesick`
+1. Install Homesick with `sudo gem install homesick`
 2. Clone this castle with `homesick clone nicholashoule/dotfiles`
 3. Create the symlinks with `homesick symlink dotfiles`
 
