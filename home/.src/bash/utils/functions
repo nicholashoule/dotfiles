@@ -194,5 +194,32 @@ function bash.utils.check_exit_status() {
     # printf "%s" '[CHECK EXIT STATUS]: Status [ OK ]'
 }
 
+#--------------------------------------------
+# FUNCTION: bash.utils.find_git_repo()
+# DESCRIPTION:
+# Check for and update existing local git repo 
+# or clone source/remote
+# Parameters: 
+#   $1, string - source git repo
+#   $2, string - local git repo
+#--------------------------------------------
+function bash.utils.find_git_repo() {
+v_srcrepo=$(printf "%s" "$1")
+v_localrepo=$(printf "%s" "$2")
+
+  # Check for an empty string
+  if ( ! bash.utils.is_empty ${v_srcrepo} ) && ( ! bash.utils.is_empty ${v_localrepo} ); then
+   # Detect repo
+      if [ ! -d "${v_localrepo}" ]; then
+      git clone ${v_srcrepo} ${v_localrepo}
+    else
+      cd "${v_localrepo}"
+      git pull ${v_srcrepo}
+    fi
+  else
+    printf "%s\n" "[Info]: Please specify a source and local repo."
+  fi
+}
+
 # Export functions to other bash sub-shells
 # typeset -fx bash.utils.check_exit_status
