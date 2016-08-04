@@ -22,7 +22,8 @@ augroup end
 "colorscheme solarized
 
 "Set colorscheme to Molokai
-colorscheme molokai
+"set background=dark
+"colorscheme molokai
 
 "}}}
 " PLUGIN OPTIONS {{{
