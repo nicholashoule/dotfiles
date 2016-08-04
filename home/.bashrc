@@ -33,18 +33,6 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 fi
 
 #--------------------------------------------
-# SOURCE: functions
-#--------------------------------------------
-# LINUX FUNCTION DEFINITIONS
-# You may want to put all your additions into a separate file like
-# ~/.bash_functions, instead of adding them here directly.
-#if [[ -f ~/.bash_functions ]]; then
-#  . ~/.bash_functions
-#fi
-# Export functions to other bash sub-shells
-#typeset -fx is_empty find_os_family find_git_repo
-
-#--------------------------------------------
 # Source bash utils functions and call main()
 #--------------------------------------------
 if [ -d ~/.src/bash/utils/ ]; then
