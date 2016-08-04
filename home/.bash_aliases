@@ -62,6 +62,7 @@ alias izgood="puppet parser validate"
 alias izpretty='puppet-lint'
 
 # Vagrant aliases
+# https://www.vagrantup.com/downloads.html
 alias v='vagrant'
 alias vs='vagrant status'
 alias vhl='vagrant hosts list'
@@ -75,6 +76,7 @@ alias be='bundle exec'
 alias bi='bundle install'
 
 # RVM Install
+# https://rvm.io/rvm/install
 alias rvmgpg2Import='\curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -'
 alias rvmInstall='rvmgpg2Import \curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -'
 
