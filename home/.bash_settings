@@ -5,6 +5,7 @@ ulimit -S -c 0        # Don't want coredumps.
 set -o notify
 set -o noclobber
 set -o ignoreeof
+set -o vi
 unset MAILCHECK
 
 #--------------------------------------------
@@ -12,15 +13,21 @@ unset MAILCHECK
 #--------------------------------------------
 # Values of variables controlling optional shell behavior
 # Enabled options:
-shopt -s checkhash
 shopt -s checkwinsize
-shopt -s sourcepath
+shopt -s cdspell
 shopt -s checkjobs
+shopt -s checkhash 
 shopt -s cmdhist
-shopt -s histappend histreedit histverify
-shopt -s globstar
 shopt -s dotglob
+shopt -s dirspell
 shopt -s extglob      # Necessary for programmable completion.
+shopt -s globstar
+shopt -s histappend 
+shopt -s histreedit
+shopt -s histverify
+shopt -s lithist
+shopt -s no_empty_cmd_completion
+shopt -s nullglob
 
 # Disabled options:
 shopt -u mailwarn     # Don't want shell to warn me of incoming mail.
