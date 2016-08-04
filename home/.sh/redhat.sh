@@ -38,7 +38,7 @@ function bash.sudo_user() {
 }
 
 #--------------------------------------------
-# FUNCTION: bash.utils.common_packages()
+# FUNCTION: bash.common_packages()
 # DESCRIPTION:
 # Enusre some common packages are installed
 # Parameters: 
