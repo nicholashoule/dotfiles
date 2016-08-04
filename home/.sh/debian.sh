@@ -34,11 +34,30 @@ function bash.sudo_user() {
 }
 
 #--------------------------------------------
+# FUNCTION: bash.utils.common_packages()
+# DESCRIPTION:
+# Enusre some common packages are installed
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.common_packages() {
+  if [[ $OSTYPE =~ "debian" ]]; then
+    bash.utils.consoleLogDate "Enusre some common packages are installed."
+    apt-get install -y vim vim-common git screen tmux
+  fi
+  
+  bash.utils.consoleLog "Common $OSTYPE packages are installed."
+  
+  return
+}
+
+#--------------------------------------------
 # Function: Main()
 #--------------------------------------------
 main() {
 bash.utils.consoleLogDate "main() called"
 bash.utils.is_root
+bash.common_packages
 
 bash.utils.consoleLog 'Locking down Cron jobs'
 touch /etc/cron.allow
