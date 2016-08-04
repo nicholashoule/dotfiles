@@ -42,10 +42,11 @@ function bash.sudo_user() {
 #--------------------------------------------
 function bash.utils.common_packages() {
   if [[ $OSTYPE =~ "redhat" ]]; then
-    bash.utils.consoleLog "Enusre some common packages are installed on system"
+    bash.utils.consoleLogDate "Enusre some common packages are installed."
     dnf install -y vim vim-common git screen tmux
   fi
   
+  bash.utils.consoleLog "Common packages are installed."
   return
 }
 
