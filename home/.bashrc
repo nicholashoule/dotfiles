@@ -45,6 +45,18 @@ fi
 typeset -fx is_empty find_os_family find_git_repo
 
 #--------------------------------------------
+# Source bash utils functions and call main()
+#--------------------------------------------
+if [ -d ~/.src/bash/utils/ ]; then
+  for file in ~/.src/bash/utils/* ; do
+    source "${file}"
+    bash.utils.consoleLog 'Sourced bash utils functions'
+  done
+else
+  printf "%s\n" "[WARNING]: Couldn't source 'src/bash/utils/functions'."
+fi
+
+#--------------------------------------------
 # Variables
 #--------------------------------------------
 # Get/Set v_family variable
