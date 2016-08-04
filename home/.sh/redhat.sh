@@ -40,9 +40,22 @@ function bash.sudo_user() {
 #--------------------------------------------
 # Function: Main()
 #--------------------------------------------
+function bash.utils.common_packages() {
+  if [[ $OSTYPE =~ "redhat" ]]; then
+    bash.utils.consoleLog "Enusre some common packages are installed on system"
+    dnf install -y vim vim-common git screen tmux
+  fi
+  
+  return
+}
+
+#--------------------------------------------
+# Function: Main()
+#--------------------------------------------
 main() {
 bash.utils.consoleLogDate "main() called"
 bash.utils.is_root
+bash.utils.common_packages
 
 bash.utils.consoleLog "Idle users will be removed after 15 minutes"
 echo "readonly TMOUT=900" > /etc/profile.d/os-security.sh
