@@ -6,7 +6,7 @@
 #   $1, string - console message
 #--------------------------------------------
 function bash.utils.quit() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s\n" "[EXIT]: ${ln}"
 
   exit 1
@@ -20,7 +20,7 @@ function bash.utils.quit() {
 #   none
 #--------------------------------------------
 function bash.utils.is_root() {
-  [[ "${UID}" -eq 0 ]] \
+  [[ $UID -eq 0 ]] \
   || bash.utils.quit 'You must be root to execute this script'
 }
 
@@ -47,7 +47,7 @@ function bash.utils.sudo_user() {
 #   $1, string - console message
 #--------------------------------------------
 function bash.utils.consoleLog() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s\n" "[INFO]: ${ln}"
 }
 
@@ -59,7 +59,7 @@ function bash.utils.consoleLog() {
 #   $1, string - Date w/ console message
 #--------------------------------------------
 function bash.utils.consoleLogDate() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s %s\n" "[INFO][$(date +'%a %Y-%m-%d %H:%M:%S %z')]:" "${ln}"
 }
 
@@ -71,7 +71,7 @@ function bash.utils.consoleLogDate() {
 #   $1, string - console message
 #--------------------------------------------
 function bash.utils.writeln() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s" "${ln}"
 }
 
@@ -84,7 +84,7 @@ function bash.utils.writeln() {
 #--------------------------------------------
 function bash.utils.is_empty() {
   # Return true if value empty or unset
-  if [[ -z "$1" ]]; then
+  if [[ -z $1 ]]; then
       # return 0, is empty
       return 0
   fi
@@ -101,7 +101,7 @@ function bash.utils.is_empty() {
 #--------------------------------------------
 function bash.utils.is_integer() {
   # Return true if integer
-  if [[ -n "$1" ]]; then
+  if [[ -n $1 ]]; then
       printf "%d" $1 > /dev/null 2>&1
       return $?
   fi
@@ -117,7 +117,7 @@ function bash.utils.is_integer() {
 #   $1, string - convert to lower case
 #--------------------------------------------
 function bash.utils.to_lower() {
-  local ln="${1}"
+  local ln="${1?}"
 
   # Check value is not empty, for speed.
   if ( bash.utils.is_empty ${ln} ); then
@@ -139,7 +139,7 @@ function bash.utils.to_lower() {
 #   $1, string - convert to upper case
 #--------------------------------------------
 function bash.utils.to_upper() {
-  local ln="${1}"
+  local ln="${1?}"
 
   # Check value is not empty, for speed.
   if ( bash.utils.is_empty ${ln} ); then
