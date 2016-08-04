@@ -2,12 +2,12 @@
 
 I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.
 
-# Required: `RVM`
+# Required: `Ruby` & `RVM`
 
 https://rvm.io/
 
 ```
-\curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
+sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
 
 -----
@@ -15,6 +15,12 @@ https://rvm.io/
 ## Linux
 
 #### `Fedora`
+
+Install Ruby:
+
+```
+sudo dnf install ruby
+```
 
 ## To install the dotfiles:
 1. Install Homesick with `gem install homesick`
