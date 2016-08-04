@@ -13,8 +13,13 @@ augroup end
 " }}}
 " COLORS {{{
 
+" color reset
+if exists("syntax_on")
+  syntax reset
+endif
+
 " Enable syntax highlighting
-" syntax enable
+syntax enable
 
 "Set colorscheme to Solarized
 "let g:solarized_termtrans=1
