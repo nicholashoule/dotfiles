@@ -74,9 +74,12 @@ alias b='bundle'
 alias be='bundle exec'
 alias bi='bundle install'
 
+# RVM Install
+alias rvmgpg2Import='\curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -'
+alias rvmInstall='rvmgpg2Import \curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -'
+
 # Git and Github aliases
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
-
 # Git GitHub git-completion.bash
 alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash \
 -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
