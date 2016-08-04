@@ -196,10 +196,9 @@ function bash.utils.find_os() {
 # Parameters: 
 #   none
 #--------------------------------------------
-function bash.common_packages() {
+function bash.utils.common_packages() {
 
   if ( bash.utils.find_os_kernel == "Linux"); then
-  
     if ( bash.utils.find_os_family == "redhat"); then
       if ( bash.utils.find_os == "fedora"); then
         bash.utils.consoleLogDate "Enusre some common packages are installed."
@@ -221,6 +220,7 @@ function bash.common_packages() {
       bash.utils.consoleLogDate "Enusre some common packages are installed."
       brew install -y vim vim-common git screen tmux
     fi
+    
   fi
   
   bash.utils.consoleLog "Common $OSTYPE packages are installed."
