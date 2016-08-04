@@ -176,8 +176,8 @@ function bash.utils.find_os_family() {
 #   $2, string - Ignore check if exit status is 1
 #--------------------------------------------
 function bash.utils.check_exit_status() {
-    exit_status=$1
-    test_skip=$2
+    local exit_status=$1
+    local test_skip=$2
 
     if [ "${exit_status}" -ne 0 ]; then # test failed
         if [ -n "${test_skip}" ]; then
