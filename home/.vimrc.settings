@@ -20,6 +20,10 @@ endif
 
 " Enable syntax highlighting
 syntax enable
+" syntax
+syntax on
+" support 256 colors in Lion terminal 
+set t_Co=256
 
 if has('gui_running')
     set background=light
