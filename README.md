@@ -1,12 +1,43 @@
-# My dotfiles repo
+# dotfiles project
 
 I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.
+
+## Required: `Ruby` & `RVM`
+
+[Ruby Version Manager - RVM](https://rvm.io/)
+[Ruby]
+
+```
+sudo curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
+```
 
 -----
 
 ## Linux
 
-#### `Fedora`
+#### `Fedora (RedHat)`
+
+Install Ruby:
+
+```
+# f23+
+sudo dnf install ruby
+```
+
+```
+sudo yum install ruby
+```
+
+#### `Mint (Debian)`
+
+Install Ruby:
+
+```
+sudo apt-get install ruby
+```
+
+-----
 
 ## To install the dotfiles:
 1. Install Homesick with `gem install homesick`
@@ -34,6 +65,8 @@ To install from command line: `vim +PluginInstall +qall`
 
 https://github.com/Valloric/YouCompleteMe/blob/master/README.md
 
+##### `Fedora`
+
 Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
 
 Make sure you have Python headers installed: `sudo dnf install python-devel python3-devel`.
@@ -56,5 +89,11 @@ cd ~/.vim/bundle/YouCompleteMe
 1. Download and install an Awesome patched font:
   - https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Inconsolata%2BAwesome.ttf
 2. Switch iTerm2 or Terminal/VTE to use that font for both **Font** and **Non ASCII Font**
+
+##### `Fedora`
+
+```
+sudo mv Inconsolata-Awesome.ttf /usr/share/fonts/
+```
 
 -----
