@@ -4,6 +4,8 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 
 # Required: `RVM`
 
+https://rvm.io/
+
 ```
 \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
