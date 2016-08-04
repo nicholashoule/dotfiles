@@ -30,8 +30,3 @@ export PATH
 #export OS_TENANT_ID='[id]'
 #export NOVACLIENT_INSECURE=1
 #export OS_NO_CACHE=1
-
-# RVM
-if [[ -e "$HOME/.rvm/scripts/rvm" ]]; then
-  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-fi
