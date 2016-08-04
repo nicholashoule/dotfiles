@@ -38,11 +38,11 @@ fi
 # LINUX FUNCTION DEFINITIONS
 # You may want to put all your additions into a separate file like
 # ~/.bash_functions, instead of adding them here directly.
-if [[ -f ~/.bash_functions ]]; then
-  . ~/.bash_functions
-fi
+#if [[ -f ~/.bash_functions ]]; then
+#  . ~/.bash_functions
+#fi
 # Export functions to other bash sub-shells
-typeset -fx is_empty find_os_family find_git_repo
+#typeset -fx is_empty find_os_family find_git_repo
 
 #--------------------------------------------
 # Source bash utils functions and call main()
@@ -60,7 +60,7 @@ fi
 # Variables
 #--------------------------------------------
 # Get/Set v_family variable
-v_os_family=$(find_os_family)
+v_os_family=$(bash.utils.find_os_family)
 
 #--------------------------------------------
 # SOURCE: aliases
