@@ -89,7 +89,7 @@ cd ~/.vim/bundle/YouCompleteMe
   - https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Inconsolata%2BAwesome.ttf
 2. Switch iTerm2 or Terminal/VTE to use that font for both **Font** and **Non ASCII Font**
 
-##### `Fedora'
+##### `Fedora`
 
 ```
 sudo mv Inconsolata-Awesome.ttf /usr/share/fonts/
