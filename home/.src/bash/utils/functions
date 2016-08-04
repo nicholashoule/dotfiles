@@ -162,7 +162,7 @@ function bash.utils.to_upper() {
 #--------------------------------------------
 function bash.utils.find_os_kernel() {
   # Detect Linux or Darwin
-  printf "%s" "$(uname -s)"
+  printf "%s" "$(uname -s)" 2>/dev/null
 }
 
 #--------------------------------------------
@@ -174,7 +174,7 @@ function bash.utils.find_os_kernel() {
 #--------------------------------------------
 function bash.utils.find_os_family() {
   # Detect Linux or Darwin
-  facter osfamily
+  facter osfamily 2>/dev/null
 }
 
 #--------------------------------------------
@@ -186,7 +186,7 @@ function bash.utils.find_os_family() {
 #--------------------------------------------
 function bash.utils.find_os() {
   # Detect Linux or Darwin
-  facter operatingsystem
+  facter operatingsystem 2>/dev/null
 }
 
 #--------------------------------------------
