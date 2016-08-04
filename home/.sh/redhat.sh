@@ -38,7 +38,11 @@ function bash.sudo_user() {
 }
 
 #--------------------------------------------
-# Function: Main()
+# FUNCTION: bash.utils.common_packages()
+# DESCRIPTION:
+# Enusre some common packages are installed
+# Parameters: 
+#   none
 #--------------------------------------------
 function bash.utils.common_packages() {
   if [[ $OSTYPE =~ "redhat" ]]; then
@@ -46,7 +50,8 @@ function bash.utils.common_packages() {
     dnf install -y vim vim-common git screen tmux
   fi
   
-  bash.utils.consoleLog "Common packages are installed."
+  bash.utils.consoleLog "Common $OSTYPE packages are installed."
+  
   return
 }
 
