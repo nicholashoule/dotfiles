@@ -21,13 +21,17 @@ endif
 " Enable syntax highlighting
 syntax enable
 
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+
 "Set colorscheme to Solarized
 "let g:solarized_termtrans=1
-"set background=dark
 "colorscheme solarized
 
 "Set colorscheme to Molokai
-"set background=dark
 "colorscheme molokai
 
 "}}}
