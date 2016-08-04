@@ -2,6 +2,12 @@
 
 I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.
 
+# Required: `RVM`
+
+```
+\curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
+```
+
 -----
 
 ## Linux
