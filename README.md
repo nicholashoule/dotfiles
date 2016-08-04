@@ -8,6 +8,7 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 [Ruby]
 
 ```
+sudo curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
 
