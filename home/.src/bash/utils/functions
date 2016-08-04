@@ -154,15 +154,78 @@ function bash.utils.to_upper() {
 }
 
 #--------------------------------------------
-# FUNCTION: bash.utils.find_os_family()
+# FUNCTION: bash.utils.find_os_kernel()
 # DESCRIPTION:
 # Use 'uname -s' to find Darwin or Linux
 # Parameters: 
 #   none
 #--------------------------------------------
-function bash.utils.find_os_family() {
+function bash.utils.find_os_kernel() {
   # Detect Linux or Darwin
   printf "%s" "$(uname -s)"
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.find_os_family()
+# DESCRIPTION:
+# Use facter to fine osfamily
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.find_os_family() {
+  # Detect Linux or Darwin
+  facter osfamily
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.find_os()
+# DESCRIPTION:
+# Use facter to get operatingsystem
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.find_os() {
+  # Detect Linux or Darwin
+  facter operatingsystem
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.common_packages()
+# DESCRIPTION:
+# Enusre some common packages are installed
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.common_packages() {
+
+  if ( bash.utils.find_os_kernel == "Linux"); then
+  
+    if ( bash.utils.find_os_family == "redhat"); then
+      if ( bash.utils.find_os == "fedora"); then
+        bash.utils.consoleLogDate "Enusre some common packages are installed."
+        dnf install -y vim vim-common git screen tmux
+      fi
+    fi
+    
+    if ( bash.utils.find_os_family == "debian"); then
+      if ( bash.utils.find_os == "fedora"); then
+        bash.utils.consoleLogDate "Enusre some common packages are installed."
+        apt-get install -y vim vim-common git screen tmux
+      fi
+    fi
+    
+  fi
+
+  if ( bash.utils.find_os_kernel == "Darwin"); then
+    if ( bash.utils.find_os == "darwin"); then
+      bash.utils.consoleLogDate "Enusre some common packages are installed."
+      brew install -y vim vim-common git screen tmux
+    fi
+  fi
+  
+  bash.utils.consoleLog "Common $OSTYPE packages are installed."
+  
+  return
 }
 
 #--------------------------------------------
