@@ -48,7 +48,7 @@ fi
 # Variables
 #--------------------------------------------
 # Get/Set v_family variable
-v_os_family=$(bash.utils.find_os_family)
+v_os_family=$(bash.utils.find_os_kernel)
 
 #--------------------------------------------
 # SOURCE: aliases
