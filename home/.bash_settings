@@ -14,7 +14,7 @@ unset MAILCHECK
 # Values of variables controlling optional shell behavior
 # Enabled options:
 shopt -s checkwinsize
-shopt -s cdspell
+#shopt -s cdspell
 shopt -s checkjobs
 shopt -s checkhash 
 shopt -s cmdhist
@@ -25,7 +25,7 @@ shopt -s globstar
 shopt -s histappend 
 shopt -s histreedit
 shopt -s histverify
-shopt -s lithist
+#shopt -s lithist
 #shopt -s no_empty_cmd_completion
 shopt -s nullglob
 
