@@ -2,6 +2,41 @@
 
 I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.
 
+## Required: `Ruby` & `RVM`
+
+[Ruby Version Manager - RVM](https://rvm.io/)
+[Ruby]
+
+```
+sudo curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
+```
+
+-----
+
+## Linux
+
+#### `Fedora (RedHat)`
+
+Install Ruby:
+
+```
+# f23+
+sudo dnf install ruby
+```
+
+```
+sudo yum install ruby
+```
+
+#### `Mint (Debian)`
+
+Install Ruby:
+
+```
+sudo apt-get install ruby
+```
+
 -----
 
 ## Linux
