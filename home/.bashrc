@@ -54,18 +54,20 @@ fi
 #--------------------------------------------
 #OSX - Homebrew
 #--------------------------------------------
-# . $(brew --prefix)/etc/bash_completion
-if [[ -f /usr/local/etc/bash_completion ]]; then
+if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
+  # . $(brew --prefix)/etc/bash_completion
+  if [[ -f /usr/local/etc/bash_completion ]]; then
     . /usr/local/etc/bash_completion
+  fi
 fi
-
 #--------------------------------------------
 #OSX - MacPorts
 #--------------------------------------------
-if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
+  if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     . /usr/share/bash-completion/bash_completion
+  fi
 fi
-
 #--------------------------------------------
 # SOURCE: aliases
 #--------------------------------------------
