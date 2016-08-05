@@ -34,7 +34,7 @@ sudo yum install ruby
 Install Ruby:
 
 ```
-sudo apt-get install ruby
+sudo apt-get install ruby ruby-dev
 ```
 
 -----
