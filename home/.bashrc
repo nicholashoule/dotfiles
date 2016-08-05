@@ -13,7 +13,7 @@
 if [ -d ~/.src/bash/utils/ ]; then
   for file in ~/.src/bash/utils/* ; do
     source "${file}"
-    bash.utils.consoleLog 'Sourced bash utils functions'
+    #bash.utils.consoleLog 'Sourced bash utils functions'
   done
 else
   printf "%s\n" "[WARNING]: Couldn't source 'src/bash/utils/functions'."
