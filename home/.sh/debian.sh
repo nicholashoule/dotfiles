@@ -29,7 +29,7 @@ function bash.sudo_user() {
   if [[ $SUDO_USER ]]; then 
     this_user="${SUDO_USER}"
   else 
-    this_user=$(logname)
+    this_user=$(whoami)
   fi
 }
 
