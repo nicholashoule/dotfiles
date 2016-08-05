@@ -199,17 +199,20 @@ function bash.utils.find_os() {
 function bash.utils.common_packages() {
 
   if ( bash.utils.find_os_kernel == "Linux" ); then
+  
     if ( bash.utils.find_os_family == "RedHat" ); then
       if ( bash.utils.find_os == "Fedora" ); then
         bash.utils.consoleLogDate "Enusre some common packages are installed."
         dnf install -y vim vim-common git screen tmux
+        
       fi
     fi
     
     if ( bash.utils.find_os_family == "Debian" ); then
       if ( bash.utils.find_os == "LinuxMint" ); then
         bash.utils.consoleLogDate "Enusre some common packages are installed."
-        apt-get install -y vim vim-common git screen tmux
+        apt install -y vim vim-common git screen tmux
+        
       fi
     fi
     
