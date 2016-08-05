@@ -8,6 +8,26 @@
 [ -z "$PS1" ] && return
 
 #--------------------------------------------
+# PROGRAMMABLE COMPLETION DEFINITIONS
+#--------------------------------------------
+# PROGRAMMABLE COMPLETION DEFINITIONS
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+      . /usr/share/bash-completion/bash_completion
+    elif [[ -f /etc/bash_completion ]]; then
+      . /etc/bash_completion
+    fi
+fi
+
+# enable bash completion in interactive shells
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
+
+#--------------------------------------------
 # Linux - custom bash completion scripts
 #--------------------------------------------
 # See .bash_alias 'gitbash' to get github file
@@ -74,18 +94,6 @@ fi
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt_colors , instead of adding them here directly.
 [[ -e "$HOME/.bash_prompt_colors" ]] && source "$HOME/.bash_prompt_colors"
-
-# PROGRAMMABLE COMPLETION DEFINITIONS
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-    . /usr/share/bash-completion/bash_completion
-    elif [[ -f /etc/bash_completion.d/ ]]; then
-    . /etc/bash_completion
-    fi
-fi
 
 if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
