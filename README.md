@@ -69,6 +69,9 @@ To install from command line: `vim +PluginInstall +qall`
 
 https://github.com/Valloric/YouCompleteMe/blob/master/README.md
 
+
+##### `RedHat & Fedora`
+
 Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
 
 Make sure you have Python headers installed: `sudo dnf install python-devel python3-devel`.
@@ -80,6 +83,13 @@ Might need: legacy `libtinfo`
 `dnf repoquery -l ncurses-compat-libs`
 
 `sudo dnf install ncurses-compat-libs-6.0-5.20160116.fc24.x86_64`
+
+
+##### `Debian`
+
+```
+sudo apt-get install automake gcc cmake kernel-package
+```
 
 ```
 cd ~/.vim/bundle/YouCompleteMe
