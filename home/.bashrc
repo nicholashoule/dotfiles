@@ -8,6 +8,24 @@
 [ -z "$PS1" ] && return
 
 #--------------------------------------------
+# Source bash utils functions and call main()
+#--------------------------------------------
+if [ -d ~/.src/bash/utils/ ]; then
+  for file in ~/.src/bash/utils/* ; do
+    source "${file}"
+    bash.utils.consoleLog 'Sourced bash utils functions'
+  done
+else
+  printf "%s\n" "[WARNING]: Couldn't source 'src/bash/utils/functions'."
+fi
+
+#--------------------------------------------
+# Variables
+#--------------------------------------------
+# Get/Set v_family variable
+v_os_family=$(bash.utils.find_os_kernel)
+
+#--------------------------------------------
 # PROGRAMMABLE COMPLETION DEFINITIONS
 #--------------------------------------------
 # PROGRAMMABLE COMPLETION DEFINITIONS
@@ -26,11 +44,11 @@ fi
 # Linux - custom bash completion scripts
 #--------------------------------------------
 # See .bash_alias 'gitbash' to get github file
-# if [ -d ~/.bash_completion.d/ ]; then
-#   for file in ~/.bash_completion.d/* ; do
-#     source "${file}"
-#   done
-# fi
+if [ -d ~/.bash_completion.d/ ]; then
+  for file in ~/.bash_completion.d/* ; do
+    source "${file}"
+  done
+fi
 
 #--------------------------------------------
 #OSX - Homebrew
@@ -46,24 +64,6 @@ fi
 if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
 fi
-
-#--------------------------------------------
-# Source bash utils functions and call main()
-#--------------------------------------------
-if [ -d ~/.src/bash/utils/ ]; then
-  for file in ~/.src/bash/utils/* ; do
-    source "${file}"
-    bash.utils.consoleLog 'Sourced bash utils functions'
-  done
-else
-  printf "%s\n" "[WARNING]: Couldn't source 'src/bash/utils/functions'."
-fi
-
-#--------------------------------------------
-# Variables
-#--------------------------------------------
-# Get/Set v_family variable
-v_os_family=$(bash.utils.find_os_kernel)
 
 #--------------------------------------------
 # SOURCE: aliases
