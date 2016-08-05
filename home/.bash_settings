@@ -26,7 +26,7 @@ shopt -s histappend
 shopt -s histreedit
 shopt -s histverify
 shopt -s lithist
-shopt -s no_empty_cmd_completion
+#shopt -s no_empty_cmd_completion
 shopt -s nullglob
 
 # Disabled options:
