@@ -198,16 +198,16 @@ function bash.utils.find_os() {
 #--------------------------------------------
 function bash.utils.common_packages() {
 
-  if ( bash.utils.find_os_kernel == "Linux"); then
-    if ( bash.utils.find_os_family == "redhat"); then
+  if ( $(bash.utils.find_os_kernel) == "Linux"); then
+    if ( $(bash.utils.find_os_family) == "redhat"); then
       if ( bash.utils.find_os == "fedora"); then
         bash.utils.consoleLogDate "Enusre some common packages are installed."
         dnf install -y vim vim-common git screen tmux
       fi
     fi
     
-    if ( bash.utils.find_os_family == "debian"); then
-      if ( bash.utils.find_os == "fedora"); then
+    if ( $(bash.utils.find_os_family) == "debian"); then
+      if ( $(bash.utils.find_os) == "fedora"); then
         bash.utils.consoleLogDate "Enusre some common packages are installed."
         apt-get install -y vim vim-common git screen tmux
       fi
@@ -215,8 +215,8 @@ function bash.utils.common_packages() {
     
   fi
 
-  if ( bash.utils.find_os_kernel == "Darwin"); then
-    if ( bash.utils.find_os == "darwin"); then
+  if ( $(bash.utils.find_os_kernel) == "Darwin"); then
+    if ( $(bash.utils.find_os) == "darwin"); then
       bash.utils.consoleLogDate "Enusre some common packages are installed."
       brew install -y vim vim-common git screen tmux
     fi
