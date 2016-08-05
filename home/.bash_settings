@@ -19,7 +19,7 @@ shopt -s checkjobs
 shopt -s checkhash 
 shopt -s cmdhist
 shopt -s dotglob
-shopt -s dirspell
+#shopt -s dirspell
 shopt -s extglob      # Necessary for programmable completion.
 shopt -s globstar
 shopt -s histappend 
