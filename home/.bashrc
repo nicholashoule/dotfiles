@@ -26,11 +26,11 @@ fi
 # Linux - custom bash completion scripts
 #--------------------------------------------
 # See .bash_alias 'gitbash' to get github file
-if [ -d ~/.bash_completion.d/ ]; then
-  for file in ~/.bash_completion.d/* ; do
-    source "${file}"
-  done
-fi
+# if [ -d ~/.bash_completion.d/ ]; then
+#   for file in ~/.bash_completion.d/* ; do
+#     source "${file}"
+#   done
+# fi
 
 #--------------------------------------------
 #OSX - Homebrew
