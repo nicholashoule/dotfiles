@@ -197,37 +197,43 @@ function bash.utils.find_os() {
 #   none
 #--------------------------------------------
 function bash.utils.common_packages() {
+  local v_os_kernel=$(bash.utils.find_os_kernel)
+  local v_os_family=$(bash.utils.find_os_family)
+  local v_os=$(bash.utils.find_os)
 
-  if ( bash.utils.find_os_kernel == "Linux" ); then
+  if [[ "${v_os_kernel}" == "Linux" ]]; then
   
-    if ( bash.utils.find_os_family == "RedHat" ); then
-      if ( bash.utils.find_os == "Fedora" ); then
-        bash.utils.consoleLogDate "Enusre some common packages are installed."
+    if [[ "${v_os_family}" == "RedHat" ]]; then
+      if [[ "${v_os}" == "Fedora" ]]; then
+        bash.utils.consoleLogDate "Ensure some common packages are installed."
         dnf install -y vim vim-common git screen tmux
-        
       fi
     fi
     
-    if ( bash.utils.find_os_family == "Debian" ); then
-      if ( bash.utils.find_os == "LinuxMint" ); then
-        bash.utils.consoleLogDate "Enusre some common packages are installed."
+    if ( "${v_os_family}" == "Debian" ); then
+      if ( "${v_os}" == "LinuxMint" ); then
+        bash.utils.consoleLogDate "Ensure some common packages are installed."
         apt install -y vim vim-common git screen tmux
-        
       fi
+      
+      if ( "${v_os}" == "Debian" ); then
+        bash.utils.consoleLogDate "Ensure some common packages are installed."
+        apt-get install -y vim vim-common git screen tmux
+      fi
+      
     fi
     
   fi
 
-  if ( bash.utils.find_os_kernel == "Darwin" ); then
-    if ( bash.utils.find_os == "Darwin" ); then
+  if ( "${v_os_kernel}" == "Darwin" ); then
+    if ( "${v_os}" == "Darwin" ); then
       bash.utils.consoleLogDate "Enusre some common packages are installed."
       brew install -y vim vim-common git screen tmux
     fi
     
   fi
   
-  bash.utils.consoleLog "Common $OSTYPE packages are installed."
-  
+  bash.utils.consoleLog "Common ${v_os} packages are installed."
   return
 }
 
