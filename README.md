@@ -87,9 +87,9 @@ Might need: legacy `libtinfo`
 
 ##### `Debian`
 
-```
-sudo apt-get install automake gcc cmake kernel-package
-```
+Install development tools and CMake: `sudo apt-get install automake gcc cmake kernel-package`
+
+Make sure you have Python headers installed: `sudo apt-get install python-dev python3-dev`
 
 ```
 cd ~/.vim/bundle/YouCompleteMe
