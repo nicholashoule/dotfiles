@@ -41,9 +41,9 @@ function bash.sudo_user() {
 #   none
 #--------------------------------------------
 function bash.common_packages() {
-  if [[ $OSTYPE =~ "Linux" ]]; then
+  if [[ $OSTYPE =~ "linux" ]]; then
     bash.utils.consoleLogDate "Enusre facter is installed."
-    apt-get install -y facter >/dev/null 2>&1 || apt -y facter >/dev/null 2>&1
+    apt-get install -y facter git >/dev/null 2>&1 || apt -y facter git >/dev/null 2>&1
   fi
   bash.utils.consoleLog "Facter is installed."
   
