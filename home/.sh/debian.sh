@@ -74,7 +74,8 @@ usermod -s /sbin/nologin root
 usermod -s /sbin/nologin mail
 usermod -s /sbin/nologin ftp
 
-sudo apt-get install rxvt-unicode-256color ncurses-term
+# Reseaching these
+#sudo apt-get install rxvt-unicode-256color ncurses-term
 
 bash.utils.consoleLog 'Install RVM:'
 \curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -
