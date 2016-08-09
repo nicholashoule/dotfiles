@@ -6,7 +6,7 @@
 #   $1, string - console message
 #--------------------------------------------
 function bash.utils.quit() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s\n" "[EXIT]: ${ln}"
 
   exit 1
@@ -20,7 +20,7 @@ function bash.utils.quit() {
 #   none
 #--------------------------------------------
 function bash.utils.is_root() {
-  [[ "${UID}" -eq 0 ]] \
+  [[ $UID -eq 0 ]] \
   || bash.utils.quit 'You must be root to execute this script'
 }
 
@@ -47,7 +47,7 @@ function bash.utils.sudo_user() {
 #   $1, string - console message
 #--------------------------------------------
 function bash.utils.consoleLog() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s\n" "[INFO]: ${ln}"
 }
 
@@ -59,7 +59,7 @@ function bash.utils.consoleLog() {
 #   $1, string - Date w/ console message
 #--------------------------------------------
 function bash.utils.consoleLogDate() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s %s\n" "[INFO][$(date +'%a %Y-%m-%d %H:%M:%S %z')]:" "${ln}"
 }
 
@@ -71,7 +71,7 @@ function bash.utils.consoleLogDate() {
 #   $1, string - console message
 #--------------------------------------------
 function bash.utils.writeln() {
-  local ln="${1?}"
+  local ln="${1:?}"
   printf "%s" "${ln}"
 }
 
@@ -84,7 +84,7 @@ function bash.utils.writeln() {
 #--------------------------------------------
 function bash.utils.is_empty() {
   # Return true if value empty or unset
-  if [[ -z "$1" ]]; then
+  if [[ -z $1 ]]; then
       # return 0, is empty
       return 0
   fi
@@ -101,7 +101,7 @@ function bash.utils.is_empty() {
 #--------------------------------------------
 function bash.utils.is_integer() {
   # Return true if integer
-  if [[ -n "$1" ]]; then
+  if [[ -n $1 ]]; then
       printf "%d" $1 > /dev/null 2>&1
       return $?
   fi
@@ -117,7 +117,7 @@ function bash.utils.is_integer() {
 #   $1, string - convert to lower case
 #--------------------------------------------
 function bash.utils.to_lower() {
-  local ln="${1}"
+  local ln="${1?}"
 
   # Check value is not empty, for speed.
   if ( bash.utils.is_empty ${ln} ); then
@@ -139,7 +139,7 @@ function bash.utils.to_lower() {
 #   $1, string - convert to upper case
 #--------------------------------------------
 function bash.utils.to_upper() {
-  local ln="${1}"
+  local ln="${1?}"
 
   # Check value is not empty, for speed.
   if ( bash.utils.is_empty ${ln} ); then
@@ -154,13 +154,144 @@ function bash.utils.to_upper() {
 }
 
 #--------------------------------------------
-# FUNCTION: bash.utils.find_os_family()
+# FUNCTION: bash.utils.find_os_kernel()
 # DESCRIPTION:
 # Use 'uname -s' to find Darwin or Linux
 # Parameters: 
 #   none
 #--------------------------------------------
-function bash.utils.find_os_family() {
+function bash.utils.find_os_kernel() {
   # Detect Linux or Darwin
   printf "%s" "$(uname -s)"
 }
+
+#--------------------------------------------
+# FUNCTION: bash.utils.find_os_family()
+# DESCRIPTION:
+# Use facter to fine osfamily
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.find_os_family() {
+  # Detect Linux or Darwin
+  facter osfamily
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.find_os()
+# DESCRIPTION:
+# Use facter to get operatingsystem
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.find_os() {
+  # Detect Linux or Darwin
+  facter operatingsystem
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.common_packages()
+# DESCRIPTION:
+# Enusre some common packages are installed
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.common_packages() {
+  local v_os_kernel=$(bash.utils.find_os_kernel)
+  local v_os_family=$(bash.utils.find_os_family)
+  local v_os=$(bash.utils.find_os)
+
+  if [[ "${v_os_kernel}" == "Linux" ]]; then
+  
+    if [[ "${v_os_family}" == "RedHat" ]]; then
+      if [[ "${v_os}" == "Fedora" ]]; then
+        bash.utils.consoleLogDate "Ensure some common packages are installed."
+        dnf install -y vim vim-common git screen tmux
+      fi
+    fi
+    
+    if [[ "${v_os_family}" == "Debian" ]]; then
+      if [[ "${v_os}" == "LinuxMint" ]]; then
+        bash.utils.consoleLogDate "Ensure some common packages are installed."
+        apt install -y vim vim-common git screen tmux
+      fi
+      
+      if [[ "${v_os}" == "Debian" ]]; then
+        bash.utils.consoleLogDate "Ensure some common packages are installed."
+        apt-get install -y vim vim-common git screen tmux
+      fi
+      
+    fi
+    
+  fi
+
+  if [[ "${v_os_kernel}" == "Darwin" ]]; then
+    if [[ "${v_os}" == "Darwin" ]]; then
+      bash.utils.consoleLogDate "Enusre some common packages are installed."
+      brew install -y vim vim-common git screen tmux
+    fi
+    
+  fi
+  
+  bash.utils.consoleLog "Common ${v_os} packages are installed."
+  return
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.check_exit_status()
+# DESCRIPTION:
+# Check and handle exit status errors
+# check_exit_status $?
+# check_exit_status $? [SKIP/IGNORE]
+# Parameters: 
+#   $1, $?  - ($?)  Expands to the exit status
+#   $2, string - Ignore check if exit status is 1
+#--------------------------------------------
+function bash.utils.check_exit_status() {
+    local exit_status=$1
+    local test_skip=$2
+
+    if [ "${exit_status}" -ne 0 ]; then # test failed
+        if [ -n "${test_skip}" ]; then
+          # write test skip to files
+          printf "%s" '[CHECK EXIT STATUS]: Skipped [ OK ]'
+          return 
+        else
+          # ERROR: Caught a bad exit status.
+          # printf "%s" '[CHECK EXIT STATUS]: Status [ Failed ]'
+          # Could do error_cleanup here
+          exit $?
+        fi
+    fi
+    # printf "%s" '[CHECK EXIT STATUS]: Status [ OK ]'
+}
+
+#--------------------------------------------
+# FUNCTION: bash.utils.find_git_repo()
+# DESCRIPTION:
+# Check for and update existing local git repo 
+# or clone source/remote
+# Parameters: 
+#   $1, string - source git repo
+#   $2, string - local git repo
+#--------------------------------------------
+function bash.utils.find_git_repo() {
+v_srcrepo=$(printf "%s" "$1")
+v_localrepo=$(printf "%s" "$2")
+
+  # Check for an empty string
+  if ( ! bash.utils.is_empty ${v_srcrepo} ) && ( ! bash.utils.is_empty ${v_localrepo} ); then
+   # Detect repo
+      if [ ! -d "${v_localrepo}" ]; then
+      git clone ${v_srcrepo} ${v_localrepo}
+    else
+      cd "${v_localrepo}"
+      git pull ${v_srcrepo}
+    fi
+  else
+    printf "%s\n" "[Info]: Please specify a source and local repo."
+  fi
+}
+
+# Export functions to other bash sub-shells
+# typeset -fx bash.utils.check_exit_status

@@ -13,16 +13,30 @@ augroup end
 " }}}
 " COLORS {{{
 
+" color reset
+if exists("syntax_on")
+  syntax reset
+endif
+
 " Enable syntax highlighting
 syntax enable
+" syntax
+syntax on
+" support 256 colors in Lion terminal 
+set t_Co=256
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 
 "Set colorscheme to Solarized
 "let g:solarized_termtrans=1
-"set background=dark
 "colorscheme solarized
 
 "Set colorscheme to Molokai
-colorscheme molokai
+"colorscheme molokai
 
 "}}}
 " PLUGIN OPTIONS {{{
@@ -30,9 +44,9 @@ colorscheme molokai
 "vim-airline options
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='molokai'
 "let g:airline_left_sep=''
 "let g:airline_right_sep=''
 "let g:airline_section_z=''
@@ -249,10 +263,10 @@ endfunction
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
-" Enable line numbers F12
+" Enable line numbers \+n
 nmap <silent> <Leader>n :call ToggleNumber()<CR>
 
-" Enable paste F7
+" Enable paste \+p
 nmap <silent> <Leader>p :call TogglePaste()<CR>
 
 " }}}

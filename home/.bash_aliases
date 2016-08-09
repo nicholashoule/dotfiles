@@ -16,6 +16,7 @@ alias ls="command ls -hF ${colorflag}"                      # Always use color o
 alias l="ls -lF ${colorflag}"                               # List all files colorized in long format
 alias l.="ls -d .* ${colorflag}"  
 alias ll="ls -aF ${colorflag}"
+alias lll="ls -laF ${colorflag}"
 alias la="ls -laF ${colorflag}"                             # List all files colorized in long format, including dot files
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"   # List only directories
 alias dir="ls ${colorflag}--format=vertical"
@@ -49,7 +50,7 @@ alias plugininstall='PluginInstall'             # Quick PluginInstall
 alias pi='PluginInstall'                        # Quick PluginInstall
 
 # Vim GitHub plugins
-alias vundle='find_git_repo https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
+alias vundle='bash.utils.find_git_repo https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 
 # View HTTP traffic
 alias sniff="sudo netstat -tauw"
@@ -62,6 +63,7 @@ alias izgood="puppet parser validate"
 alias izpretty='puppet-lint'
 
 # Vagrant aliases
+# https://www.vagrantup.com/downloads.html
 alias v='vagrant'
 alias vs='vagrant status'
 alias vhl='vagrant hosts list'
@@ -74,9 +76,13 @@ alias b='bundle'
 alias be='bundle exec'
 alias bi='bundle install'
 
+# RVM Install
+# https://rvm.io/rvm/install
+alias rvmgpg2Import='\curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -'
+alias rvmInstall='rvmgpg2Import \curl -sSL https://rvm.io/mpapis.asc | sudo gpg2 --import -'
+
 # Git and Github aliases
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
-
 # Git GitHub git-completion.bash
 alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash \
 -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'

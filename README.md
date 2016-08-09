@@ -34,13 +34,13 @@ sudo yum install ruby
 Install Ruby:
 
 ```
-sudo apt-get install ruby
+sudo apt-get install ruby ruby-dev
 ```
 
 -----
 
 ## To install the dotfiles:
-1. Install Homesick with `gem install homesick`
+1. Install Homesick with `sudo gem install homesick`
 2. Clone this castle with `homesick clone nicholashoule/dotfiles`
 3. Create the symlinks with `homesick symlink dotfiles`
 
@@ -65,7 +65,7 @@ To install from command line: `vim +PluginInstall +qall`
 
 https://github.com/Valloric/YouCompleteMe/blob/master/README.md
 
-##### `Fedora`
+##### `RedHat & Fedora`
 
 Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
 
@@ -78,6 +78,13 @@ Might need: legacy `libtinfo`
 `dnf repoquery -l ncurses-compat-libs`
 
 `sudo dnf install ncurses-compat-libs-6.0-5.20160116.fc24.x86_64`
+
+
+##### `Debian`
+
+Install development tools and CMake: `sudo apt-get install automake gcc cmake kernel-package`
+
+Make sure you have Python headers installed: `sudo apt-get install python-dev python3-dev`
 
 ```
 cd ~/.vim/bundle/YouCompleteMe

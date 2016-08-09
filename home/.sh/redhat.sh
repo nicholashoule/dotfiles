@@ -38,11 +38,30 @@ function bash.sudo_user() {
 }
 
 #--------------------------------------------
+# FUNCTION: bash.common_packages()
+# DESCRIPTION:
+# Enusre some common packages are installed
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.common_packages() {
+  if [[ $OSTYPE =~ "Linux" ]]; then
+    bash.utils.consoleLogDate "Enusre facter is installed."
+    dnf install -y facter >/dev/null 2>&1 || yum install -y facter >/dev/null 2>&1
+  fi
+  bash.utils.consoleLog "Facter is installed."
+  
+  return
+}
+
+#--------------------------------------------
 # Function: Main()
 #--------------------------------------------
 main() {
 bash.utils.consoleLogDate "main() called"
 bash.utils.is_root
+bash.common_packages
+bash.utils.common_packages
 
 bash.utils.consoleLog "Idle users will be removed after 15 minutes"
 echo "readonly TMOUT=900" > /etc/profile.d/os-security.sh

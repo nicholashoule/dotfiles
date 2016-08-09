@@ -54,10 +54,10 @@ echo -e "${v_ip}"
 echo -e "${v_banner_blue}===============================================${v_close}"
 # COMMAND PROMPT: PS1 Color version
 PS1="\[${v_white}\][ \d \t ] \[${v_lightred}\]\u\[${v_white}\]@\[${v_white}\]\h:\n\
-\[${v_lightcyan}\]\w\[${v_white}\] $ \[${v_close}\]"
+\[${v_lightcyan}\]\w\[${v_white}\] \$ \[${v_close}\]"
 else
 # COMMAND PROMPT: PS1 Normal version
-PS1="[ \d \t \u@\h:\w ]_$ "
+PS1="[ \d \t \u@\h:\w ] \$ "
 fi
 
 # unset variables
