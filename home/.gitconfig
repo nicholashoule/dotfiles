@@ -1,5 +1,5 @@
 [user]
-  name = Nicholas Houle
+  name = [username]
   email = email@email.com
 
 [alias]
@@ -28,3 +28,9 @@
 
 [commit]
   verbose = true
+
+[credential]
+	helper = cache --timeout 7200
+
+[credential "https://github.com"]
+  username = [username]
