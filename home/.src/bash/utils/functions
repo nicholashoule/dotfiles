@@ -33,9 +33,9 @@ function bash.utils.is_root() {
 #--------------------------------------------
 function bash.utils.sudo_user() {
   if [[ $SUDO_USER ]]; then 
-    this_user="${SUDO_USER}"
+    this_user="${SUDO_USER:-${LOGNAME}}"
   else 
-    this_user=$(logname)
+    this_user="$(whoami)"
   fi
 }
 
