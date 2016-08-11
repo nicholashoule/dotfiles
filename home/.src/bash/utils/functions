@@ -196,7 +196,7 @@ function bash.utils.check_facter() {
     
   fi
   
-  return
+  return $?
 }
 
 #--------------------------------------------
@@ -219,7 +219,7 @@ function bash.utils.find_os_kernel() {
 #   none
 #--------------------------------------------
 function bash.utils.find_os_family() {
-  if [[ bash.utils.check_facter ]]; then
+  if bash.utils.check_facter; then
     # Attempt to detect os family: 
     # redhat, debian, or darwin
     facter osfamily
@@ -236,7 +236,7 @@ function bash.utils.find_os_family() {
 #   none
 #--------------------------------------------
 function bash.utils.find_os() {
-  if [[ bash.utils.check_facter ]]; then
+  if bash.utils.check_facter; then
     # Attempt to detect operating system 
     facter operatingsystem
   else
