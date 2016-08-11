@@ -174,10 +174,10 @@ function bash.utils.check_facter() {
           
           if [[ "$(apt)" ]]; then
             apt install -y facter >/dev/null 2>&1
-            return
+            return $?
           else
             apt-get install -y facter >/dev/null 2>&1
-            return
+            return $?
           fi
         fi
         
@@ -186,10 +186,10 @@ function bash.utils.check_facter() {
           
           if [[ "$(dnf)" ]]; then
             dnf install -y facter >/dev/null 2>&1
-            return
+            return $?
           else
             yum install -y facter >/dev/null 2>&1
-            return
+            return $?
           fi
         fi
     fi
