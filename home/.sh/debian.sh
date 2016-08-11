@@ -41,14 +41,15 @@ function bash.sudo_user() {
 #   none
 #--------------------------------------------
 function bash.common_packages() {
-  [[ "$(facter)"]] && ? bash.utils.consoleLog "Facter is installed." || \
-  bash.utils.consoleLog "Facter is not installed."
-  
-  if [[ $OSTYPE =~ "linux" ]]; then
-    bash.utils.consoleLogDate "Enusre facter is installed."
-    apt-get install -y facter >/dev/null 2>&1 || apt -y facter >/dev/null 2>&1
+  if [[ "$(facter)" ]]; then
+    bash.utils.consoleLog "Facter is installed." 
+  else 
+    if [[ $OSTYPE =~ "linux" ]]; then
+      bash.utils.consoleLog "Facter is not installed."
+      bash.utils.consoleLogDate "Enusre facter is installed."
+      apt-get install -y facter >/dev/null 2>&1 || apt -y facter >/dev/null 2>&1
+    fi
   fi
-  
   return
 }
 
