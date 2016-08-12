@@ -263,19 +263,19 @@ function bash.utils.common_packages() {
     if [[ "${v_os_family}" == "RedHat" ]]; then
       if [[ "${v_os}" == "Fedora" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        su - ${this_user} -c 'dnf install -y vim vim-common screen tmux'
+        sudo -c 'dnf install -y vim vim-common screen tmux'
       fi
     fi
     
     if [[ "${v_os_family}" == "Debian" ]]; then
       if [[ "${v_os}" == "LinuxMint" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        su - ${this_user} -c 'apt install -y vim vim-common screen tmux'
+        sudo root -c 'apt install -y vim vim-common screen tmux'
       fi
       
       if [[ "${v_os}" == "Debian" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        su - ${this_user} -c 'apt-get install -y vim vim-common screen tmux'
+        sudo root -c 'apt-get install -y vim vim-common screen tmux'
       fi
       
     fi
@@ -285,7 +285,7 @@ function bash.utils.common_packages() {
   if [[ "${v_os_kernel}" == "Darwin" ]]; then
     if [[ "${v_os}" == "Darwin" ]]; then
       bash.utils.consoleLogDate "Enusre some common packages are installed."
-      su - ${this_user} -c 'brew install -y vim vim-common screen tmux'
+      brew install -y vim vim-common screen tmux
     fi
     
   fi
