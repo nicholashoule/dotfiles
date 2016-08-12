@@ -192,8 +192,8 @@ function bash.utils.check_facter() {
             return $?
           fi
         fi
+        
     fi
-    
   fi
   
   return $?
