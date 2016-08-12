@@ -252,6 +252,7 @@ function bash.utils.find_os() {
 #   none
 #--------------------------------------------
 function bash.utils.common_packages() {
+  bash.utils.sudo_user
   bash.utils.check_facter
   local v_os_kernel=$(bash.utils.find_os_kernel)
   local v_os_family=$(bash.utils.find_os_family)
@@ -262,7 +263,7 @@ function bash.utils.common_packages() {
     if [[ "${v_os_family}" == "RedHat" ]]; then
       if [[ "${v_os}" == "Fedora" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        dnf install -y vim vim-common screen tmux
+        su - ${this_user} dnf install -y vim vim-common screen tmux
       fi
     fi
     
