@@ -263,7 +263,7 @@ function bash.utils.common_packages() {
     if [[ "${v_os_family}" == "RedHat" ]]; then
       if [[ "${v_os}" == "Fedora" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        su - ${this_user} dnf install -y vim vim-common screen tmux
+        su - ${this_user} -c dnf install -y vim vim-common screen tmux
       fi
     fi
     
