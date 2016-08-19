@@ -38,7 +38,7 @@ alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv ~/.local/share/Trash/*"
-aliase shredtrash="sudo shred -f -n 7 -u -v -z ~/.local/share/Trash/*"
+alias shredtrash="sudo shred -f -n 7 -u -v -z ~/.local/share/Trash/*"
 #-----------------------------------------------
 # Application alias(s) here
 #-----------------------------------------------
