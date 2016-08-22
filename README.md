@@ -4,7 +4,7 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 
 ## Supported OS(S)
 - OSX (10)
-- RHEL (Fedora 23+)
+- RedHat (Fedora 23+)
 - Debian (Mint 18+)
 
 ## Required: `Ruby` & `RVM`
