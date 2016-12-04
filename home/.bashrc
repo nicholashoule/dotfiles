@@ -46,7 +46,7 @@ v_os_family=$(bash.utils.find_os_kernel)
 # Linux - custom bash completion scripts
 #--------------------------------------------
 # See .bash_alias 'gitbash' to get github file
-#if [[ -d ~/.bash_completion.d ]]; then
+#if [ -d ~/.bash_completion.d ]; then
 #  for file in ~/.bash_completion.d/* 
 #  do
 #    source "${file}"
@@ -73,19 +73,19 @@ v_os_family=$(bash.utils.find_os_kernel)
 #--------------------------------------------
 # SOURCE: aliases
 #--------------------------------------------
-if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
+#if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
   # LINUX ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_aliases, instead of adding them here directly.
-  [[ -e "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases" # Load the .bash_aliases
-fi
+#  [[ -e "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases" # Load the .bash_aliases
+#fi
 
-if [[ "${v_os_family}" == "Darwin" ]] && [[ -n "${v_os_family}" ]]; then
+#if [[ "${v_os_family}" == "Darwin" ]] && [[ -n "${v_os_family}" ]]; then
   # DARWIN (OSX) ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.aliases, instead of adding them here directly.
-  [[ -e "${HOME}/.aliases" ]] && source "${HOME}/.aliases" # Load the .aliases
-fi
+#  [[ -e "${HOME}/.aliases" ]] && source "${HOME}/.aliases" # Load the .aliases
+#fi
 
 #--------------------------------------------
 # SOURCE: Other definitions
@@ -95,12 +95,12 @@ fi
 # ~/.bash_prompt_colors , instead of adding them here directly.
 [[ -e "${HOME}/.bash_prompt_colors" ]] && source "${HOME}/.bash_prompt_colors"
 
-if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
+#if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  [[ -e "${HOME}/.bash_settings" ]] && source "${HOME}/.bash_settings"
-fi
+  #[[ -e "${HOME}/.bash_settings" ]] && source "${HOME}/.bash_settings"
+#fi
 
 #--------------------------------------------
 # PROMPT DEFINITIONS
