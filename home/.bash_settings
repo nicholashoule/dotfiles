@@ -10,7 +10,7 @@ ulimit -S -c 0        # Don't want coredumps.
 # http://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html#The-Set-Builtin
 # set options:
 set -o history
-set -o hashall
+#set -o hashall
 set -o notify
 set -o noclobber
 set -o ignoreeof
