@@ -41,7 +41,11 @@
   
 [credential]
   helper = cache --timeout 7200
-  
+
+; github
 [credential "https://github.com"]
   username = [username]
-  
+
+; gitlab
+[credential "https://gitlab.com"]
+  username = [username]
