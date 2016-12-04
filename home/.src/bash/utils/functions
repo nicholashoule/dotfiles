@@ -224,7 +224,7 @@ function bash.utils.find_os_family() {
     # redhat, debian, or darwin
     facter osfamily
   else
-    printf "%s" '$(uname -s)'
+    printf "%s" "$(uname -s)"
   fi
 }
 
@@ -240,7 +240,7 @@ function bash.utils.find_os() {
     # Attempt to detect operating system 
     facter operatingsystem
   else
-    printf "%s" '$(uname -s)'
+    printf "%s" "$(uname -s)"
   fi
 }
 
