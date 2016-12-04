@@ -1,7 +1,28 @@
+# This is the config file, and
+# a '#' or ';' character indicates a comment
+# https://git-scm.com/docs/git-config
+; color
+[color]
+  ui = auto
+  showBranch = auto
+  status = auto
+    updated
+    
+; core variables
+[core]
+  whitespace = trailing-space,space-before-tab
+  editor = vim
+  askpass = 
+  ; Don't trust file modes
+  filemode = false
+  
+[init]
+  templatedir = ~/.git_template
+  
 [user]
   name = [username]
   email = email@email.com
-
+  
 [alias]
   co = checkout
   ec = config --global -e
@@ -11,26 +32,16 @@
   unstage = reset HEAD --
   cp = cherry-pick
   update = pull --rebase
-
+  
 [push]
-  default = simple
-
-[color]
-  ui = auto
-
-[core]
-  whitespace = trailing-space,space-before-tab
-  editor = vim
-  askpass = 
-
-[init]
-  templatedir = ~/.git_template
-
+  default = matching
+  
 [commit]
   verbose = true
-
+  
 [credential]
-	helper = cache --timeout 7200
-
+  helper = cache --timeout 7200
+  
 [credential "https://github.com"]
   username = [username]
+  
