@@ -40,7 +40,7 @@ v_ip="$(ifconfig | grep \
 # COMMAND PROMPT: (PS1)
 #--------------------------------------------
 ### Style: color_prompt style and customization goes here
-if [ "${color_prompt}" -eq "yes" ]; then
+if [ "${color_prompt}" = "yes" ]; then
 echo -e "${v_banner_blue}\nWelcome: ${v_close}"
 echo -e "${v_banner_blue}===============================================${v_close}"
 echo -e "${v_banner_blue}DATE: ${v_close}${v_white}${v_date}${v_close}\n"
