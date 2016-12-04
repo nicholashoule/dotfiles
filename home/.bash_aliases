@@ -81,8 +81,7 @@ alias rvmInstall='rvmgpg2Import \curl -sSL https://rvm.io/mpapis.asc | sudo gpg2
 # Git and Github aliases
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 # Git GitHub git-completion.bash
-alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash \
--L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
+alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
