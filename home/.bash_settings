@@ -39,9 +39,6 @@ shopt -s nullglob
 
 # Disabled options:
 shopt -u mailwarn     # Don't want shell to warn me of incoming mail.
-shopt -u cdspell
-shopt -u dirspell
-shopt -u histreedit
 
 #--------------------------------------------
 # HISTORY SETTINGS
