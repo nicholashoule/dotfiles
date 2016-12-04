@@ -31,43 +31,43 @@ v_os_family=$(bash.utils.find_os_kernel)
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-#if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
-#  if ! shopt -oq posix; then
-#    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-#      . /usr/share/bash-completion/bash_completion
-#    elif [[ -f /etc/bash_completion ]]; then
-#      . /etc/bash_completion
-#    fi
-#  fi
-#fi
+if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
+  if ! shopt -oq posix; then
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+      . /usr/share/bash-completion/bash_completion
+    elif [[ -f /etc/bash_completion ]]; then
+      . /etc/bash_completion
+    fi
+  fi
+fi
 
 #--------------------------------------------
 # Linux - custom bash completion scripts
 #--------------------------------------------
 # See .bash_alias 'gitbash' to get github file
-#if [[ -d ~/.bash_completion.d/ ]]; then
-#  for file in ~/.bash_completion.d/* ; do
-#    source "${file}"
-#  done
-#fi
+if [[ -d ~/.bash_completion.d/ ]]; then
+  for file in ~/.bash_completion.d/* ; do
+    source "${file}"
+  done
+fi
 
 #--------------------------------------------
 #OSX - Homebrew
 #--------------------------------------------
-#if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
-#  # . $(brew --prefix)/etc/bash_completion
-#  if [[ -f /usr/local/etc/bash_completion ]]; then
-#    . /usr/local/etc/bash_completion
-#  fi
-#fi
+if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
+    . $(brew --prefix)/etc/bash_completion
+  if [[ -f /usr/local/etc/bash_completion ]]; then
+    . /usr/local/etc/bash_completion
+  fi
+fi
 #--------------------------------------------
 #OSX - MacPorts
 #--------------------------------------------
-#if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
-#  if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-#    . /usr/share/bash-completion/bash_completion
-#  fi
-#fi
+if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
+  if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
+  fi
+fi
 #--------------------------------------------
 # SOURCE: aliases
 #--------------------------------------------
