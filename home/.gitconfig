@@ -39,6 +39,7 @@
 [commit]
   verbose = true
   
+; Cache credentials in memory for a short period of time
 [credential]
   helper = cache --timeout 7200
 
