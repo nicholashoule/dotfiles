@@ -21,6 +21,24 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 
 ## Linux
 
+#### `CentOS 6 (RedHat)`
+
+Install Ruby:
+
+```
+sudo yum install ruby
+```
+
+Software collections from the CentOS SCLo SIG
+
+```
+sudo yum install -y centos-release-scl.noarch && yum update
+```
+
+```
+sudo yum install git19
+```
+
 #### `Fedora (RedHat)`
 
 Install Ruby:
