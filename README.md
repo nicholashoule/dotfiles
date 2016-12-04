@@ -37,6 +37,7 @@ sudo yum install -y centos-release-scl.noarch && yum update
 
 ```
 sudo yum install git19
+scl enable git19 bash
 ```
 
 #### `Fedora (RedHat)`
