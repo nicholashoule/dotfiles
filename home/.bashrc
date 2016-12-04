@@ -95,12 +95,12 @@ fi
 # ~/.bash_prompt_colors , instead of adding them here directly.
 [[ -e "${HOME}/.bash_prompt_colors" ]] && source "${HOME}/.bash_prompt_colors"
 
-#if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
+if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  #[[ -e "${HOME}/.bash_settings" ]] && source "${HOME}/.bash_settings"
-#fi
+  [[ -e "${HOME}/.bash_settings" ]] && source "${HOME}/.bash_settings"
+fi
 
 #--------------------------------------------
 # PROMPT DEFINITIONS
