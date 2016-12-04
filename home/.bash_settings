@@ -30,7 +30,7 @@ shopt -s dotglob
 shopt -s extglob      # Necessary for programmable completion.
 #shopt -s globstar
 shopt -s histappend 
-#shopt -s histverify
+shopt -s histverify
 #shopt -s no_empty_cmd_completion
 #shopt -s nullglob
 
