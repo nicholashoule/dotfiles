@@ -45,7 +45,7 @@ sudo apt-get install ruby ruby-dev
 -----
 
 ## To install the dotfiles:
-1. Install Homesick with `sudo gem install homesick`
+1. Install Homesick with `gem install homesick`
 2. Clone this castle with `homesick clone nicholashoule/dotfiles`
 3. Create the symlinks with `homesick symlink dotfiles`
 
