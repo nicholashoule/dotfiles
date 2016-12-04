@@ -30,12 +30,12 @@ shopt -s checkjobs
 shopt -s checkhash 
 shopt -s cmdhist
 shopt -s dotglob
-shopt -s progcomp     # Programmable completion facilities
+#shopt -s progcomp     # Programmable completion facilities
 shopt -s extglob      # Necessary for programmable completion.
 shopt -s globstar
 shopt -s histappend 
 shopt -s histverify
-shopt -s no_empty_cmd_completion
+#shopt -s no_empty_cmd_completion
 shopt -s nullglob
 
 # Disabled options:
