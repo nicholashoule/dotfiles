@@ -10,7 +10,7 @@
 #--------------------------------------------
 # Source bash utils functions and call main()
 #--------------------------------------------
-if [ -d ~/.src/bash/utils/ ]; then
+if [ -d ~/.src/bash/utils ]; then
   for file in ~/.src/bash/utils/*
   do
     source "${file}"
@@ -73,18 +73,18 @@ fi
 #--------------------------------------------
 # SOURCE: aliases
 #--------------------------------------------
-if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
+if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
   # LINUX ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_aliases, instead of adding them here directly.
   [[ -e "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases" # Load the .bash_aliases
 fi
 
-if [[ "${v_os_family}" == 'Darwin' ]] && [[ -n "${v_os_family}" ]]; then
+if [[ "${v_os_family}" == "Darwin" ]] && [[ -n "${v_os_family}" ]]; then
   # DARWIN (OSX) ALIAS DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.aliases, instead of adding them here directly.
-  [[ -e "$HOME/.aliases" ]] && source "$HOME/.aliases" # Load the .aliases
+  [[ -e "${HOME}/.aliases" ]] && source "${HOME}/.aliases" # Load the .aliases
 fi
 
 #--------------------------------------------
@@ -93,13 +93,13 @@ fi
 # PROMPT COLORS DEFINITIONS
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt_colors , instead of adding them here directly.
-[[ -e "$HOME/.bash_prompt_colors" ]] && source "$HOME/.bash_prompt_colors"
+[[ -e "${HOME}/.bash_prompt_colors" ]] && source "${HOME}/.bash_prompt_colors"
 
-if [[ "${v_os_family}" == 'Linux' ]] && [[ -n "${v_os_family}" ]]; then
+if [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
   # OTHER SETTING DEFINITIONS
   # You may want to put all your additions into a separate file like
   # ~/.bash_settings, instead of adding them here directly.
-  [[ -e "$HOME/.bash_settings" ]] && source "$HOME/.bash_settings"
+  [[ -e "${HOME}/.bash_settings" ]] && source "${HOME}/.bash_settings"
 fi
 
 #--------------------------------------------
@@ -107,4 +107,4 @@ fi
 #--------------------------------------------
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt, instead of adding them here directly.
-[[ -e "$HOME/.bash_prompt" ]] && source "$HOME/.bash_prompt"
+[[ -e "${HOME}/.bash_prompt" ]] && source "${HOME}/.bash_prompt"
