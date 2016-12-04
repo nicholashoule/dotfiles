@@ -13,7 +13,6 @@ set -o history
 #set -o hashall
 set -o notify
 set -o noclobber
-#set -o ignoreeof
 set -o vi
 
 # unset options:
@@ -30,7 +29,7 @@ shopt -s checkjobs
 shopt -s checkhash 
 shopt -s cmdhist
 shopt -s dotglob
-#shopt -s progcomp     # Programmable completion facilities
+shopt -s progcomp     # Programmable completion facilities
 shopt -s extglob      # Necessary for programmable completion.
 shopt -s globstar
 shopt -s histappend 
@@ -43,7 +42,6 @@ shopt -u mailwarn     # Don't want shell to warn me of incoming mail.
 shopt -u cdspell
 shopt -u dirspell
 shopt -u histreedit
-shopt -u lithist
 
 #--------------------------------------------
 # HISTORY SETTINGS
