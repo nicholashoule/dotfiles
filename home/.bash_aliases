@@ -32,9 +32,6 @@ alias sudo='sudo '                   # Enable aliases to be sudo’ed
 alias tree='tree -C'                 # Pretty color tree
 alias path='echo -e ${PATH//:/\\n}'  # Pretty path
 
-# Recursively delete `.DS_Store` files
-alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
-
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv ~/.local/share/Trash/*"
