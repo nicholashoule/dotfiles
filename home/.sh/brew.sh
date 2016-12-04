@@ -6,8 +6,7 @@ sudo -v
 #sudo chmod -R g+w /usr/local
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished.
-# while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
+##while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Make sure we’re using the latest Homebrew.
 brew update
 # Upgrade any already-installed formulae.
@@ -26,15 +25,13 @@ brew install vim --override-system-vi
 brew install gnu-sed --with-default-names
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/screen
+brew install grep
+brew install screen
 brew install ack
 brew install git
-brew install speedtest_cli
 brew install tree
-brew install nmap
-brew install xz
 brew install htop
+# brew install nmap
 
 # Create symlinks 
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
