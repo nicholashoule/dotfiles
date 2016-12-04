@@ -31,8 +31,8 @@ shopt -s extglob      # Necessary for programmable completion.
 #shopt -s globstar
 shopt -s histappend 
 shopt -s histverify
-#shopt -s no_empty_cmd_completion
-#shopt -s nullglob
+shopt -s no_empty_cmd_completion
+shopt -s nullglob
 
 # Disabled options:
 shopt -u mailwarn     # Don't want shell to warn me of incoming mail.
