@@ -124,7 +124,14 @@ cd ~/.vim/bundle/YouCompleteMe
 ##### `Fedora`
 
 ```
+# Might not exist on your system
 sudo mv Inconsolata-Awesome.ttf /usr/share/fonts/
+```
+
+- OR -
+
+```
+sudo mv ~/Downloads/Inconsolata+Awesome.ttf ~/Library/Fonts/
 ```
 
 -----
