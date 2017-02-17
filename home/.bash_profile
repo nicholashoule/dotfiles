@@ -27,6 +27,7 @@
 #--------------------------------------------
 # Source the .profile and .bashrc file
 # Load .bash_login, .profile and .bashrc (in that order)
+# http://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html#Bash-Startup-Files
 #--------------------------------------------
 [[ -e "$HOME/.bash_login" ]] && source "$HOME/.bash_login" # Load the default .bash_login
 [[ -e "$HOME/.profile" ]] && source "$HOME/.profile"       # Load the default .profile

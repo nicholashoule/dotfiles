@@ -2,6 +2,11 @@
 
 I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotfiles.
 
+## Supported OS(S)
+- OSX (10)
+- RedHat (Fedora 23+)
+- Debian (Mint 18+)
+
 ## Required: `Ruby` & `RVM`
 
 [Ruby Version Manager - RVM](https://rvm.io/)
@@ -15,6 +20,25 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 -----
 
 ## Linux
+
+#### `CentOS 6 (RedHat)`
+
+Install Ruby:
+
+```
+sudo yum install ruby
+```
+
+Software collections from the CentOS SCLo SIG
+
+```
+sudo yum install -y centos-release-scl.noarch && yum update
+```
+
+```
+sudo yum install git19
+scl enable git19 bash
+```
 
 #### `Fedora (RedHat)`
 
@@ -40,7 +64,7 @@ sudo apt install ruby ruby-dev
 -----
 
 ## To install the dotfiles:
-1. Install Homesick with `sudo gem install homesick`
+1. Install Homesick with `gem install homesick`
 2. Clone this castle with `homesick clone nicholashoule/dotfiles`
 3. Create the symlinks with `homesick symlink dotfiles`
 
@@ -103,7 +127,14 @@ cd ~/.vim/bundle/YouCompleteMe
 ##### `Fedora`
 
 ```
+# Might not exist on your system
 sudo mv Inconsolata-Awesome.ttf /usr/share/fonts/
+```
+
+- OR -
+
+```
+sudo mv ~/Downloads/Inconsolata+Awesome.ttf ~/Library/Fonts/
 ```
 
 -----

@@ -39,7 +39,7 @@ term xterm-256color
 ##------------------------------------
 # By default, screen uses an 8-color terminal emulator. Use the
 # following line to enable more colors
-#term screen-256color
+term screen-256color
 
 # Erase background with current bg color
 defbce "on"
@@ -73,7 +73,7 @@ bindkey ^[^[[C next
 ##------------------------------------
 ## Default Windows
 ##------------------------------------
-sessionname myscreen
+# sessionname myscreen
 
 # Default windows/tabs
 screen -t bash  1 bash
@@ -83,7 +83,6 @@ select 0
 # window numbering starts at 1 not 0
 bind c screen 1
 bind 0 select 10
-
 # Get rid of silly xoff stuff
 bind s split
 

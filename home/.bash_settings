@@ -2,32 +2,36 @@
 # OTHER SETTINGS
 #--------------------------------------------
 ulimit -S -c 0        # Don't want coredumps.
+
+#--------------------------------------------
+# SHOPT BUILTIN
+#--------------------------------------------
+# Values of variables controlling optional shell behavior
+# http://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html#The-Set-Builtin
+# set options:
 set -o notify
 set -o noclobber
-set -o ignoreeof
-#set -o vi
+set -o vi
+
+# unset options:
 unset MAILCHECK
 
 #--------------------------------------------
 # SHOPT BUILTIN
 #--------------------------------------------
 # Values of variables controlling optional shell behavior
+# http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
 # Enabled options:
 shopt -s checkwinsize
-#shopt -s cdspell
 shopt -s checkjobs
 shopt -s checkhash 
 shopt -s cmdhist
 shopt -s dotglob
-#shopt -s dirspell
 shopt -s extglob      # Necessary for programmable completion.
 shopt -s globstar
 shopt -s histappend 
-shopt -s histreedit
 shopt -s histverify
-#shopt -s lithist
-#shopt -s no_empty_cmd_completion
-shopt -s nullglob
+shopt -s no_empty_cmd_completion
 
 # Disabled options:
 shopt -u mailwarn     # Don't want shell to warn me of incoming mail.

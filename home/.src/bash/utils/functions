@@ -158,6 +158,52 @@ function bash.utils.to_upper() {
 }
 
 #--------------------------------------------
+# FUNCTION: bash.utils.check_facter()
+# DESCRIPTION:
+# Enusre facter package is installed
+# Parameters: 
+#   none
+#--------------------------------------------
+function bash.utils.check_facter() {
+  if [[ "$(facter)" ]]; then
+    # bash.utils.consoleLog "Facter is installed."
+    return $?
+  else 
+  
+    if [[ $OSTYPE =~ "linux" ]]; then
+      bash.utils.consoleLog "Facter is not installed."
+        
+        if [[ "$(apt-get)" ]]; then
+          bash.utils.consoleLogDate "Enusre facter is installed."
+          
+          if [[ "$(apt)" ]]; then
+            apt install -y facter >/dev/null 2>&1
+            return $?
+          else
+            apt-get install -y facter >/dev/null 2>&1
+            return $?
+          fi
+        fi
+        
+        if [[ "$(yum)" ]]; then
+          bash.utils.consoleLogDate "Enusre facter is installed."
+          
+          if [[ "$(dnf)" ]]; then
+            dnf install -y facter >/dev/null 2>&1
+            return $?
+          else
+            yum install -y facter >/dev/null 2>&1
+            return $?
+          fi
+        fi
+        
+    fi
+  fi
+  
+  return $?
+}
+
+#--------------------------------------------
 # FUNCTION: bash.utils.find_os_kernel()
 # DESCRIPTION:
 # Use 'uname -s' to find Darwin or Linux
@@ -177,8 +223,13 @@ function bash.utils.find_os_kernel() {
 #   none
 #--------------------------------------------
 function bash.utils.find_os_family() {
-  # Detect Linux or Darwin
-  facter osfamily
+  if bash.utils.check_facter; then
+    # Attempt to detect os family: 
+    # redhat, debian, or darwin
+    facter osfamily
+  else
+    printf "%s" "$(uname -s)"
+  fi
 }
 
 #--------------------------------------------
@@ -189,8 +240,12 @@ function bash.utils.find_os_family() {
 #   none
 #--------------------------------------------
 function bash.utils.find_os() {
-  # Detect Linux or Darwin
-  facter operatingsystem
+  if bash.utils.check_facter; then
+    # Attempt to detect operating system 
+    facter operatingsystem
+  else
+    printf "%s" "$(uname -s)"
+  fi
 }
 
 #--------------------------------------------
@@ -220,12 +275,12 @@ function bash.utils.common_packages() {
     if [[ "${v_os_family}" == "Debian" ]]; then
       if [[ "${v_os}" == "LinuxMint" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        apt install -y vim vim-common git screen tmux
+        sudo apt install -y vim vim-common screen tmux
       fi
 
       if [[ "${v_os}" == "Debian" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        apt-get install -y vim vim-common git screen tmux
+        sudo apt-get install -y vim vim-common screen tmux
       fi
     fi
   fi

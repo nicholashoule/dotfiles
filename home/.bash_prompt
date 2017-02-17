@@ -7,7 +7,7 @@
 force_color_prompt=yes
 
 # COLOR PROMPT CHECK
-if [ -n "${force_color_prompt}" ]; then
+if [[ -n "${force_color_prompt}" ]]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     # We have color support; assume it's compliant with Ecma-48
     # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
@@ -22,13 +22,11 @@ fi
 # PROMPT VARIABLES:
 #--------------------------------------------
 # Variables for command promt commands
-v_uname=$(uname -sr)
-v_date=$(date)
-v_hostname=$(hostname -f)
-v_ip=$(ifconfig | grep \
---color=always \
-'inet ' \
-2>/dev/null)
+v_uname="$(uname -sr)"
+v_date="$(date)"
+v_hostname="$(hostname -f)"
+v_ip="$(ifconfig | grep --color=always 'inet ' 2>/dev/null)"
+v_vim="$(vim --version | egrep '^VIM - Vi ' 2>/dev/null)"
 
 # More v_ip details 
 # v_ip=$(ifconfig | grep \
@@ -40,15 +38,15 @@ v_ip=$(ifconfig | grep \
 # COMMAND PROMPT: (PS1)
 #--------------------------------------------
 ### Style: color_prompt style and customization goes here
-if [ "${color_prompt}" = yes ]; then
+if [ "${color_prompt}" = 'yes' ]; then
 echo -e "${v_banner_blue}\nWelcome: ${v_close}"
 echo -e "${v_banner_blue}===============================================${v_close}"
-echo -e "${v_banner_blue}DATE: ${v_close}${v_white}${v_date}${v_close}\n"
-echo -e "${v_green} Where there is a shell, there is a way. #ROOT ${v_close}\n"
-echo -e "${v_banner_blue}SYSTEM INFORMATION:${v_close}"
-echo -e "${v_banner_blue}KERNEL: ${v_close}${v_white}${v_uname}${v_close}"
-echo -e "${v_banner_blue}BASH: ${v_close}${v_white}${BASH_VERSION%.*} ${v_close}"
 echo -e "${v_banner_blue}HOSTNAME: ${v_close}${v_white}${v_hostname}${v_close}\n"
+echo -e "${v_green} \"Where there is a shell, there is a way.\" #ROOT ${v_close}\n"
+echo -e "${v_banner_blue}SYSTEM INFORMATION:${v_close}"
+echo -e "${v_banner_blue}\- KERNEL: ${v_close}${v_white}${v_uname}${v_close}"
+echo -e "${v_banner_blue}\- BASH: ${v_close}${v_white}${BASH_VERSION%.*} ${v_close}"
+echo -e "${v_banner_blue}\- VIM: ${v_close}${v_white}${v_vim}${v_close}\n"
 echo -e "${v_banner_blue}INFO: ${v_close}${v_white}$(who)${v_close}\n"
 echo -e "${v_ip}"
 echo -e "${v_banner_blue}===============================================${v_close}"
@@ -61,4 +59,4 @@ PS1="[ \d \t \u@\h:\w ] \$ "
 fi
 
 # unset variables
-unset color_prompt force_color_prompt v_uname v_date v_hostname
+unset color_prompt force_color_prompt v_uname v_date v_hostname v_vim

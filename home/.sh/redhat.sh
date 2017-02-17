@@ -210,6 +210,8 @@ runuser -l ${this_user} -c '\curl -sSL https://get.rvm.io | bash -s stable --aut
 bash.utils.consoleLog 'Set git credential to use gnome-keyring.'
 git config --global credential.helper gnome-keyring
 
+bash.utils.consoleLog 'Running fixfiles for security:'
+sudo fixfiles relable
 }
 #--------------------------------------------
 # Source bash utils functions and call main()

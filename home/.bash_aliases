@@ -32,9 +32,6 @@ alias sudo='sudo '                   # Enable aliases to be sudo’ed
 alias tree='tree -C'                 # Pretty color tree
 alias path='echo -e ${PATH//:/\\n}'  # Pretty path
 
-# Recursively delete `.DS_Store` files
-alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
-
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo shred -fuz /var/tmp/* && sudo shred -fuz ~/.local/share/Trash/files/*"
@@ -84,8 +81,7 @@ alias rvmInstall='rvmgpg2Import \curl -sSL https://rvm.io/mpapis.asc | sudo gpg2
 # Git and Github aliases
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 # Git GitHub git-completion.bash
-alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash \
--L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
+alias gitbash='curl -o ~/.bash_completion.d/git-completion.bash -L https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash'
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
