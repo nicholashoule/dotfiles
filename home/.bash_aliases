@@ -34,8 +34,8 @@ alias path='echo -e ${PATH//:/\\n}'  # Pretty path
 
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo rm -rfv ~/.local/share/Trash/*"
-alias shredtrash="sudo shred -f -n 7 -u -v -z ~/.local/share/Trash/*"
+alias emptytrash="sudo shred -fuz /var/tmp/* && sudo shred -fuz ~/.local/share/Trash/files/*"
+
 #-----------------------------------------------
 # Application alias(s) here
 #-----------------------------------------------

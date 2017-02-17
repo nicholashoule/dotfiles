@@ -1,3 +1,4 @@
+#!/bin/bash
 #--------------------------------------------
 # FUNCTION: bash.utils.quit()
 # DESCRIPTION:
@@ -32,11 +33,14 @@ function bash.utils.is_root() {
 #   none
 #--------------------------------------------
 function bash.utils.sudo_user() {
-  if [[ $SUDO_USER ]]; then 
-    this_user="${SUDO_USER:=${LOGNAME}}"
-  else 
-    this_user="$(whoami)"
+  declare this_user
+  if [[ $SUDO_USER ]]; then
+    this_user="${SUDO_USER}"
+  else
+    this_user=$(logname)
   fi
+
+  export this_user
 }
 
 #--------------------------------------------
@@ -102,7 +106,7 @@ function bash.utils.is_empty() {
 function bash.utils.is_integer() {
   # Return true if integer
   if [[ -n $1 ]]; then
-      printf "%d" $1 > /dev/null 2>&1
+      printf "%d" "$1" > /dev/null 2>&1
       return $?
   fi
   # return 1, not a number
@@ -120,7 +124,7 @@ function bash.utils.to_lower() {
   local ln="${1?}"
 
   # Check value is not empty, for speed.
-  if ( bash.utils.is_empty ${ln} ); then
+  if ( bash.utils.is_empty "${ln}" ); then
     # return 0, is empty, but we don't care
     return 0
   fi
@@ -135,14 +139,14 @@ function bash.utils.to_lower() {
 # FUNCTION: bash.utils.to_upper()
 # DESCRIPTION:
 # Convert string to upper case
-# Parameters: 
+# Parameters:
 #   $1, string - convert to upper case
 #--------------------------------------------
 function bash.utils.to_upper() {
   local ln="${1?}"
 
   # Check value is not empty, for speed.
-  if ( bash.utils.is_empty ${ln} ); then
+  if ( bash.utils.is_empty "${ln}" ); then
     # return 0, is empty, but we don't care
     return 0
   fi
@@ -252,44 +256,42 @@ function bash.utils.find_os() {
 #   none
 #--------------------------------------------
 function bash.utils.common_packages() {
-  bash.utils.sudo_user
-  bash.utils.check_facter
-  local v_os_kernel=$(bash.utils.find_os_kernel)
-  local v_os_family=$(bash.utils.find_os_family)
-  local v_os=$(bash.utils.find_os)
+  local v_os_kernel
+  local v_os_family
+  local v_os
+  v_os_kernel=$(bash.utils.find_os_kernel)
+  v_os_family=$(bash.utils.find_os_family)
+  v_os=$(bash.utils.find_os_family)
 
   if [[ "${v_os_kernel}" == "Linux" ]]; then
-  
+
     if [[ "${v_os_family}" == "RedHat" ]]; then
       if [[ "${v_os}" == "Fedora" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
-        sudo dnf install -y vim vim-common screen tmux
+        dnf install -y vim vim-common git screen tmux shellcheck
       fi
     fi
-    
+
     if [[ "${v_os_family}" == "Debian" ]]; then
       if [[ "${v_os}" == "LinuxMint" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
         sudo apt install -y vim vim-common screen tmux
       fi
-      
+
       if [[ "${v_os}" == "Debian" ]]; then
         bash.utils.consoleLogDate "Ensure some common packages are installed."
         sudo apt-get install -y vim vim-common screen tmux
       fi
-      
     fi
-    
   fi
 
   if [[ "${v_os_kernel}" == "Darwin" ]]; then
     if [[ "${v_os}" == "Darwin" ]]; then
       bash.utils.consoleLogDate "Enusre some common packages are installed."
-      brew install -y vim vim-common screen tmux
+      brew install -y vim vim-common git screen tmux shellshock
     fi
-    
   fi
-  
+
   bash.utils.consoleLog "Common ${v_os} packages are installed."
   return
 }
@@ -305,14 +307,16 @@ function bash.utils.common_packages() {
 #   $2, string - Ignore check if exit status is 1
 #--------------------------------------------
 function bash.utils.check_exit_status() {
-    local exit_status=$1
-    local test_skip=$2
+    local exit_status
+    local test_skip
+    exit_status=$1
+    test_skip=$2
 
     if [ "${exit_status}" -ne 0 ]; then # test failed
         if [ -n "${test_skip}" ]; then
           # write test skip to files
           printf "%s" '[CHECK EXIT STATUS]: Skipped [ OK ]'
-          return 
+          return
         else
           # ERROR: Caught a bad exit status.
           # printf "%s" '[CHECK EXIT STATUS]: Status [ Failed ]'
@@ -326,9 +330,9 @@ function bash.utils.check_exit_status() {
 #--------------------------------------------
 # FUNCTION: bash.utils.find_git_repo()
 # DESCRIPTION:
-# Check for and update existing local git repo 
+# Check for and update existing local git repo
 # or clone source/remote
-# Parameters: 
+# Parameters:
 #   $1, string - source git repo
 #   $2, string - local git repo
 #--------------------------------------------
@@ -337,13 +341,13 @@ v_srcrepo=$(printf "%s" "$1")
 v_localrepo=$(printf "%s" "$2")
 
   # Check for an empty string
-  if ( ! bash.utils.is_empty ${v_srcrepo} ) && ( ! bash.utils.is_empty ${v_localrepo} ); then
+  if ( ! bash.utils.is_empty "${v_srcrepo}" ) && ( ! bash.utils.is_empty "${v_localrepo}" ); then
    # Detect repo
       if [ ! -d "${v_localrepo}" ]; then
-      git clone ${v_srcrepo} ${v_localrepo}
+      git clone "${v_srcrepo}" "${v_localrepo}"
     else
-      cd "${v_localrepo}"
-      git pull ${v_srcrepo}
+      cd "${v_localrepo}" || exit
+      git pull "${v_srcrepo}"
     fi
   else
     printf "%s\n" "[Info]: Please specify a source and local repo."

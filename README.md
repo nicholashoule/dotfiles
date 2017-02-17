@@ -58,7 +58,7 @@ sudo yum install ruby
 Install Ruby:
 
 ```
-sudo apt-get install ruby ruby-dev
+sudo apt install ruby ruby-dev
 ```
 
 -----
@@ -89,11 +89,15 @@ To install from command line: `vim +PluginInstall +qall`
 
 https://github.com/Valloric/YouCompleteMe/blob/master/README.md
 
-##### `RedHat & Fedora`
+##### `CentOS & Fedora (RedHat)`
 
 Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
 
-Make sure you have Python headers installed: `sudo dnf install python-devel python3-devel`.
+`sudo yum install automake gcc gcc-c++ kernel-devel cmake`
+
+Make sure you have Python headers installed: `sudo dnf install python-devel python3-devel`
+
+`sudo yum install python-devel`
 
 Compiling YCM with semantic support for C-family languages:
 
@@ -103,12 +107,11 @@ Might need: legacy `libtinfo`
 
 `sudo dnf install ncurses-compat-libs-6.0-5.20160116.fc24.x86_64`
 
+##### `Mint (Debian)`
 
-##### `Debian`
+Install development tools and CMake: `sudo apt install automake gcc cmake kernel-package`
 
-Install development tools and CMake: `sudo apt-get install automake gcc cmake kernel-package`
-
-Make sure you have Python headers installed: `sudo apt-get install python-dev python3-dev`
+Make sure you have Python headers installed: `sudo apt install python-dev python3-dev`
 
 ```
 cd ~/.vim/bundle/YouCompleteMe
