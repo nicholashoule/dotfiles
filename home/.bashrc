@@ -108,3 +108,6 @@ fi
 # You may want to put all your additions into a separate file like
 # ~/.bash_prompt, instead of adding them here directly.
 [[ -e "${HOME}/.bash_prompt" ]] && source "${HOME}/.bash_prompt"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
