@@ -23,6 +23,8 @@ Plugin 'PProvost/vim-ps1'
 Plugin 'tpope/vim-fugitive'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'elzr/vim-json'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
