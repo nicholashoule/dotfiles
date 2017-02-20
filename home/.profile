@@ -7,7 +7,6 @@
 #--------------------------------------------
 PATH="$PATH"
 export PATH
-
 #--------------------------------------------
 # Other specific env variables and exports
 #--------------------------------------------
@@ -15,13 +14,13 @@ export PATH
 #export JAVA_HOME="[PATH]"           # export JAVA_HOME
 
 # aws client authentication information
-# - This should go in a separate file
+# This should go in a separate file
 #export AWS_ACCESS_KEY=[key]         # export AWS_ACCESS_KEY
 #export AWS_SECRET_KEY=[key]         # export AWS_SECRET_KEY
 #export EC2_HOME="[path]"            # export EC2_HOME
 
 # Nova client authentication information
-# - This should go in a separate file
+# This should go in a separate file
 #export OS_USERNAME='[name]'
 #export OS_PASSWORD='[password]'
 #export OS_TENANT_NAME='[name]'
