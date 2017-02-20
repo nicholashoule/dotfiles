@@ -1,5 +1,5 @@
 #--------------------------------------------
-# .bashrc 
+# .bashrc
 # Interactive command line
 #--------------------------------------------
 # CHECK PS1: not running interactively
@@ -47,7 +47,7 @@ fi
 #--------------------------------------------
 # See .bash_alias 'gitbash' to get github file
 if [ -d ~/.bash_completion.d ]; then
-  for file in ~/.bash_completion.d/* 
+  for file in ~/.bash_completion.d/*
   do
     source "${file}"
   done
@@ -57,7 +57,7 @@ fi
 #OSX - Homebrew
 #--------------------------------------------
 if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
-    . $(brew --prefix)/etc/bash_completion
+    . "$(brew --prefix)/etc/bash_completion"
   if [[ -f /usr/local/etc/bash_completion ]]; then
     . /usr/local/etc/bash_completion
   fi

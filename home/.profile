@@ -1,12 +1,13 @@
 #--------------------------------------------
 # .profile
-# The stuff NOT specifically related to bash, 
+# The stuff NOT specifically related to bash,
 # such as environment variables and PATH
 #--------------------------------------------
 # Default User specific env path
 #--------------------------------------------
 PATH="$PATH"
 export PATH
+
 #--------------------------------------------
 # Other specific env variables and exports
 #--------------------------------------------

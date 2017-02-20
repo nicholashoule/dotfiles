@@ -7,22 +7,22 @@
   showBranch = auto
   status = auto
     updated
-    
+
 ; core variables
 [core]
   whitespace = trailing-space,space-before-tab
   editor = vim
-  askpass = 
+  askpass =
   ; Don't trust file modes
   filemode = false
-  
+
 [init]
   templatedir = ~/.git_template
-  
+
 [user]
-  name = [username]
-  email = email@email.com
-  
+  name = Nicholas Houle
+  email = nmhoule@mmm.com
+
 [alias]
   co = checkout
   ec = config --global -e
@@ -32,21 +32,21 @@
   unstage = reset HEAD --
   cp = cherry-pick
   update = pull --rebase
-  
+
 [push]
   default = matching
-  
+
 [commit]
   verbose = true
-  
+
 ; Cache credentials in memory for a short period of time
 [credential]
   helper = cache --timeout 7200
 
 ; github
 [credential "https://github.com"]
-  username = [username]
+  username = nicholashoule
 
 ; gitlab
 [credential "https://gitlab.com"]
-  username = [username]
+  username = 181gaming]
