@@ -87,7 +87,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method" = "lwp-request -m '$method'"
+	alias "$method"="lwp-request -m '$method'"
 done
 
 #-----------------------------------------------
