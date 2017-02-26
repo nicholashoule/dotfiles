@@ -18,6 +18,7 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
 
 ```
+sudo rvm install 2.4.0
 sudo rvm use 2.4.0
 ```
 
