@@ -22,6 +22,10 @@ sudo rvm install 2.4.0
 sudo rvm use 2.4.0
 ```
 
+```
+rvm --default use 2.4.0
+```
+
 -----
 
 ## Linux
