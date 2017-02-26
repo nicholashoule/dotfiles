@@ -145,11 +145,16 @@ cd ~/.vim/bundle/YouCompleteMe
 
 ```
 # Might not exist on your system
-sudo mv Inconsolata-Awesome.ttf /usr/share/fonts/
+sudo mv ~/Downloads/Inconsolata-Awesome.ttf /usr/share/fonts/
 ```
 
-- OR -
+##### `Linux`
 
+```
+sudo mv ~/Downloads/Inconsolata+Awesome.ttf /usr/share/fonts/
+```
+
+##### `OSX`
 ```
 sudo mv ~/Downloads/Inconsolata+Awesome.ttf ~/Library/Fonts/
 ```
