@@ -25,8 +25,17 @@ fi
 v_uname="$(uname -sr)"
 v_date="$(date)"
 v_hostname="$(hostname -f)"
-v_ip="$(ifconfig | grep --color=always 'inet ' 2>/dev/null)"
 v_vim="$(vim --version | egrep '^VIM - Vi ' 2>/dev/null)"
+
+# Try to get a list of inet addresses
+if [[ "${v_os_family}" == "Darwin" ]] && [[ -n "${v_os_family}" ]]; then
+  # DARWIN (OSX) ALIAS DEFINITIONS
+  v_ip="$(ifconfig 2>/dev/null | grep --color=always 'inet ' 2>/dev/null)"
+elif [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
+  v_ip="$(ip addr 2>/dev/null | grep --color=always 'inet ' 2>/dev/null)"
+else
+  v_ip=$(facter ipaddress 2>/dev/null)
+fi
 
 # More v_ip details
 # v_ip=$(ifconfig | grep \
