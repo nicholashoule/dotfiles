@@ -20,8 +20,8 @@
   templatedir = ~/.git_template
 
 [user]
-  name = Nicholas Houle
-  email = nmhoule@mmm.com
+  name = [name]
+  email = email@email.com
 
 [alias]
   co = checkout
@@ -45,8 +45,8 @@
 
 ; github
 [credential "https://github.com"]
-  username = nicholashoule
+  username = [name]
 
 ; gitlab
 [credential "https://gitlab.com"]
-  username = 181gaming]
+  username = [name]
