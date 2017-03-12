@@ -20,8 +20,8 @@
   templatedir = ~/.git_template
 
 [user]
-  name = [name]
-  email = email@email.com
+  name = Nicholas Houle
+  email = 181gaming@gmail.com
 
 [alias]
   co = checkout
@@ -44,25 +44,25 @@
   helper = cache --timeout 7200
 
 ; Set defaults for URLs
-; GitLab
-[url "git@gitlab.com:"]                                                                                                                     
-  insteadOf = https://gitlab.com/                                                                                                           
-[url "git@gitlab.com:"]                                                                                                                     
-  pushInsteadOf = "git://gitlab.com/"                                                                                                       
-[url "git@gitlab.com:"]                                                                                                                     
-  pushInsteadOf = "https://gitlab.com/" 
-; GitHub
-[url "git@github.com:"]                                                                                                                     
-  insteadOf = https://github.com/                                                                                                           
-[url "git@github.com:"]                                                                                                                     
-  pushInsteadOf = "git://github.com/"                                                                                                       
-[url "git@github.com:"]                                                                                                                     
-  pushInsteadOf = "https://github.com/"                                                                                                     
-                                                                                                                                                                                                                   
-; github                                                                                                                                    
-[credential "https://github.com"]                                                                                                               
-  username = [name]                                                                                                                  
-                                                                                                                                            
-; gitlab                                                                                                                                    
-[credential "https://gitlab.com"]                                                                                                         
-  username = [name]
+; GitLab & GitHub
+[url "git@gitlab.com:"]
+  insteadOf = "https://gitlab.com/"
+[url "git@gitlab.com:"]
+  pushInsteadOf = "git://gitlab.com/"
+[url "git@gitlab.com:"]
+  pushInsteadOf = "https://gitlab.com/"
+[url "git@github.com:"]
+  insteadOf = "https://github.com/"
+[url "git@github.com:"]
+  pushInsteadOf = "git://github.com/"
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+
+; github
+[credential "https://github.com"]
+  username = nicholashoule
+
+; gitlab
+[credential "https://gitlab.com"]
+  username = 181gaming
+
