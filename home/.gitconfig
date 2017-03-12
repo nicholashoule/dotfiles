@@ -60,9 +60,9 @@
   pushInsteadOf = "https://github.com/"                                                                                                     
                                                                                                                                                                                                                    
 ; github                                                                                                                                    
-[credential "git@github.com"]                                                                                                               
+[credential "https://per storegithub.com"]                                                                                                               
   username = [name]                                                                                                                  
                                                                                                                                             
 ; gitlab                                                                                                                                    
-[credential "ssh://git@gitlab.com"]                                                                                                         
+[credential "https://gitlab.com"]                                                                                                         
   username = [name]
