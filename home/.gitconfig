@@ -43,10 +43,26 @@
 [credential]
   helper = cache --timeout 7200
 
-; github
-[credential "https://github.com"]
-  username = [name]
-
-; gitlab
-[credential "https://gitlab.com"]
+; Set defaults for URLs
+; GitLab
+[url "git@gitlab.com:"]                                                                                                                     
+  insteadOf = https://gitlab.com/                                                                                                           
+[url "git@gitlab.com:"]                                                                                                                     
+  pushInsteadOf = "git://gitlab.com/"                                                                                                       
+[url "git@gitlab.com:"]                                                                                                                     
+  pushInsteadOf = "https://gitlab.com/" 
+; GitHub
+[url "git@github.com:"]                                                                                                                     
+  insteadOf = https://github.com/                                                                                                           
+[url "git@github.com:"]                                                                                                                     
+  pushInsteadOf = "git://github.com/"                                                                                                       
+[url "git@github.com:"]                                                                                                                     
+  pushInsteadOf = "https://github.com/"                                                                                                     
+                                                                                                                                                                                                                   
+; github                                                                                                                                    
+[credential "git@github.com"]                                                                                                               
+  username = [name]                                                                                                                  
+                                                                                                                                            
+; gitlab                                                                                                                                    
+[credential "ssh://git@gitlab.com"]                                                                                                         
   username = [name]
