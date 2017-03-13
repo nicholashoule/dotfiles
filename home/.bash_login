@@ -1,3 +1,1 @@
 # ~/.bash_login
-history -c && history -w
-printf "%s: $(date)." 'Logging out at'
