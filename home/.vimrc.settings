@@ -188,6 +188,9 @@ autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$")
     \|     exe "normal! g`\""
     \|  endif
 
+" Remove trailing whitespace on save :w
+autocmd BufWritePre * %s/\s\+$//e
+
 " Disable arrows for movement, make them resize instead
 " nmap <Left> :vertical resize -5<CR>
 " nmap <Up> :resize -5<CR>
