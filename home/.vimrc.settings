@@ -6,8 +6,6 @@ augroup configgroup
   autocmd BufEnter Rakefile set filetype=ruby
   autocmd BufEnter Vagrantfile set filetype=ruby
   autocmd BufEnter Gemfile set filetype=ruby
-  autocmd BufEnter *.md set filetype=markdown
-  autocmd BufEnter *.sh set filetype=bash
 augroup end
 
 " }}}
@@ -22,8 +20,9 @@ endif
 syntax enable
 " syntax
 syntax on
-" support 256 colors in Lion terminal 
+" support 256 colors in Lion terminal
 set t_Co=256
+set encoding=utf-8
 
 if has('gui_running')
     set background=light
@@ -51,18 +50,28 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 "let g:airline_right_sep=''
 "let g:airline_section_z=''
 
+"vim-powerline options
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_dividers_override = [[0xe0b0], [0xe0b1], [0xe0b2], [0xe0b3]]
+let g:Powerline_symbols_override = {
+  \ 'BRANCH': [0xe238],
+  \ 'RO'    : [0xe0a2],
+  \ 'FT'    : [0xe1f6],
+  \ 'LINE'  : [0xe0a1],
+\ }
+
 " CtrlP settings
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-" Syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_puppet_puppet_args = 'parser validate --storeconfigs'
+" Syntastic settings (Currently using Asynchronous Lint Engine)
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_puppet_puppet_args = 'parser validate --storeconfigs'
 
 " vim-markdown settings
 let g:markdown_include_jekyll_support = 0
@@ -178,6 +187,9 @@ nnoremap gV `[v`]
 autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$")
     \|     exe "normal! g`\""
     \|  endif
+
+" Remove trailing whitespace on save :w
+autocmd BufWritePre * %s/\s\+$//e
 
 " Disable arrows for movement, make them resize instead
 " nmap <Left> :vertical resize -5<CR>

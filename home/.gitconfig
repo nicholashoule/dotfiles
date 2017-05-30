@@ -7,22 +7,22 @@
   showBranch = auto
   status = auto
     updated
-    
+
 ; core variables
 [core]
   whitespace = trailing-space,space-before-tab
   editor = vim
-  askpass = 
+  askpass =
   ; Don't trust file modes
   filemode = false
-  
+
 [init]
   templatedir = ~/.git_template
-  
+
 [user]
-  name = [username]
+  name = [name]
   email = email@email.com
-  
+
 [alias]
   co = checkout
   ec = config --global -e
@@ -32,21 +32,37 @@
   unstage = reset HEAD --
   cp = cherry-pick
   update = pull --rebase
-  
+
 [push]
   default = matching
-  
+
 [commit]
   verbose = true
-  
+
 ; Cache credentials in memory for a short period of time
 [credential]
   helper = cache --timeout 7200
 
+; Set defaults for URLs
+; GitLab & GitHub
+[url "git@gitlab.com:"]
+  insteadOf = "https://gitlab.com/"
+[url "git@gitlab.com:"]
+  pushInsteadOf = "git://gitlab.com/"
+[url "git@gitlab.com:"]
+  pushInsteadOf = "https://gitlab.com/"
+[url "git@github.com:"]
+  insteadOf = "https://github.com/"
+[url "git@github.com:"]
+  pushInsteadOf = "git://github.com/"
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+
 ; github
 [credential "https://github.com"]
-  username = [username]
+  username = [name]
 
 ; gitlab
 [credential "https://gitlab.com"]
-  username = [username]
+  username = [name]
+

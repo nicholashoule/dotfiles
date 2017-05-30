@@ -25,10 +25,19 @@ fi
 v_uname="$(uname -sr)"
 v_date="$(date)"
 v_hostname="$(hostname -f)"
-v_ip="$(ifconfig | grep --color=always 'inet ' 2>/dev/null)"
 v_vim="$(vim --version | egrep '^VIM - Vi ' 2>/dev/null)"
 
-# More v_ip details 
+# Try to get a list of inet addresses
+if [[ "${v_os_family}" == "Darwin" ]] && [[ -n "${v_os_family}" ]]; then
+  # DARWIN (OSX) ALIAS DEFINITIONS
+  v_ip="$(ifconfig 2>/dev/null | grep --color=always 'inet ' 2>/dev/null)"
+elif [[ "${v_os_family}" == "Linux" ]] && [[ -n "${v_os_family}" ]]; then
+  v_ip="$(ip addr 2>/dev/null | grep --color=always 'inet ' 2>/dev/null)"
+else
+  v_ip=$(facter ipaddress 2>/dev/null)
+fi
+
+# More v_ip details
 # v_ip=$(ifconfig | grep \
 # --color=always \
 # 'en.:\|enp.*:\|eth.:\|wlo1:\|lo.:\|inet \|virbr.:\|bridge.:' \
@@ -44,9 +53,9 @@ echo -e "${v_banner_blue}===============================================${v_clos
 echo -e "${v_banner_blue}HOSTNAME: ${v_close}${v_white}${v_hostname}${v_close}\n"
 echo -e "${v_green} \"Where there is a shell, there is a way.\" #ROOT ${v_close}\n"
 echo -e "${v_banner_blue}SYSTEM INFORMATION:${v_close}"
-echo -e "${v_banner_blue}\- KERNEL: ${v_close}${v_white}${v_uname}${v_close}"
-echo -e "${v_banner_blue}\- BASH: ${v_close}${v_white}${BASH_VERSION%.*} ${v_close}"
-echo -e "${v_banner_blue}\- VIM: ${v_close}${v_white}${v_vim}${v_close}\n"
+echo -e "${v_banner_blue}- KERNEL: ${v_close}${v_white}${v_uname}${v_close}"
+echo -e "${v_banner_blue}- BASH: ${v_close}${v_white}${BASH_VERSION%.*} ${v_close}"
+echo -e "${v_banner_blue}- VIM: ${v_close}${v_white}${v_vim}${v_close}\n"
 echo -e "${v_banner_blue}INFO: ${v_close}${v_white}$(who)${v_close}\n"
 echo -e "${v_ip}"
 echo -e "${v_banner_blue}===============================================${v_close}"

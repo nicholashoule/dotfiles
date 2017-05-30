@@ -17,6 +17,15 @@ sudo curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
 
+```
+sudo rvm install 2.4.0
+source "$HOME/.rvm/scripts/rvm"
+```
+
+```
+rvm --default use 2.4.0
+```
+
 -----
 
 ## Linux
@@ -26,7 +35,7 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 Install Ruby:
 
 ```
-sudo yum install ruby
+sudo yum install ruby facter
 ```
 
 Software collections from the CentOS SCLo SIG
@@ -46,11 +55,11 @@ Install Ruby:
 
 ```
 # f23+
-sudo dnf install ruby
+sudo dnf install ruby facter
 ```
 
 ```
-sudo yum install ruby
+sudo yum install ruby facter
 ```
 
 #### `Mint (Debian)`
@@ -58,7 +67,15 @@ sudo yum install ruby
 Install Ruby:
 
 ```
-sudo apt install ruby ruby-dev
+sudo apt install ruby ruby-dev facter
+```
+
+#### `openSUSE (Linux)` Beta
+
+Install Ruby:
+
+```
+sudo zypper install ruby ruby-dev facter
 ```
 
 -----
@@ -128,11 +145,16 @@ cd ~/.vim/bundle/YouCompleteMe
 
 ```
 # Might not exist on your system
-sudo mv Inconsolata-Awesome.ttf /usr/share/fonts/
+sudo mv ~/Downloads/Inconsolata-Awesome.ttf /usr/share/fonts/
 ```
 
-- OR -
+##### `Linux`
 
+```
+sudo mv ~/Downloads/Inconsolata+Awesome.ttf /usr/share/fonts/
+```
+
+##### `OSX`
 ```
 sudo mv ~/Downloads/Inconsolata+Awesome.ttf ~/Library/Fonts/
 ```

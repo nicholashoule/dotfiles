@@ -29,6 +29,7 @@
 # Load .bash_login, .profile and .bashrc (in that order)
 # http://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html#Bash-Startup-Files
 #--------------------------------------------
-[[ -e "$HOME/.bash_login" ]] && source "$HOME/.bash_login" # Load the default .bash_login
-[[ -e "$HOME/.profile" ]] && source "$HOME/.profile"       # Load the default .profile
-[[ -e "$HOME/.bashrc" ]] && source "$HOME/.bashrc"         # Load the default .bashrc
+[[ -e "$HOME/.bash_login" ]] && source "$HOME/.bash_login"           # Load the default .bash_login
+[[ -e "$HOME/.profile" ]] && source "$HOME/.profile"                 # Load the default .profile
+[[ -e "$HOME/.bashrc" ]] && source "$HOME/.bashrc"                   # Load the default .bashrc
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
