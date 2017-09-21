@@ -18,12 +18,12 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
 
 ```
-sudo rvm install 2.4.0
+sudo rvm install 2.4.2
 source "$HOME/.rvm/scripts/rvm"
 ```
 
 ```
-rvm --default use 2.4.0
+rvm --default use 2.4.2
 ```
 
 -----
@@ -92,6 +92,10 @@ https://github.com/VundleVim/Vundle.vim
 
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+- or -
+
+git clone git://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 ### Install Plugins:
