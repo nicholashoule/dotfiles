@@ -1,1 +1,1 @@
-/Users/$(whoami)/src/powerlevel9k/powerlevel9k.zsh-theme
+$HOME/.dotfiles/oh-my-zsh/custom/powerlevel9k.zsh-theme
