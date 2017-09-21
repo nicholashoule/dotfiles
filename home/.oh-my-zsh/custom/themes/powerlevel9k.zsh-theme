@@ -1,1 +1,1 @@
-$HOME/.dotfiles/oh-my-zsh/custom/powerlevel9k.zsh-theme
+$HOME/.dotfiles/oh-my-zsh/custom/themes/powerlevel9k.zsh-theme
