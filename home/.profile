@@ -10,9 +10,11 @@ export PATH
 #--------------------------------------------
 # Other specific env variables and exports
 #--------------------------------------------
-# GO
-#export GOPATH=$HOME/nmhoule/projects/nh/go
-#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# GO (golang)
+#export GOOS=linux
+#export GOPATH=$HOME/projects/go
+#export GOROOT=/usr/bin/go
+#export PATH=$PATH:$GOROOT/bin
 
 # JAVA information
 #export JAVA_HOME="[PATH]"           # export JAVA_HOME
