@@ -108,9 +108,12 @@ set cursorline
 
 " Disable mouse
 set mouse=
+if has('mouse')
+  set mouse=a
+endif
 
 " Increase History
-set history=100
+set history=1000
 
 " Give context to where the cursor is positioned in a file
 set scrolloff=14
