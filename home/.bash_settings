@@ -45,5 +45,5 @@ shopt -u mailwarn     # Don't want shell to warn me of incoming mail.
 HISTFILESIZE=20000
 HISTSIZE=10000
 export HISTTIMEFORMAT="[%h %d %H:%M:%S] :"
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="&:??:[ ]*:clear:exit:logout:history"
