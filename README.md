@@ -4,7 +4,7 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 
 ## Supported OS(S)
 - OSX (10)
-- RedHat (Fedora 23+)
+- RedHat (Fedora 28+)
 - Debian (Mint 18+)
 
 ## Required: `Ruby` & `RVM`
@@ -135,6 +135,8 @@ Install development tools and CMake: `sudo apt install automake gcc cmake kernel
 Make sure you have Python headers installed: `sudo apt install python-dev python3-dev`
 
 ```
+sudo dnf install python-devel
+
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 ```
