@@ -18,12 +18,12 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
 
 ```
-sudo rvm install 2.4.2
 source "$HOME/.rvm/scripts/rvm"
+rvm install 2.5.3
 ```
 
 ```
-rvm --default use 2.4.2
+rvm --default use 2.5.3
 ```
 
 -----
