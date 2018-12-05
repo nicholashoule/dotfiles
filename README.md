@@ -54,7 +54,7 @@ scl enable git19 bash
 Install Ruby:
 
 ```
-# f23+
+# f28+
 sudo dnf install ruby facter
 ```
 
