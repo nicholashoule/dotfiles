@@ -25,7 +25,6 @@ fi
 #--------------------------------------------
 # Get/Set v_family variable
 v_os_family=$(bash.utils.find_os_kernel)
-
 #--------------------------------------------
 # PROGRAMMABLE COMPLETION DEFINITIONS
 #--------------------------------------------
@@ -41,7 +40,7 @@ if [[ ! -e /etc/profile.d/bash_completion.sh ]]; then
     fi
   fi
 fi
-
+[[ /etc/profile.d/bash_completion.sh ]] && source /etc/profile.d/bash_completion.sh
 #--------------------------------------------
 # Linux - custom bash completion scripts
 #--------------------------------------------
@@ -52,7 +51,6 @@ if [ -d ~/.bash_completion.d ]; then
     source "${file}"
   done
 fi
-
 #--------------------------------------------
 #OSX - Homebrew
 #--------------------------------------------
@@ -86,7 +84,6 @@ if [[ "${v_os_family}" == "Darwin" ]] && [[ -n "${v_os_family}" ]]; then
   # ~/.aliases, instead of adding them here directly.
   [[ -e "${HOME}/.aliases" ]] && source "${HOME}/.aliases" # Load the .aliases
 fi
-
 #--------------------------------------------
 # SOURCE: Other definitions
 #--------------------------------------------
