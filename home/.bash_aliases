@@ -60,9 +60,9 @@ alias izpretty='puppet-lint'
 
 # Vagrant aliases
 # https://www.vagrantup.com/downloads.html
-alias v='vagrant'
-alias vs='vagrant status'
-alias vhl='vagrant hosts list'
+#alias v='vagrant'
+#alias vs='vagrant status'
+#alias vhl='vagrant hosts list'
 
 # Tmux aliases
 alias tma='tmux attach -d -t'
@@ -109,3 +109,6 @@ alias chmod='chmod --preserve-root'  # changing perms on
 alias chgrp='chgrp --preserve-root'  # changing perms on
 alias less='less -r'                 # raw control characters
 alias whence='type -a'               # where, of a sort
+
+# Secure DNS using unbound
+alias securedns="sudo docker container run --rm -it --name unboud-cloud 181gaming/unbound:1.6"
