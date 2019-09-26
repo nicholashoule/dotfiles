@@ -4,7 +4,7 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 
 ## Supported OS(S)
 - OSX (10)
-- RedHat (Fedora 23+)
+- RedHat (Fedora 28+)
 - Debian (Mint 18+)
 
 ## Required: `Ruby` & `RVM`
@@ -18,12 +18,12 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 ```
 
 ```
-sudo rvm install 2.4.0
 source "$HOME/.rvm/scripts/rvm"
+rvm install 2.5.3
 ```
 
 ```
-rvm --default use 2.4.0
+rvm --default use 2.5.3
 ```
 
 -----
@@ -54,7 +54,7 @@ scl enable git19 bash
 Install Ruby:
 
 ```
-# f23+
+# f28+
 sudo dnf install ruby facter
 ```
 
@@ -92,6 +92,10 @@ https://github.com/VundleVim/Vundle.vim
 
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+- or -
+
+git clone git://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 ### Install Plugins:
@@ -131,6 +135,8 @@ Install development tools and CMake: `sudo apt install automake gcc cmake kernel
 Make sure you have Python headers installed: `sudo apt install python-dev python3-dev`
 
 ```
+sudo dnf install python-devel
+
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 ```
