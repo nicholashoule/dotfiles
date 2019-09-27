@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " GitHub plugins
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'lsdr/monokai'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/CycleColor'

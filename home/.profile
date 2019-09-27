@@ -5,17 +5,11 @@
 #--------------------------------------------
 # Default User specific env path
 #--------------------------------------------
-PATH="$PATH"
+PATH="${PATH}"
 export PATH
 #--------------------------------------------
 # Other specific env variables and exports
 #--------------------------------------------
-# GO (golang)
-#export GOOS=linux
-#export GOPATH=$HOME/projects/go
-#export GOROOT=/usr/bin/go
-#export PATH=$PATH:$GOROOT/bin
-
 # JAVA information
 #export JAVA_HOME="[PATH]"           # export JAVA_HOME
 
@@ -36,3 +30,9 @@ export PATH
 #export OS_TENANT_ID='[id]'
 #export NOVACLIENT_INSECURE=1
 #export OS_NO_CACHE=1
+
+# GO (golang)
+#export GOOS=linux
+#export GOPATH="${HOME}/go"
+#export GOROOT='/usr/local/go'
+#export PATH="${PATH}:${GOROOT}/bin"

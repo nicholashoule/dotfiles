@@ -2,7 +2,6 @@
 #-----------------------------------------------
 # color support of ls and also add handy aliases
 #-----------------------------------------------
-
 # Detect which `ls` flavor is in use
 # if ls --color > /dev/null 2>&1; then # GNU `ls`
 # 	colorflag='--color=always'
@@ -32,13 +31,12 @@ alias tree='tree -C'                 # Pretty color tree
 alias path='echo -e ${PATH//:/\\n}'  # Pretty path
 
 # Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo shred -fuz /var/tmp/* && sudo shred -fuz ~/.local/share/Trash/files/*"
+alias emptytrash="sudo shred -fuz ~/.local/share/Trash/files/*"
+alias emptyall="sudo shred -fuz /var/tmp/* && sudo shred -fuz ~/.local/share/Trash/files/*"
 
 #-----------------------------------------------
 # Application alias(s) here
 #-----------------------------------------------
-
 # Vim aliases
 alias vi='vim'                                  # Ensure Vi IMproved
 alias PluginInstall="vim +PluginInstall +qall"  # Quick PluginInstall
@@ -49,14 +47,14 @@ alias pi='PluginInstall'                        # Quick PluginInstall
 alias vundle='bash.utils.find_git_repo https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 
 # View HTTP traffic
-alias sniff="sudo netstat -tauw"
+#alias sniff="sudo netstat -tauw"
 #alias httpdump="sudo tcpdump -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-alias httpdump="sudo tcpdump -n -s 0 -w -"
+#alias httpdump="sudo tcpdump -n -s 0 -w -"
 
 # Puppet aliases
-alias puppet-lint='puppet-lint --log-format="%{path} - %{KIND}:%{check} - %{message} on line %{line}"'
-alias izgood="puppet parser validate"
-alias izpretty='puppet-lint'
+#alias puppet-lint='puppet-lint --log-format="%{path} - %{KIND}:%{check} - %{message} on line %{line}"'
+#alias izgood="puppet parser validate"
+#alias izpretty='puppet-lint'
 
 # Vagrant aliases
 # https://www.vagrantup.com/downloads.html
@@ -110,5 +108,12 @@ alias chgrp='chgrp --preserve-root'  # changing perms on
 alias less='less -r'                 # raw control characters
 alias whence='type -a'               # where, of a sort
 
+# Docker
+# https://get.docker.com
+# sudo usermod -aG docker your-user
+alias getdocker="curl -fsSL https://get.docker.com -o /tmp/get-docker.sh"
+alias installdocker="sh /tmp/get-docker.sh"
+
 # Secure DNS using unbound
+# Requirtes Docker CE
 alias securedns="sudo docker container run --rm -it --name unboud-cloud 181gaming/unbound:1.6"

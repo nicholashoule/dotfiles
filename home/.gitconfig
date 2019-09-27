@@ -20,7 +20,7 @@
   templatedir = ~/.git_template
 
 [user]
-  name = [name]
+  name = "[name]"
   email = email@email.com
 
 [alias]
