@@ -4,7 +4,7 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 
 ## Supported OS(S)
 - OSX (10)
-- RedHat (Fedora 28+)
+- RedHat (Fedora 29+)
 - Debian (Mint 18+)
 
 ## Required: `Ruby` & `RVM`
@@ -19,63 +19,11 @@ sudo \curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
 
 ```
 source "$HOME/.rvm/scripts/rvm"
-rvm install 2.5.3
+rvm install 2.6.4
 ```
 
 ```
-rvm --default use 2.5.3
-```
-
------
-
-## Linux
-
-#### `CentOS 6 (RedHat)`
-
-Install Ruby:
-
-```
-sudo yum install ruby facter
-```
-
-Software collections from the CentOS SCLo SIG
-
-```
-sudo yum install -y centos-release-scl.noarch && yum update
-```
-
-```
-sudo yum install git19
-scl enable git19 bash
-```
-
-#### `Fedora (RedHat)`
-
-Install Ruby:
-
-```
-# f28+
-sudo dnf install ruby facter
-```
-
-```
-sudo yum install ruby facter
-```
-
-#### `Mint (Debian)`
-
-Install Ruby:
-
-```
-sudo apt install ruby ruby-dev facter
-```
-
-#### `openSUSE (Linux)` Beta
-
-Install Ruby:
-
-```
-sudo zypper install ruby ruby-dev facter
+rvm --default use 2.6.4
 ```
 
 -----
@@ -112,11 +60,15 @@ https://github.com/Valloric/YouCompleteMe/blob/master/README.md
 
 ##### `CentOS & Fedora (RedHat)`
 
-Install development tools and CMake: `sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
+Install development tools and CMake:
+
+`sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
 
 `sudo yum install automake gcc gcc-c++ kernel-devel cmake`
 
-Make sure you have Python headers installed: `sudo dnf install python-devel python3-devel`
+Make sure you have Python headers installed: 
+
+`sudo dnf install python-devel python3-devel`
 
 `sudo yum install python-devel`
 
@@ -139,30 +91,6 @@ sudo dnf install python-devel
 
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
-```
-
-**Install patched fonts to fix vim-airline wonkyness**
-
-1. Download and install an Awesome patched font:
-  - https://github.com/gabrielelana/awesome-terminal-fonts/raw/patching-strategy/patched/Inconsolata%2BAwesome.ttf
-2. Switch iTerm2 or Terminal/VTE to use that font for both **Font** and **Non ASCII Font**
-
-##### `Fedora`
-
-```
-# Might not exist on your system
-sudo mv ~/Downloads/Inconsolata-Awesome.ttf /usr/share/fonts/
-```
-
-##### `Linux`
-
-```
-sudo mv ~/Downloads/Inconsolata+Awesome.ttf /usr/share/fonts/
-```
-
-##### `OSX`
-```
-sudo mv ~/Downloads/Inconsolata+Awesome.ttf ~/Library/Fonts/
 ```
 
 -----
