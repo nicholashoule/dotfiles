@@ -10,7 +10,6 @@ I use [Homesick](https://github.com/technicalpickles/homesick) to manage my dotf
 ## Required: `Ruby` & `RVM`
 
 [Ruby Version Manager - RVM](https://rvm.io/)
-[Ruby]
 
 ```
 sudo curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
@@ -58,37 +57,38 @@ To install from command line: `vim +PluginInstall +qall`
 
 https://github.com/Valloric/YouCompleteMe/blob/master/README.md
 
+
 ##### `CentOS & Fedora (RedHat)`
 
-Install development tools and CMake:
+Install development tools, CMake, and python dev:
 
-`sudo dnf install automake gcc gcc-c++ kernel-devel cmake`
-
-`sudo yum install automake gcc gcc-c++ kernel-devel cmake`
-
-Make sure you have Python headers installed: 
-
-`sudo dnf install python-devel python3-devel`
-
-`sudo yum install python-devel`
-
-Compiling YCM with semantic support for C-family languages:
-
-Might need: legacy `libtinfo`
-
-`dnf repoquery -l ncurses-compat-libs`
-
-`sudo dnf install ncurses-compat-libs-6.0-5.20160116.fc24.x86_64`
+```
+sudo dnf install automake gcc gcc-c++ kernel-devel cmake python-devel python3-devel
+```
 
 ##### `Mint (Debian)`
 
-Install development tools and CMake: `sudo apt install automake gcc cmake kernel-package`
-
-Make sure you have Python headers installed: `sudo apt install python-dev python3-dev`
+Install development tools, CMake, and Python dev installed: 
 
 ```
-sudo dnf install python-devel
+sudo apt install automake gcc cmake kernel-package python-dev python3-dev
+```
 
+-----
+
+###### Compiling YCM with semantic support for C-family languages:
+
+Might need: legacy `libtinfo`
+
+```
+dnf repoquery -l ncurses-compat-libs
+
+sudo dnf install ncurses-compat-libs-6.0-5.20160116.fc24.x86_64
+```
+
+##### Install/Build
+
+```
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 ```
