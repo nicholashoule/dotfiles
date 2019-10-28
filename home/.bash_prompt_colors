@@ -1,14 +1,21 @@
 #--------------------------------------------
 # PROMPT COLOR VARIABLES:
 #--------------------------------------------
+# https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 # Promt color variables for .bash_promt
 v_banner_blue="\033[1;36m"
 v_banner_red="\033[1;31m"
 v_white="\033[1;37m"
-v_cyan="\033[0;36m"
-v_lightcyan="\033[1;36m"
-v_red="\033[0;31m"
-v_lightred="\033[1;31m"
-v_blue="\033[0;34m"
-v_green="\033[1;32m"
+v_lightmagenta="\033[0;35m"
+v_magenta="\033[1;35m"
+v_lightcyan="\033[0;36m"
+v_cyan="\033[1;36m"
+v_lightred="\033[0;31m"
+v_red="\033[1;31m"
+v_lightred="\033[0;31m"
+v_blue="\033[1;34m"
+v_lightgreen="\033[0;32m"
+v_green="\033[1;32m"1`
+v_lightyellow="\033[0;33m"
+v_yellow="\033[1;33m"
 v_close="\033[00m"
