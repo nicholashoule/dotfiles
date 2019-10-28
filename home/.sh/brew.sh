@@ -27,14 +27,13 @@ brew install gnu-sed --with-default-names
 brew install findutils
 brew install grep
 brew install screen
+brew install tmux
 brew install ack
 brew install git
 brew install tree
-brew install htop
-# brew install nmap
 
 # Create symlinks 
-sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
+#sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
 # Remove outdated versions from the cellar.
 brew cleanup

@@ -108,6 +108,16 @@ alias chgrp='chgrp --preserve-root'  # changing perms on
 alias less='less -r'                 # raw control characters
 alias whence='type -a'               # where, of a sort
 
+# Golang
+# https://dl.google.com/go/go1.13.1.linux-amd64.tar.gz
+# tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+tVERSION='1.13.1'
+tOS='linux'
+tARCH='amd64'
+alias goget="curl -o /tmp/go${tVERSION}.tar.gz https://dl.google.com/go/go${tVERSION}.${tOS}-${tARCH}.tar.gz"
+alias goinstall="tar -C /usr/local -xzf /tmp/go${tVERSION}.tar.gz" 
+alias gosetup="mkdir -p ${HOME}/go/{src/github.com,bin,pkg}"
+
 # Docker
 # https://get.docker.com
 # sudo usermod -aG docker your-user

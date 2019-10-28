@@ -32,6 +32,8 @@
   unstage = reset HEAD --
   cp = cherry-pick
   update = pull --rebase
+  rprune = remote prune origin
+
 
 [push]
   default = matching
